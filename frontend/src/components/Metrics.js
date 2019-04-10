@@ -16,7 +16,9 @@ const Metrics = props => {
   return (
     <div>
       <Segment attached>
-        <Message color="blue">{props.metrics.ticker}</Message>
+        <Message color="blue">
+          {props.clickedTicker.name}-{props.clickedTicker.ticker}
+        </Message>
       </Segment>
       <Segment attached="bottom">
         <Table celled structured>

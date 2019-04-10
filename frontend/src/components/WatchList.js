@@ -17,6 +17,7 @@ class WatchList extends Component {
                 {...object}
                 togglePopup={this.props.togglePopup}
                 metrics={this.props.metrics}
+                removeFromWatchList={this.props.removeFromWatchList}
               />
             );
           })}
@@ -27,11 +28,7 @@ class WatchList extends Component {
 
   render() {
     console.log("WATCH", this.props);
-    return (
-      <div>
-        <Message color="blue">{this.renderWatchList()}</Message>
-      </div>
-    );
+    return <div>{this.renderWatchList()}</div>;
   }
 }
 

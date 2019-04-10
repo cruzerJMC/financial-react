@@ -31,7 +31,7 @@ class TickerList extends Component {
                   showDetails={this.props.showDetails}
                   clickedTicker={this.props.clickedTicker}
                   handleMetricPost={this.props.handleMetricPost}
-                  addToWishlist={this.props.addToWishlist}
+                  addToWatchList={this.props.addToWatchList}
                   handleFinPost={this.props.handleFinPost}
                 />
               );

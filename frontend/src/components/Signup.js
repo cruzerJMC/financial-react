@@ -5,9 +5,7 @@ export default class Signup extends Component {
     // consider moving this down
     userName: "",
     signPassword: "",
-    // confirmInput:"",
-    firstName: "",
-    lastName: ""
+    name: ""
   };
 
   addUser = event => {
@@ -16,16 +14,15 @@ export default class Signup extends Component {
     // const name = target.name;
     event.preventDefault();
     // console.log(event.target)
-    fetch("http://localhost:3000/api/v1/users", {
+    fetch("http://localhost:5000/api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
-        firstname: this.refs.firstname.value,
-        lastname: this.refs.lastname.value,
-        username: this.refs.username.value,
+        name: this.refs.name.value,
+        email: this.refs.username.value,
         password: this.refs.password.value
       })
     })
@@ -35,9 +32,7 @@ export default class Signup extends Component {
         this.setState({
           userName: "",
           signPassword: "",
-          // confirmInput:"",
-          firstName: "",
-          lastName: ""
+          name: ""
         })
       );
   };
@@ -62,25 +57,17 @@ export default class Signup extends Component {
             <form onSubmit={this.addUser}>
               <input
                 type="text"
-                ref="firstname"
-                name="firstName"
-                placeholder="First Name"
-                value={this.state.firstName}
+                ref="name"
+                name="name"
+                placeholder="Name"
+                value={this.state.name}
                 onChange={this.handleChange}
               />
               <input
-                type="text"
-                ref="lastname"
-                name="lastName"
-                placeholder="Last Name"
-                value={this.state.lastName}
-                onChange={this.handleChange}
-              />
-              <input
-                type="text"
+                type="email"
                 ref="username"
                 name="userName"
-                placeholder="Username"
+                placeholder="Email"
                 value={this.state.userName}
                 onChange={this.handleChange}
               />

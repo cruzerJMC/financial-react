@@ -5,12 +5,15 @@ module.exports = (sequelize, DataTypes) => {
     {
       title: DataTypes.STRING,
       content: DataTypes.TEXT,
-      favId: DataTypes.INTEGER
+      favId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
+      favName: DataTypes.STRING,
+      favTicker: DataTypes.STRING
     },
     {}
   );
   Note.associate = function(models) {
-    Note.belongsTo(models.Favorite);
+    // Note.belongsTo(models.User);
   };
   return Note;
 };

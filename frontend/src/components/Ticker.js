@@ -106,7 +106,7 @@ class Ticker extends Component {
           {this.props.location}
         </Table.Cell>
         <Table.Cell>
-          <Button onClick={() => this.props.addToWishlist(this.props.id)}>
+          <Button onClick={() => this.props.addToWatchList(this.props.id)}>
             WatchList
           </Button>
         </Table.Cell>

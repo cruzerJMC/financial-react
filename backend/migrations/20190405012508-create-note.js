@@ -17,6 +17,15 @@ module.exports = {
       favId: {
         type: Sequelize.INTEGER
       },
+      favTicker: {
+        type: Sequelize.STRING
+      },
+      favName: {
+        type: Sequelize.STRING
+      },
+      userId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

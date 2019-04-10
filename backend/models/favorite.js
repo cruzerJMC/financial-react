@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     "Favorite",
     {
       name: DataTypes.STRING,
-      ticker: DataTypes.STRING
+      ticker: DataTypes.STRING,
+      companyId: DataTypes.INTEGER
     },
     {}
   );
@@ -14,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
       as: "users",
       foreignKey: "favId"
     });
-    Favorite.hasMany(models.Note);
   };
   return Favorite;
 };

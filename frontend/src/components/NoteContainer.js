@@ -7,7 +7,38 @@ class NoteContainer extends Component {
     body: ""
   };
 
-  addNote = (event, favTicker) => {
+  editNote = event => {
+    // const target = event.target;
+    // const value = target.value;
+    // const name = target.name;
+    event.preventDefault();
+    // console.log(event.target)
+    fetch("http://localhost:5000/api/user_note", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        favId: this.props.clickedFavorite.id,
+        favTicker: this.props.clickedFavorite.ticker,
+        favName: this.props.clickedFavorite.name,
+        title: this.refs.title.value,
+        content: this.refs.body.value,
+        userId: this.props.user.id
+      })
+    })
+      .then(response => response.json())
+      .then(newNote => this.props.addNewNoteToNotes(newNote))
+      .then(
+        this.setState({
+          title: "",
+          body: ""
+        })
+      );
+  };
+
+  addNote = event => {
     // const target = event.target;
     // const value = target.value;
     // const name = target.name;
@@ -21,8 +52,11 @@ class NoteContainer extends Component {
       },
       body: JSON.stringify({
         favId: this.props.clickedFavorite.id,
+        favTicker: this.props.clickedFavorite.ticker,
+        favName: this.props.clickedFavorite.name,
         title: this.refs.title.value,
-        content: this.refs.body.value
+        content: this.refs.body.value,
+        userId: this.props.user.id
       })
     })
       .then(response => response.json())
@@ -63,7 +97,7 @@ class NoteContainer extends Component {
             onChange={this.handleInputChange}
             ref="title"
           />
-          <textArea
+          <textarea
             name="body"
             placeholder="Write Note ...."
             value={this.state.body}

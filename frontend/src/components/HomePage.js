@@ -48,14 +48,22 @@ class HomePage extends Component {
           tickers: tickers
         });
       });
+    // const setArticles = async () => {
+    //   let response = fetch("http://localhost:5000/api/notes");
+    //   console.log("Response", response);
+    // };
 
-    // fetch("http://localhost:5000/api/notes")
-    //   .then(response => {
-    //     return response.json();
-    //   })
-    //   .then(notes => {
-    //     return this.setState({ notes: notes });
-    //   });
+    // setArticles();
+    fetch("http://localhost:5000/api/notes")
+      .then(response => {
+        return response.json();
+      })
+      .then(notes => {
+        const userNotes = notes.filter(note => {
+          return note.userId === this.props.currentUser.id;
+        });
+        return this.setState({ notes: userNotes });
+      });
 
     const setWatchList = async () => {
       this.setState({ watchList: this.props.currentUser.favorites });
@@ -92,7 +100,7 @@ class HomePage extends Component {
     });
 
   toggleDetails = () => {
-    console.log("dhowing Details page");
+    // console.log("dhowing Details page");
     this.setState({
       detailsPage: !this.state.detailsPage
     });
@@ -138,6 +146,7 @@ class HomePage extends Component {
       metrics: body
     });
   };
+
   handleFinPost = async () => {
     // e.preventDefault();
     const response = await fetch("http://localhost:5000/api/financials", {
@@ -154,36 +163,74 @@ class HomePage extends Component {
     });
   };
 
-  // fetchUserWishlist = async () => {
-  //   const response = await fetch(`http://localhost:5000/api/usersfav`);
-  //   console.log("Respons", response);
-  //   const json = await response.json();
-  //   console.log("JSON", json);
-  // };
-
-  addToWishlist = itemId => {
+  addToWatchList = itemId => {
     const userId = this.props.currentUser.id;
     const foundTicker = this.state.tickers.find(item => item.id === itemId);
-    console.log("firing", foundTicker);
-    const preventDoubles = this.state.watchlist.find(
-      item => item.id === itemId
+
+    // console.log("firing Wishlist", foundTicker);
+    const preventDoubles = this.state.watchList.find(
+      item => item.companyId === itemId
     );
+    // if (!preventDoubles) {
+    //   this.setState({
+    //     watchlist: [...this.state.watchList, foundTicker]
+    //   });
+    // }
     if (!preventDoubles) {
+      fetch("http://localhost:5000/api/user_favorite/", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          foundTicker,
+          userId
+        })
+      })
+        .then(response => response.json())
+        .then(newFav => this.addNewItemToWatchList(newFav));
+    }
+  };
+
+  addNewItemToWatchList = newFav => {
+    this.setState({
+      watchList: [...this.state.watchList, newFav]
+    });
+  };
+
+  removeFromWatchList = favId => {
+    const deleteFavorite = this.state.watchList.find(item => item.id === favId);
+    console.log("delete Favorite", deleteFavorite);
+    const updateWatchList = this.state.watchList.filter(item => {
+      return item.id !== favId;
+    });
+    if (deleteFavorite) {
       this.setState({
-        watchlist: [...this.state.watchlist, foundTicker]
+        watchList: updateWatchList
       });
     }
-    fetch("http://localhost:5000/api/user_favorite/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        foundTicker,
-        userId
-      })
+
+    fetch(`http://localhost:5000/api/delete_favorite/${favId}`, {
+      method: "DELETE"
     });
+  };
+
+  removeNote = noteId => {
+    const deleteNote = this.state.notes.find(item => item.id === noteId);
+    console.log("delete Note", deleteNote, noteId);
+    const updateNote = this.state.notes.filter(item => {
+      return item.id !== noteId;
+    });
+    if (deleteNote) {
+      this.setState({
+        notes: updateNote
+      });
+
+      fetch(`http://localhost:5000/api/delete_note/${noteId}`, {
+        method: "DELETE"
+      });
+    }
   };
   render() {
     console.log("HomePage", this.state);
@@ -204,7 +251,7 @@ class HomePage extends Component {
                       tickers={this.filterTickers()}
                       showDetails={this.showDetails}
                       handleMetricPost={this.handleMetricPost}
-                      addToWishlist={this.addToWishlist}
+                      addToWatchList={this.addToWatchList}
                       handleFinPost={this.handleFinPost}
                       // filterFavorites={this.filterFavorites()}
                     />
@@ -224,6 +271,7 @@ class HomePage extends Component {
                     <WatchList
                       togglePopup={this.togglePopup}
                       watchlist={this.state.watchList}
+                      removeFromWatchList={this.removeFromWatchList}
                     />
                   </Grid.Column>
                   {/* </Segment> */}
@@ -235,15 +283,19 @@ class HomePage extends Component {
           <div>
             <TickerDetails
               text="Close Me"
+              notes={this.state.notes}
               closeDetails={this.toggleDetails}
+              clickedTicker={this.state.clickedTicker}
               fins={this.state.fins}
               metrics={this.state.metrics}
+              removeNote={this.removeNote}
             />
           </div>
         )}
         {this.state.showPopup ? (
           <PopUp
             text="Close Me"
+            user={this.props.currentUser}
             closePopup={this.togglePopup}
             clickedFavorite={this.state.clickedFavorite}
             addNewNoteToNotes={this.addNewNoteToNotes}

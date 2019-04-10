@@ -22,6 +22,7 @@ class PopUp extends Component {
                 <br />
                 <br />
                 <NoteContainer
+                  user={this.props.user}
                   addNewNoteToNotes={this.props.addNewNoteToNotes}
                   clickedFavorite={this.props.clickedFavorite}
                 />

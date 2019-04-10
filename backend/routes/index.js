@@ -13,13 +13,24 @@ module.exports = app => {
   );
 
   app.get("/api/tickers", tickerController.getTickers);
+
   app.get("/api/users", userController.listUsers);
-  // app.get("/api/notes", userController.favsList);
-  // app.use("/api/user_favs", userController.userFavList);
+  app.get("/api/users/:id", userController.getUser);
+  app.post("/api/signup", userController.addUser);
+
+  app.use("/api/user_favorite", favoriteController.addFavorite);
+  app.delete("/api/delete_favorite/:id", favoriteController.deleteFavorite);
+  app.get("/api/user_favorite/:id", favoriteController.getFavorite);
+
   app.post("/api/metrics", metricController.getMetrics); ///MAKE SURE POST NOT GET
   app.use("/api/financials", financialController.getFinancials);
   // app.get("/api/notes", noteController.listNotes);
+
+  // app.post("/api/favorites", favoriteController.createFav);
+  app.use("/api/financials", financialController.getFinancials);
+
+  app.get("/api/notes/:id", noteController.getNote);
+  app.get("/api/notes", noteController.listNotes);
   app.post("/api/user_note", noteController.addNote);
-  app.post("/api/favorites", favoriteController.createFav);
-  // app.use("/api/financials", financialController.getFinancials);
+  app.delete("/api/delete_note/:id", noteController.deleteNote);
 };
