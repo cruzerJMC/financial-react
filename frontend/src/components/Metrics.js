@@ -15,11 +15,11 @@ const Metrics = props => {
   // console.log("Metrics", props);
   return (
     <div>
-      <Segment attached>
+      {/* <Segment attached>
         <Message color="blue">
           {props.clickedTicker.name}-{props.clickedTicker.ticker}
         </Message>
-      </Segment>
+      </Segment> */}
       <Segment attached="bottom">
         <Table celled structured>
           <Table.Header>

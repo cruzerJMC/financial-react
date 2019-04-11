@@ -76,6 +76,13 @@ class TickerDetails extends Component {
           <br />
           <br />
         </Segment>
+        <Segment attached>
+          <Message color="blue">
+            <h1>
+              {this.props.clickedTicker.name}-{this.props.clickedTicker.ticker}
+            </h1>
+          </Message>
+        </Segment>
         <Segment>{this.renderCompanyCard()}</Segment>
 
         <Segment>

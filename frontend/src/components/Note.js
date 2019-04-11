@@ -1,44 +1,101 @@
 import React, { Component } from "react";
-import { Segment, Button, Message, Accordion, Icon } from "semantic-ui-react";
+import {
+  Segment,
+  Button,
+  Message,
+  Accordion,
+  Icon,
+  Table,
+  TransitionablePortal,
+  Header,
+  Modal,
+  Container
+} from "semantic-ui-react";
 
 import "../App.css";
+import { relative } from "path";
 
 class Note extends Component {
-  state = { activeIndex: 0 };
+  state = { open: false };
 
-  handleClick = (e, titleProps) => {
-    const { index } = titleProps;
-    const { activeIndex } = this.state;
-    const newIndex = activeIndex === index ? -1 : index;
+  handleClick = () => this.setState({ open: !this.state.open });
 
-    this.setState({ activeIndex: newIndex });
-  };
-
+  handleClose = () => this.setState({ open: false });
   render() {
-    const { activeIndex } = this.state;
-    const index = this.props.index;
+    const { open } = this.state;
     console.log("Note", this.props);
     return (
       <div>
-        <Accordion.Title
-          active={activeIndex === index}
-          index={index}
-          onClick={this.handleClick}
-        >
-          <Icon
-            name="remove"
-            onClick={() => this.props.removeNote(this.props.id)}
-          />
-          <h3>{this.props.title} </h3>
-          <h5>{this.props.createdAt}</h5>
-          <Icon name="dropdown" />
-        </Accordion.Title>
+        <Table.Row>
+          <Table.Cell>
+            <Button
+              compact
+              basic
+              circular
+              size="tiny"
+              color="red"
+              icon={<Icon name="delete" />}
+              onClick={() => this.props.removeNote(this.props.id)}
+            />
+          </Table.Cell>
+          <Table.Cell>
+            <h3>{this.props.title} </h3>
+          </Table.Cell>
+          <Table.Cell>
+            <h5>{this.props.createdAt}</h5>
+          </Table.Cell>
 
-        <Accordion.Content active={activeIndex === index}>
-          <Message color="blue">
-            <p>{this.props.content}</p>
-          </Message>
-        </Accordion.Content>
+          {/* <Table.Cell>
+            <Button
+              animated="vertical"
+              content={open ? "Close Portal" : "Open Portal"}
+              negative={open}
+              positive={!open}
+              onClick={this.handleClick}
+            >
+              <Button.Content hidden>View Note</Button.Content>
+              <Button.Content visible>
+                <Icon name="shop" />
+              </Button.Content>
+            </Button>
+          </Table.Cell> */}
+
+          <Table.Cell>
+            <Modal trigger={<Button>View Note</Button>}>
+              <Modal.Header>Profile Picture</Modal.Header>
+              <Segment>
+                <Container>
+                  <Modal.Content>
+                    <Modal.Description>
+                      <h3>{this.props.content}</h3>
+                    </Modal.Description>
+                  </Modal.Content>
+                </Container>
+                <br />
+                <Modal.Actions>
+                  <Button primary>
+                    Edit <Icon name="right chevron" />
+                  </Button>
+                </Modal.Actions>
+              </Segment>
+            </Modal>
+          </Table.Cell>
+        </Table.Row>
+        {/* <TransitionablePortal onClose={this.handleClose} open={open}>
+          <Segment
+            style={{
+              left: "40%",
+              position: "fixed",
+              top: "50%",
+              zIndex: 1000
+            }}
+          >
+            <Header>This is a controlled portal</Header>
+            <Message color="blue">
+              <p>{this.props.content}</p>
+            </Message>
+          </Segment>
+        </TransitionablePortal> */}
       </div>
     );
   }

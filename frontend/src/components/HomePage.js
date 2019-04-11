@@ -13,7 +13,7 @@ import {
 } from "semantic-ui-react";
 
 import TickerSideCard from "./TickerSideCard";
-// import TickerDash from "./TickerDash";
+import Indexes from "./Indexes";
 import TickerList from "./TickerList";
 import Search from "./Search";
 import WatchList from "./WatchList";
@@ -35,7 +35,8 @@ class HomePage extends Component {
     userFavs: [],
     detailsPage: false,
     clickedFavorite: null,
-    notes: []
+    notes: [],
+    profiles: []
   };
 
   componentDidMount() {
@@ -48,6 +49,7 @@ class HomePage extends Component {
           tickers: tickers
         });
       });
+
     // const setArticles = async () => {
     //   let response = fetch("http://localhost:5000/api/notes");
     //   console.log("Response", response);
@@ -243,41 +245,55 @@ class HomePage extends Component {
               handleChange={this.handleChange}
               inputValue={this.state.inputValue}
             />
-            <Segment responsive raised>
-              <Grid color="black" columns={2} textAlign="center">
-                <Grid.Row color="black">
-                  <Grid.Column width={11} color="black" floated="left">
-                    <TickerList
-                      tickers={this.filterTickers()}
-                      showDetails={this.showDetails}
-                      handleMetricPost={this.handleMetricPost}
-                      addToWatchList={this.addToWatchList}
-                      handleFinPost={this.handleFinPost}
-                      // filterFavorites={this.filterFavorites()}
-                    />
-                  </Grid.Column>
-                  <Grid.Column width={5} color="black">
+
+            {/* <Segment responsive raised> */}
+            <Grid color="black" columns={2} textAlign="center">
+              <Grid.Row color="black">
+                <Grid.Column width={11} color="black" floated="left">
+                  {/* <Container> */}
+                  <TickerList
+                    tickers={this.filterTickers()}
+                    showDetails={this.showDetails}
+                    handleMetricPost={this.handleMetricPost}
+                    addToWatchList={this.addToWatchList}
+                    handleFinPost={this.handleFinPost}
+                    // filterFavorites={this.filterFavorites()}
+                  />
+                  {/* </Container> */}
+                </Grid.Column>
+
+                <Grid.Column width={5} color="black">
+                  {/* <Indexes /> */}
+                  <div>
                     <TickerSideCard
                       toggleDetails={this.toggleDetails}
                       clickedTicker={this.state.clickedTicker}
                       metrics={this.state.metrics}
                     />
-                    <Divider inverted horizontal>
-                      <Header inverted as="h4">
-                        <Icon inverted name="tag" />
-                        Watch List
-                      </Header>
-                    </Divider>
-                    <WatchList
-                      togglePopup={this.togglePopup}
-                      watchlist={this.state.watchList}
-                      removeFromWatchList={this.removeFromWatchList}
-                    />
-                  </Grid.Column>
-                  {/* </Segment> */}
-                </Grid.Row>
-              </Grid>
-            </Segment>
+                  </div>
+                  <Divider inverted horizontal>
+                    <Header inverted as="h4">
+                      <Icon inverted name="tag" />
+                      Watch List
+                    </Header>
+                  </Divider>
+                  {/* <Container> */}
+
+                  <WatchList
+                    togglePopup={this.togglePopup}
+                    watchlist={this.state.watchList}
+                    removeFromWatchList={this.removeFromWatchList}
+                  />
+                  {/* </Container> */}
+                  <Container>
+                    <Indexes />
+                  </Container>
+                </Grid.Column>
+
+                {/* </Segment> */}
+              </Grid.Row>
+            </Grid>
+            {/* </Segment> */}
           </div>
         ) : (
           <div>

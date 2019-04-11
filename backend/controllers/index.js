@@ -4,6 +4,7 @@ const metrics = require("./metric");
 const financials = require("./financial");
 const notes = require("./note");
 const favorites = require("./favorite");
+const markets = require("./market");
 
 module.exports = {
   tickers,
@@ -11,5 +12,6 @@ module.exports = {
   metrics,
   financials,
   notes,
-  favorites
+  favorites,
+  markets
 };

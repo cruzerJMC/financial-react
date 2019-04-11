@@ -14,14 +14,14 @@ const UserFavorite = require("../models").UserFavorite;
 
 const handleResponse = res => {
   return data => {
-    console.log(data);
+    // console.log(data);
     res.send(data);
   };
 };
 
 const handleError = res => {
   return error => {
-    console.log(error);
+    // console.log(error);
     res.send(error);
   };
 };
