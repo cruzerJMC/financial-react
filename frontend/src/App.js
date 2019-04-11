@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Header, Button } from "semantic-ui-react";
+import { Header, Button, Segment } from "semantic-ui-react";
 import HomePage from "./components/HomePage";
 import "./App.css";
 
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+// import Search from "./components/Search";
 
 class App extends Component {
   state = {
@@ -84,14 +85,17 @@ class App extends Component {
 
   renderHeader = () => {
     return (
-      <div className="ui raised segment">
-        <div className="ui segment violet inverted">
-          <Header color={"violet"} inverted as="h1">
-            Fin-Analyze Dashboard
-          </Header>
+      <Segment inverted>
+        <div className="ui raised segment">
+          <div className="ui segment violet inverted">
+            <Header color={"violet"} inverted as="h1">
+              Fin-Analyze Dashboard
+            </Header>
+          </div>
+
           <HomePage />
         </div>
-      </div>
+      </Segment>
     );
   };
 
@@ -128,14 +132,20 @@ class App extends Component {
             onClick={() => this.switch("login")}
             className={this.state.login ? "yellow" : "blue"}
           >
-            {" "}
             Login
           </Button>
         </Button.Group>
       </div>
     );
     return this.state.loggedIn ? (
-      <HomePage currentUser={this.state.currentUser} />
+      <div className="ui raised segment">
+        <div className="ui segment violet inverted">
+          <Header color={"violet"} inverted as="h1">
+            Fin-Analyze Dashboard
+          </Header>
+        </div>
+        <HomePage currentUser={this.state.currentUser} />
+      </div>
     ) : (
       logIn
     );

@@ -9,7 +9,8 @@ import {
   Header,
   Image,
   Message,
-  Segment
+  Segment,
+  List
 } from "semantic-ui-react";
 
 import TickerSideCard from "./TickerSideCard";
@@ -241,59 +242,61 @@ class HomePage extends Component {
       <div>
         {!this.state.detailsPage ? (
           <div>
-            <Search
-              handleChange={this.handleChange}
-              inputValue={this.state.inputValue}
-            />
-
+            <Segment attached="top" inverted>
+              <Search
+                handleChange={this.handleChange}
+                inputValue={this.state.inputValue}
+              />
+            </Segment>
             {/* <Segment responsive raised> */}
-            <Grid color="black" columns={2} textAlign="center">
-              <Grid.Row color="black">
-                <Grid.Column width={11} color="black" floated="left">
-                  {/* <Container> */}
-                  <TickerList
-                    tickers={this.filterTickers()}
-                    showDetails={this.showDetails}
-                    handleMetricPost={this.handleMetricPost}
-                    addToWatchList={this.addToWatchList}
-                    handleFinPost={this.handleFinPost}
-                    // filterFavorites={this.filterFavorites()}
-                  />
-                  {/* </Container> */}
-                </Grid.Column>
-
-                <Grid.Column width={5} color="black">
-                  {/* <Indexes /> */}
-                  <div>
-                    <TickerSideCard
-                      toggleDetails={this.toggleDetails}
-                      clickedTicker={this.state.clickedTicker}
-                      metrics={this.state.metrics}
+            <Segment attached="bottom" inverted>
+              <Grid color="black" columns={2} textAlign="center">
+                <Grid.Row color="black">
+                  <Grid.Column width={11} color="black" floated="left">
+                    {/* <Container> */}
+                    <TickerList
+                      tickers={this.filterTickers()}
+                      showDetails={this.showDetails}
+                      handleMetricPost={this.handleMetricPost}
+                      addToWatchList={this.addToWatchList}
+                      handleFinPost={this.handleFinPost}
+                      // filterFavorites={this.filterFavorites()}
                     />
-                  </div>
-                  <Divider inverted horizontal>
-                    <Header inverted as="h4">
-                      <Icon inverted name="tag" />
-                      Watch List
-                    </Header>
-                  </Divider>
-                  {/* <Container> */}
+                  </Grid.Column>
 
-                  <WatchList
-                    togglePopup={this.togglePopup}
-                    watchlist={this.state.watchList}
-                    removeFromWatchList={this.removeFromWatchList}
-                  />
-                  {/* </Container> */}
-                  <Container>
+                  <Grid.Column width={5} color="black">
+                    <div>
+                      <TickerSideCard
+                        toggleDetails={this.toggleDetails}
+                        clickedTicker={this.state.clickedTicker}
+                        metrics={this.state.metrics}
+                      />
+                    </div>
+
+                    <Divider inverted horizontal>
+                      <Header inverted as="h4">
+                        <Icon inverted name="tag" />
+                        Watch List
+                      </Header>
+                    </Divider>
+
+                    <WatchList
+                      togglePopup={this.togglePopup}
+                      watchlist={this.state.watchList}
+                      removeFromWatchList={this.removeFromWatchList}
+                    />
+                    <Divider inverted horizontal>
+                      <Header inverted as="h4">
+                        <Icon inverted name="tag" />
+                        Major Indexes
+                      </Header>
+                    </Divider>
+
                     <Indexes />
-                  </Container>
-                </Grid.Column>
-
-                {/* </Segment> */}
-              </Grid.Row>
-            </Grid>
-            {/* </Segment> */}
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Segment>
           </div>
         ) : (
           <div>

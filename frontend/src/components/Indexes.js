@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { List, Message, Divider, Segment, Grid } from "semantic-ui-react";
-import Marquee from "react-smooth-marquee";
+// import Marquee from "react-smooth-marquee";
 import IndexItem from "./IndexItem";
 class Indexes extends Component {
   state = {
@@ -30,15 +30,11 @@ class Indexes extends Component {
     // const indexArray = Object.value(this.state.indexes);
     return (
       <div>
-        {/* {this.renderIndexItem()} */}
-        {/* <List horizontal> */}
-        {/* <Grid divided="vertically"> */}
-
-        {this.state.indexes.map(item => {
-          return <IndexItem key={item.ticker} {...item} />;
-        })}
-
-        {/* </List> */}
+        <List horizontal size="mini">
+          {this.state.indexes.map(item => {
+            return <IndexItem key={item.ticker} {...item} />;
+          })}
+        </List>
       </div>
     );
   }
