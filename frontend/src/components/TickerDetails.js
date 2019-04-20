@@ -13,12 +13,12 @@ import {
   Segment,
   Button
 } from "semantic-ui-react";
-
+import CompanyMenu from "./CompanyMenu";
 import "../App.css";
 
 // import ChartCont from "./ChartCont";
 import Metrics from "./Metrics";
-import Financials from "./Financials";
+// import Financials from "./Financials";
 import Summary from "./Summary";
 import CompanyCard from "./CompanyCard";
 
@@ -87,11 +87,18 @@ class TickerDetails extends Component {
 
         <Segment>
           <div>
+            <CompanyMenu
+              fins={this.props.fins}
+              income={this.props.income}
+              cashflow={this.props.cashflow}
+              balance={this.props.balance}
+            />
             <Metrics
               metrics={this.props.metrics}
               clickedTicker={this.props.clickedTicker}
             />
-            <Financials fins={this.props.fins} />
+
+            {/* <Financials fins={this.props.fins} /> */}
             <Segment>
               <NoteList
                 notes={this.props.notes.filter(note => {

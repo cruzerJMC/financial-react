@@ -10,7 +10,7 @@ import {
 } from "semantic-ui-react";
 
 const IndexItem = props => {
-  console.log("indexItem", props);
+  // console.log("indexItem", props);
   return (
     <div>
       {/* <List horizontal> */}

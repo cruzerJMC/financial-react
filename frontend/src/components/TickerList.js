@@ -33,6 +33,10 @@ class TickerList extends Component {
                   handleMetricPost={this.props.handleMetricPost}
                   addToWatchList={this.props.addToWatchList}
                   handleFinPost={this.props.handleFinPost}
+                  handleIncomePost={this.props.handleIncomePost}
+                  handleRatioPost={this.props.handleRatioPost}
+                  handleBalancePost={this.props.handleBalancePost}
+                  handleCashflowPost={this.props.handleCashflowPost}
                 />
               );
             })}

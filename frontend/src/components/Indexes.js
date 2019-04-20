@@ -26,7 +26,7 @@ class Indexes extends Component {
   //   return indexArray;
   // };
   render() {
-    console.log("index", this.state);
+    // console.log("index", this.state);
     // const indexArray = Object.value(this.state.indexes);
     return (
       <div>

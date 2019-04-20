@@ -10,6 +10,7 @@ import {
   Image,
   Message,
   Segment,
+  Responsive,
   List
 } from "semantic-ui-react";
 
@@ -37,7 +38,11 @@ class HomePage extends Component {
     detailsPage: false,
     clickedFavorite: null,
     notes: [],
-    profiles: []
+    profiles: [],
+    income: [],
+    ratio: [],
+    cashflow: [],
+    balance: []
   };
 
   componentDidMount() {
@@ -166,6 +171,69 @@ class HomePage extends Component {
     });
   };
 
+  handleIncomePost = async () => {
+    // e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/incomestatement", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ post: this.state.clickedTicker.ticker })
+    });
+    const body = await response.json();
+    // console.log(body);
+    this.setState({
+      income: body
+    });
+  };
+
+  handleCashflowPost = async () => {
+    // e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/cashflow", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ post: this.state.clickedTicker.ticker })
+    });
+    const body = await response.json();
+    // console.log(body);
+    this.setState({
+      cashflow: body
+    });
+  };
+
+  handleBalancePost = async () => {
+    // e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/balancesheet", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ post: this.state.clickedTicker.ticker })
+    });
+    const body = await response.json();
+    // console.log(body);
+    this.setState({
+      balance: body
+    });
+  };
+  handleRatioPost = async () => {
+    // e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/ratios", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ post: this.state.clickedTicker.ticker })
+    });
+    const body = await response.json();
+    // console.log(body);
+    this.setState({
+      ratio: body.financialRatios
+    });
+  };
+
   addToWatchList = itemId => {
     const userId = this.props.currentUser.id;
     const foundTicker = this.state.tickers.find(item => item.id === itemId);
@@ -260,6 +328,10 @@ class HomePage extends Component {
                       handleMetricPost={this.handleMetricPost}
                       addToWatchList={this.addToWatchList}
                       handleFinPost={this.handleFinPost}
+                      handleIncomePost={this.handleIncomePost}
+                      handleRatioPost={this.handleRatioPost}
+                      handleBalancePost={this.handleBalancePost}
+                      handleCashflowPost={this.handleCashflowPost}
                       // filterFavorites={this.filterFavorites()}
                     />
                   </Grid.Column>
@@ -308,6 +380,9 @@ class HomePage extends Component {
               fins={this.state.fins}
               metrics={this.state.metrics}
               removeNote={this.removeNote}
+              income={this.state.income}
+              cashflow={this.state.cashflow}
+              balance={this.state.balance}
             />
           </div>
         )}

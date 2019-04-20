@@ -23,7 +23,7 @@ class Note extends Component {
   handleClose = () => this.setState({ open: false });
   render() {
     const { open } = this.state;
-    console.log("Note", this.props);
+    // console.log("Note", this.props);
     return (
       <div>
         <Table.Row>

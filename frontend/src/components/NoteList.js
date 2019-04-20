@@ -2,7 +2,7 @@ import React from "react";
 import { Accordion, Icon, Segment, Table } from "semantic-ui-react";
 import Note from "./Note";
 const NoteList = props => {
-  console.log("Props in NoteList", props);
+  // console.log("Props in NoteList", props);
   return (
     <div>
       <Segment color="violet">

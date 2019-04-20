@@ -5,6 +5,10 @@ const financialController = require("../controllers/financial");
 const favoriteController = require("../controllers/favorite");
 const noteController = require("../controllers/note");
 const indexController = require("../controllers/market");
+const incomeController = require("../controllers/income");
+const ratioController = require("../controllers/ratio");
+const cashflowController = require("../controllers/cashflow");
+const balanceController = require("../controllers/balance");
 
 module.exports = app => {
   app.get("/api", (req, res) =>
@@ -15,7 +19,10 @@ module.exports = app => {
 
   app.get("/api/tickers", tickerController.getTickers);
   app.use("/api/indexes", indexController.getIndexes);
-
+  app.use("/api/incomestatement", incomeController.getIncome);
+  app.use("/api/balancesheet", balanceController.getBalance);
+  app.use("/api/cashflow", cashflowController.getCashflow);
+  app.use("/api/ratios", ratioController.getRatio);
   app.get("/api/users", userController.listUsers);
   app.get("/api/users/:id", userController.getUser);
   app.post("/api/signup", userController.addUser);

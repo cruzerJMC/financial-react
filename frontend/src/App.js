@@ -5,7 +5,7 @@ import "./App.css";
 
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-// import Search from "./components/Search";
+// import Profile from "./components/Profile";
 
 class App extends Component {
   state = {
@@ -85,17 +85,17 @@ class App extends Component {
 
   renderHeader = () => {
     return (
-      <Segment inverted>
-        <div className="ui raised segment">
-          <div className="ui segment violet inverted">
-            <Header color={"violet"} inverted as="h1">
-              Fin-Analyze Dashboard
-            </Header>
-          </div>
-
-          <HomePage />
+      // <Segment inverted>
+      <div className="ui raised segment">
+        <div className="ui segment violet inverted">
+          <Header color={"violet"} inverted as="h1">
+            Fin-Analyze Dashboard
+          </Header>
         </div>
-      </Segment>
+        {/* <Profile /> */}
+        <HomePage />
+      </div>
+      // </Segment>
     );
   };
 
@@ -138,12 +138,15 @@ class App extends Component {
       </div>
     );
     return this.state.loggedIn ? (
-      <div className="ui raised segment">
-        <div className="ui segment violet inverted">
-          <Header color={"violet"} inverted as="h1">
-            Fin-Analyze Dashboard
-          </Header>
+      <div>
+        <div className="ui raised segment">
+          <div className="ui segment violet inverted">
+            <Header color={"violet"} inverted as="h1">
+              Fin-Analyze Dashboard
+            </Header>
+          </div>
         </div>
+        {/* <Profile /> */}
         <HomePage currentUser={this.state.currentUser} />
       </div>
     ) : (
