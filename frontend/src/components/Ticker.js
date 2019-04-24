@@ -47,6 +47,7 @@ class Ticker extends Component {
     await this.props.handleBalancePost();
     await this.props.handleAnnualIncome();
     await this.props.handleAnnualCF();
+    await this.props.handleAnnualBS();
   };
 
   render() {

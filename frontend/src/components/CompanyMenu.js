@@ -118,11 +118,19 @@ export default class CompanyMenu extends Component {
             Income Statement (YR)
           </Menu.Item>
           <Menu.Item
+            inverted
             name="cashflowYR"
             active={activeItem === "cashflowYR"}
             onClick={this.handleItemClick}
           >
             Cashflow Statement (YR)
+          </Menu.Item>
+          <Menu.Item
+            name="balanceYR"
+            active={activeItem === "balanceYR"}
+            onClick={this.handleItemClick}
+          >
+            Balance Sheet (YR)
           </Menu.Item>
           <Menu.Item
             name="income"
@@ -136,7 +144,7 @@ export default class CompanyMenu extends Component {
             active={activeItem === "balance"}
             onClick={this.handleItemClick}
           >
-            Balance Sheet
+            Balance Sheet (QTR)
           </Menu.Item>
 
           <Menu.Item
@@ -144,7 +152,7 @@ export default class CompanyMenu extends Component {
             active={activeItem === "cashflow"}
             onClick={this.handleItemClick}
           >
-            Cashflow Statement
+            Cashflow Statement (QTR)
           </Menu.Item>
           {/* <Menu.Item
             name="ratio"

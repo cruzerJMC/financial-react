@@ -44,7 +44,8 @@ class HomePage extends Component {
     cashflow: [],
     balance: [],
     annualIS: [],
-    annualCF: []
+    annualCF: [],
+    annualBS: []
   };
 
   componentDidMount() {
@@ -169,6 +170,22 @@ class HomePage extends Component {
     // console.log(body);
     this.setState({
       annualCF: body
+    });
+  };
+
+  handleAnnualBS = async () => {
+    // e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/annual-balance", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ post: this.state.clickedTicker.ticker })
+    });
+    const body = await response.json();
+    // console.log(body);
+    this.setState({
+      annualBS: body
     });
   };
   handleMetricPost = async () => {
@@ -366,6 +383,7 @@ class HomePage extends Component {
                       handleCashflowPost={this.handleCashflowPost}
                       handleAnnualIncome={this.handleAnnualIncome}
                       handleAnnualCF={this.handleAnnualCF}
+                      handleAnnualBS={this.handleAnnualBS}
                       // filterFavorites={this.filterFavorites()}
                     />
                   </Grid.Column>
