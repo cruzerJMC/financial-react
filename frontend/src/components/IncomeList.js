@@ -63,39 +63,42 @@ class IncomeList extends Component {
 
     return (
       <Segment>
-        {/* {this.renderTable()} */}
-        <Table striped>
-          <Table.Header>
+        <Table compact striped>
+          {/* <Table.Header>
             <Table.Row>
               <Table.HeaderCell textAlign="center">
                 Quaterly Income Statement
               </Table.HeaderCell>
             </Table.Row>
-          </Table.Header>
+          </Table.Header> */}
 
-          <Table.Body>
+          {/* <Header as="h2" attached="top">
+              Quaterly Income Statement
+            </Header> */}
+          {/* <Table.Body> */}
+          <Grid columns="equal" centered>
             <Message color="blue">
-              <Grid column={2}>
+              <Grid.Row>
                 <Table.Row>
                   {this.props.labels.map(item => {
                     return (
                       <div>
-                        <Message>
-                          <h5>{item}</h5>
-                        </Message>
+                        <Message>{item}</Message>
                         <Divider inverted />
                         <br />
                       </div>
                     );
                   })}
                 </Table.Row>
+
                 {this.props.income.map((item, index) => {
                   // const value = Object.values(item);
                   return <IsTable key={index} {...item} />;
                 })}
-              </Grid>
+              </Grid.Row>
             </Message>
-          </Table.Body>
+          </Grid>
+          {/* </Table.Body> */}
         </Table>
       </Segment>
     );

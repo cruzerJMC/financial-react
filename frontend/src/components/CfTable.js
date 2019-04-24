@@ -2,143 +2,179 @@ import React from "react";
 import { Table, List, Grid, Message, Divider } from "semantic-ui-react";
 
 const CfTable = props => {
-  const decimal = 1000000;
+  const decimal = 100000000;
   console.log("Cf Table", props);
   return (
     <div>
       <Grid.Column>
-        <h5>{props[0]}</h5>
+        <Message>{props["Release Date"]}</Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5>
-          {(props[1] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
-        </h5>
+        <Message>
+          {(props["Depreciation & Amortization"] / decimal).toLocaleString(
+            "us-EN",
+            {
+              style: "currency",
+              currency: "USD"
+            }
+          )}
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5>
-          {(props[2] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
-        </h5>
+        <Message>
+          {(props["Stock-based Compensation"] / decimal).toLocaleString(
+            "us-EN",
+            {
+              style: "currency",
+              currency: "USD"
+            }
+          )}
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5 style={{ color: "red" }}>
-          {(props[3] / decimal).toLocaleString("us-EN", {
+        <Message>
+          {(props["Operating Cash Flow"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
           })}
-        </h5>
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5>
-          {(props[1] / decimal).toLocaleString("us-EN", {
+        <Message>
+          {(props["Capital Expenditure"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
           })}
-        </h5>
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5>
-          {(props[4] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
-        </h5>
+        <Message>
+          {(props["Acquisitions and Disposals"] / decimal).toLocaleString(
+            "us-EN",
+            {
+              style: "currency",
+              currency: "USD"
+            }
+          )}
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5>
-          {(props[5] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
-        </h5>
+        <Message>
+          {(props["Investment Purchases and Sales"] / decimal).toLocaleString(
+            "us-EN",
+            {
+              style: "currency",
+              currency: "USD"
+            }
+          )}
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5>
-          {(props[6] / decimal).toLocaleString("us-EN", {
+        <Message>
+          {(props["Investing Cash Flow"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
           })}
-        </h5>
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5>
-          {(props[7] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
-        </h5>
+        <Message>
+          {(props["Issuance (Repayment) of Debt"] / decimal).toLocaleString(
+            "us-EN",
+            {
+              style: "currency",
+              currency: "USD"
+            }
+          )}
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5>
-          {(props[8] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
-        </h5>
+        <Message>
+          {(props["Issuance (Buybacks) of Shares"] / decimal).toLocaleString(
+            "us-EN",
+            {
+              style: "currency",
+              currency: "USD"
+            }
+          )}
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5>
-          {(props[9] / decimal).toLocaleString("us-EN", {
+        <Message>
+          {(props["Dividend Payments"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
           })}
-        </h5>
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5>
-          {(props[10] / decimal).toLocaleString("us-EN", {
+        <Message>
+          {(props["Financing Cash Flow"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
           })}
-        </h5>
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5>
-          {(props[11] / decimal).toLocaleString("us-EN", {
+        <Message>
+          {(props["F/X Impact"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
           })}
-        </h5>
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column>
-        <h5>
-          {(props[12] / decimal).toLocaleString("us-EN", {
+        <Message>
+          {(props["Net Cash Flow"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
           })}
-        </h5>
+        </Message>
       </Grid.Column>
+      <Divider />
+      <br />
+
+      <Grid.Column>
+        <Message>
+          {(props["Free Cash Flow"] / decimal).toLocaleString("us-EN", {
+            style: "currency",
+            currency: "USD"
+          })}
+        </Message>
+      </Grid.Column>
+      <Divider />
+      <br />
+      <Grid.Column>
+        <Message>{props["Net Cash/Marketcap"] / decimal}</Message>
+      </Grid.Column>
+      <Divider />
+      <br />
     </div>
   );
 };

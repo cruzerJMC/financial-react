@@ -22,7 +22,7 @@ class BalanceList extends Component {
   render() {
     console.log("Balance List", this.props);
     return (
-      <Responsive as={Segment}>
+      <Segment>
         {/* {this.renderTable()} */}
         <Table striped>
           <Table.Header>
@@ -40,9 +40,7 @@ class BalanceList extends Component {
                   {this.props.labels.map(item => {
                     return (
                       <div>
-                        <Message>
-                          <h5>{item}</h5>
-                        </Message>
+                        <Message>{item}</Message>
                         <Divider inverted />
                         <br />
                       </div>
@@ -57,7 +55,7 @@ class BalanceList extends Component {
             </Message>
           </Table.Body>
         </Table>
-      </Responsive>
+      </Segment>
     );
   }
 }

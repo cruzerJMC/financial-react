@@ -9,7 +9,8 @@ const incomeController = require("../controllers/income");
 const ratioController = require("../controllers/ratio");
 const cashflowController = require("../controllers/cashflow");
 const balanceController = require("../controllers/balance");
-
+const annualIncomeController = require("../controllers/annual/income");
+const annualCashflowController = require("../controllers/annual/cashflow");
 module.exports = app => {
   app.get("/api", (req, res) =>
     res.status(200).send({
@@ -20,6 +21,8 @@ module.exports = app => {
   app.get("/api/tickers", tickerController.getTickers);
   app.use("/api/indexes", indexController.getIndexes);
   app.use("/api/incomestatement", incomeController.getIncome);
+  app.use("/api/annual-income", annualIncomeController.getAnnualIncome);
+  app.use("/api/annual-cashflow", annualCashflowController.getAnnualCF);
   app.use("/api/balancesheet", balanceController.getBalance);
   app.use("/api/cashflow", cashflowController.getCashflow);
   app.use("/api/ratios", ratioController.getRatio);

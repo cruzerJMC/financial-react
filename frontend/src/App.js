@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Header, Button, Segment } from "semantic-ui-react";
+import { Header, Button, Segment, Grid, Container } from "semantic-ui-react";
 import HomePage from "./components/HomePage";
 import "./App.css";
 
@@ -113,30 +113,32 @@ class App extends Component {
             password={this.state.password}
           />
         ) : null}
-
-        <Button.Group>
-          <Button
-            fluid
-            size="large"
-            id="signupButton"
-            onClick={() => this.switch("signup")}
-            className={this.state.signup ? "yellow" : "blue"}
-          >
-            Sign Up
-          </Button>
-          <Button.Or />
-          <Button
-            fluid
-            size="large"
-            id="loginButton"
-            onClick={() => this.switch("login")}
-            className={this.state.login ? "yellow" : "blue"}
-          >
-            Login
-          </Button>
-        </Button.Group>
+        <Grid>
+          <Grid.Column textAlign="center">
+            <Button.Group textAlign="center">
+              <Button
+                size="large"
+                id="signupButton"
+                onClick={() => this.switch("signup")}
+                className={this.state.signup ? "yellow" : "blue"}
+              >
+                Sign Up
+              </Button>
+              {/* <Button.Or /> */}
+              <Button
+                size="large"
+                id="loginButton"
+                onClick={() => this.switch("login")}
+                className={this.state.login ? "yellow" : "blue"}
+              >
+                Login
+              </Button>
+            </Button.Group>
+          </Grid.Column>
+        </Grid>
       </div>
     );
+
     return this.state.loggedIn ? (
       <div>
         <div className="ui raised segment">
@@ -147,6 +149,7 @@ class App extends Component {
           </div>
         </div>
         {/* <Profile /> */}
+
         <HomePage currentUser={this.state.currentUser} />
       </div>
     ) : (

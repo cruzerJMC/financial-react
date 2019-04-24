@@ -45,11 +45,14 @@ class Ticker extends Component {
     await this.props.handleRatioPost();
     await this.props.handleCashflowPost();
     await this.props.handleBalancePost();
+    await this.props.handleAnnualIncome();
+    await this.props.handleAnnualCF();
   };
 
   render() {
     // console.log("TICKER PROPS", this.props);
     return (
+      // <Segment compact>
       <Table.Row>
         <Table.Cell
           textAlign="center"
@@ -115,6 +118,7 @@ class Ticker extends Component {
           </Button>
         </Table.Cell>
       </Table.Row>
+      // </Segment>
     );
   }
 }

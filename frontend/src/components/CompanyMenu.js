@@ -4,6 +4,8 @@ import Financials from "./Financials";
 import IncomeList from "./IncomeList";
 import CashflowList from "./CashflowList";
 import BalanceList from "./BalanceList";
+import ISList from "./annual/ISList";
+import CFList from "./annual/CFList";
 
 export default class CompanyMenu extends Component {
   state = { activeItem: "" };
@@ -20,6 +22,12 @@ export default class CompanyMenu extends Component {
     if (this.state.activeItem === "income") {
       return this.renderIncome();
     }
+    if (this.state.activeItem === "incomeYR") {
+      return this.renderAnnualIncome();
+    }
+    if (this.state.activeItem === "cashflowYR") {
+      return this.renderAnnualCF();
+    }
     if (this.state.activeItem === "balance") {
       return this.renderBalance();
     }
@@ -34,6 +42,12 @@ export default class CompanyMenu extends Component {
     return <Financials fins={this.props.fins} />;
   };
 
+  renderAnnualIncome = () => {
+    return <ISList income={this.props.annualIS} />;
+  };
+  renderAnnualCF = () => {
+    return <CFList cashflow={this.props.annualCF} />;
+  };
   renderIncome = () => {
     return (
       <IncomeList
@@ -97,11 +111,25 @@ export default class CompanyMenu extends Component {
             Summary
           </Menu.Item>
           <Menu.Item
+            name="incomeYR"
+            active={activeItem === "incomeYR"}
+            onClick={this.handleItemClick}
+          >
+            Income Statement (YR)
+          </Menu.Item>
+          <Menu.Item
+            name="cashflowYR"
+            active={activeItem === "cashflowYR"}
+            onClick={this.handleItemClick}
+          >
+            Cashflow Statement (YR)
+          </Menu.Item>
+          <Menu.Item
             name="income"
             active={activeItem === "income"}
             onClick={this.handleItemClick}
           >
-            Income Statement
+            Income Statement (QTR)
           </Menu.Item>
           <Menu.Item
             name="balance"

@@ -69,6 +69,7 @@ class TickerDetails extends Component {
   render() {
     const company = this.state.profile[0];
     console.log("tickerDetails", this.state, company);
+
     return (
       <div>
         <Segment>
@@ -92,6 +93,8 @@ class TickerDetails extends Component {
               income={this.props.income}
               cashflow={this.props.cashflow}
               balance={this.props.balance}
+              annualIS={this.props.annualIS}
+              annualCF={this.props.annualCF}
             />
             <Metrics
               metrics={this.props.metrics}

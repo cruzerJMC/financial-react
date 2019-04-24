@@ -42,7 +42,9 @@ class HomePage extends Component {
     income: [],
     ratio: [],
     cashflow: [],
-    balance: []
+    balance: [],
+    annualIS: [],
+    annualCF: []
   };
 
   componentDidMount() {
@@ -139,6 +141,36 @@ class HomePage extends Component {
     });
   };
 
+  handleAnnualIncome = async () => {
+    // e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/annual-income", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ post: this.state.clickedTicker.ticker })
+    });
+    const body = await response.json();
+    // console.log(body);
+    this.setState({
+      annualIS: body
+    });
+  };
+  handleAnnualCF = async () => {
+    // e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/annual-cashflow", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ post: this.state.clickedTicker.ticker })
+    });
+    const body = await response.json();
+    // console.log(body);
+    this.setState({
+      annualCF: body
+    });
+  };
   handleMetricPost = async () => {
     // e.preventDefault();
     const response = await fetch("http://localhost:5000/api/metrics", {
@@ -320,8 +352,8 @@ class HomePage extends Component {
             <Segment attached="bottom" inverted>
               <Grid color="black" columns={2} textAlign="center">
                 <Grid.Row color="black">
-                  <Grid.Column width={11} color="black" floated="left">
-                    {/* <Container> */}
+                  {/* <Container> */}
+                  <Grid.Column width={6} color="black" floated="left">
                     <TickerList
                       tickers={this.filterTickers()}
                       showDetails={this.showDetails}
@@ -332,6 +364,8 @@ class HomePage extends Component {
                       handleRatioPost={this.handleRatioPost}
                       handleBalancePost={this.handleBalancePost}
                       handleCashflowPost={this.handleCashflowPost}
+                      handleAnnualIncome={this.handleAnnualIncome}
+                      handleAnnualCF={this.handleAnnualCF}
                       // filterFavorites={this.filterFavorites()}
                     />
                   </Grid.Column>
@@ -383,6 +417,8 @@ class HomePage extends Component {
               income={this.state.income}
               cashflow={this.state.cashflow}
               balance={this.state.balance}
+              annualIS={this.state.annualIS}
+              annualCF={this.state.annualCF}
             />
           </div>
         )}
