@@ -25,11 +25,11 @@ exports.getAnnualCF = async (req, res) => {
   let originalCFObj = await data.map(item => {
     const values = Object.values(item);
     const labels = Object.keys(item);
-    console.log(labels);
+    // console.log(labels);
 
     return { label: labels, value: values };
   });
-  console.log("originalCFObj", originalCFObj);
+  // console.log("originalCFObj", originalCFObj);
 
   let restatedData = await originalCFObj.map(item => {
     // const newValues = {
@@ -40,7 +40,7 @@ exports.getAnnualCF = async (req, res) => {
   });
   // console.log("restatedData", restatedData);
   const annualCFData = await restatedData[0];
-  console.log("Annual", annualCFData);
+  // console.log("Annual", annualCFData);
   // // res.send(annualIncomeData);
 
   const restatedCF = annualCFData.map(item => {
@@ -62,6 +62,6 @@ exports.getAnnualCF = async (req, res) => {
     return Object.assign({}, [index], item);
     // return { [index]:item };
   });
-  console.log("labeledCF", labeledCF);
+  // console.log("labeledCF", labeledCF);
   res.send(labeledCF);
 };

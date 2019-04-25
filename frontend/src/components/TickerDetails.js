@@ -95,6 +95,7 @@ class TickerDetails extends Component {
               balance={this.props.balance}
               annualIS={this.props.annualIS}
               annualCF={this.props.annualCF}
+              annualBS={this.props.annualBS}
             />
             <Metrics
               metrics={this.props.metrics}

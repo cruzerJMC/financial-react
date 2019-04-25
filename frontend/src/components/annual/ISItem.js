@@ -2,69 +2,68 @@ import React, { Component } from "react";
 import { Table, List, Grid, Message, Divider } from "semantic-ui-react";
 
 class ISItem extends Component {
-  renderISLabels = () => {
-    const incomeLabels = [
-      { label: "Revenue" },
-      { label: "Cost of Revenue" },
-      { label: "Gross Profit" },
-      { label: "Sales, General and Administrative" },
-      { label: "Other Expenses" },
-      { label: "Operating Expenses" },
-      { label: "Operating Income" },
-      { label: "Interest Expense" },
-      { label: "Other Income (Expense)" },
-      { label: "Pre-Tax Income" },
-      { label: "Tax Expense" },
-      { label: "Other Income" },
-      { label: "Continuing Net Income" },
-      { label: "Net Income" },
-      { label: "Common Equity Net Income" },
-      { label: "Basic EPS" },
-      { label: "Diluted EPS" },
-      { label: "EBITDA" }
-    ];
-    return incomeLabels.map(item => {
-      return (
-        <div>
-          <Table.Row>
-            <Table.Cell>{item.label}</Table.Cell>
-            <Table.Cell>{this.props.YrOne}</Table.Cell>
-            <Table.Cell>{this.props.YrTwo}</Table.Cell>
-            <Table.Cell>{this.props.YrThree}</Table.Cell>
-            <Table.Cell>{this.props.YrFour}</Table.Cell>
-            <Table.Cell>{this.props.YrFive}</Table.Cell>
-          </Table.Row>
-        </div>
-      );
-    });
+  renderLabels = () => {
+    if (this.props[0] === 0) {
+      return "Revenue";
+    }
+    if (this.props[0] === 1) {
+      return "Cost of Revenue";
+    }
+    if (this.props[0] === 2) {
+      return "Gross Profit";
+    }
+    if (this.props[0] === 3) {
+      return "R&D Expense";
+    }
+    if (this.props[0] === 4) {
+      return "SG&A Expense";
+    }
+    if (this.props[0] === 5) {
+      return "Operating Expenses";
+    }
+    if (this.props[0] === 6) {
+      return "Operating Income";
+    }
+    if (this.props[0] === 7) {
+      return "Interest Expense";
+    }
+    if (this.props[0] === 8) {
+      return "Other income (expense)";
+    }
+    if (this.props[0] === 9) {
+      return "Pre-Tax Income";
+    }
+    if (this.props[0] === 10) {
+      return "Provision for income taxes";
+    }
+    if (this.props[0] === 11) {
+      return "Continuing Net Income";
+    }
+    if (this.props[0] === 12) {
+      return "Net Income";
+    }
+    if (this.props[0] === 13) {
+      return "Net income available to common shareholders";
+    }
+    if (this.props[0] === 14) {
+      return "Basic";
+    }
+    if (this.props[0] === 15) {
+      return "Diluted";
+    }
+    if (this.props[0] === 16) {
+      return "EBITDA";
+    } else {
+      return "IS Item";
+    }
   };
   render() {
     console.log("ISItem", this.props);
-    // const incomeLabels = [
-    //   { label: "Revenue" },
-    //   { label: "Cost of Revenue" },
-    //   { label: "Gross Profit" },
-    //   { label: "Sales, General and Administrative" },
-    //   { label: "Other Expenses" },
-    //   { label: "Operating Expenses" },
-    //   { label: "Operating Income" },
-    //   { label: "Interest Expense" },
-    //   { label: "Other Income (Expense)" },
-    //   { label: "Pre-Tax Income" },
-    //   { label: "Tax Expense" },
-    //   { label: "Other Income" },
-    //   { label: "Continuing Net Income" },
-    //   { label: "Net Income" },
-    //   { label: "Common Equity Net Income" },
-    //   { label: "Basic EPS" },
-    //   { label: "Diluted EPS" },
-    //   { label: "EBITDA" }
-    // ];
+
     return (
       <Table.Row>
-        {/* {this.renderISLabels()} */}
         <Table.Cell>
-          <strong>Income Item</strong>
+          <strong>{this.renderLabels()}</strong>
         </Table.Cell>
         <Table.Cell>
           {this.props.YrOne.toLocaleString("us-EN", {

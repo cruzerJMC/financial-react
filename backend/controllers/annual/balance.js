@@ -25,11 +25,11 @@ exports.getAnnualBS = async (req, res) => {
   let originalBSObj = await data.map(item => {
     const values = Object.values(item);
     const labels = Object.keys(item);
-    console.log(labels);
+    // console.log(labels);
 
     return { label: labels, value: values };
   });
-  console.log("originalBSObj", originalBSObj);
+  // console.log("originalBSObj", originalBSObj);
 
   let restatedData = await originalBSObj.map(item => {
     // const newValues = {
@@ -40,7 +40,7 @@ exports.getAnnualBS = async (req, res) => {
   });
   // console.log("restatedData", restatedData);
   const annualBSData = await restatedData[0];
-  console.log("Annual", annualBSData);
+  // console.log("Annual", annualBSData);
   // // res.send(annualIncomeData);
 
   const restatedBS = annualBSData.map(item => {
@@ -62,6 +62,6 @@ exports.getAnnualBS = async (req, res) => {
     return Object.assign({}, [index], item);
     // return { [index]:item };
   });
-  console.log("labeledBS", labeledBS);
+  // console.log("labeledBS", labeledBS);
   res.send(labeledBS);
 };

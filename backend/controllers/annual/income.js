@@ -20,102 +20,39 @@ exports.getAnnualIncome = async (req, res) => {
   // console.log("json", json);
 
   let data = await Object.values(json);
-  // console.log("Data", Object.keys(data[0]));
-  // let incomeData = await data[0];
 
-  let incomeData = await data.map(item => {
-    const value = Object.values(item);
-    // console.log("value", value);
-    return value;
+  let originalISObj = await data.map(item => {
+    const values = Object.values(item);
+    const labels = Object.keys(item);
+    console.log("Labels", labels);
+    return { label: labels, value: values };
   });
+  // console.log("originalISObj", originalISObj);
 
-  // console.log("incomeData", incomeData);
-  // prettier-ignore
-  let restatedData = await incomeData.map(item => {
-    const newValue = Object.values(item)
-    // console.log(is);
-  
-    return newValue
-    // return {
-    //       Revenue: Object.values(item[0]),
-    //       "Cost of Goods Sold": Object.values(item[1]),
-    //       "Gross Profit": Object.values(item[2]),
-    //       "Operating Expenses": Object.values(item[5]),
-    //       "Operating Income": Object.values(item[6]),
-    //       EBITDA: Object.values(item[16]),
-    //       "Interest Expense": Object.values(item[7]),
-    //       "Other Income": Object.values(item[8]),
-    //       "Pre-Tax Income": Object.values(item[9]),
-    //       "Tax Expense": Object.values(item[10]),
-    //       "Continuing Net Income": Object.values(item[11]),
-    //       "Net Income": Object.values(item[12]),
-    //       "Common Net Income": Object.values(item[13]),
-    //       "Basic EPS": Object.values(item[14]),
-    //       "Diluted EPS": Object.values(item[15])
-    //     };
-      });
+  let restatedData = await originalISObj.map(item => {
+    const newValues = Object.values(item.value);
+    return newValues;
+  });
   // console.log("restatedData", restatedData);
+  const annualISData = await restatedData[0];
+  // console.log("Annual", annualISData);
+  // // res.send(annualIncomeData);
 
-  const annualIncomeData = await restatedData[0];
-  // console.log("Annual", annualIncomeData);
-
-  // prettier-ignore
-  const restatedIncome = annualIncomeData.map(item => {
-    // const incomeLabels= ['Revenue',
-    // 'Cost of Revenue',
-    // 'Gross Profit',
-    // 'Sales, General and Administrative',
-    // 'Other Expenses',
-    // 'Operating Expenses',
-    // 'Operating Income',
-    // 'Interest Expense',
-    // 'Other Income (Expense)',
-    // 'Pre-Tax Income',
-    // 'Tax Expense',
-    // 'Other Income',
-    // 'Continuing Net Income',
-    // 'Net Income',
-    // 'Common Equity Net Income',
-    // 'Basic EPS',
-    // 'Diluted EPS',
-    // 'EBITDA']
+  const restatedIS = annualISData.map(item => {
     const is = Object.values(item);
-    // console.log("is", is)
-    // const isObj ={
-    //   YrOne: parseInt(is[0]),
-    //   YrTwo: parseInt(is[1]),
-    //   YrThree: parseInt(is[2]),
-    //   YrFour: parseInt(is[3]),
-    //   YrFive: parseInt(is[4])}
-     
+
     return {
       YrOne: parseInt(is[0]),
       YrTwo: parseInt(is[1]),
       YrThree: parseInt(is[2]),
       YrFour: parseInt(is[3]),
-      YrFive: parseInt(is[4])}
+      YrFive: parseInt(is[4])
+    };
   });
-  // console.log("restatedIncome", restatedIncome);
-  // let restatedIncome = await incomeData.map(item => {
-  //   // const isItem = Object.values(item);
-  //   return {
-  //     Revenue: Object.values(item[0]),
-  //     "Cost of Goods Sold": Object.values(item[1]),
-  //     "Gross Profit": Object.values(item[2]),
-  //     "Operating Expenses": Object.values(item[5]),
-  //     "Operating Income": Object.values(item[6]),
-  //     EBITDA: Object.values(item[16]),
-  //     "Interest Expense": Object.values(item[7]),
-  //     "Other Income": Object.values(item[8]),
-  //     "Pre-Tax Income": Object.values(item[9]),
-  //     "Tax Expense": Object.values(item[10]),
-  //     "Continuing Net Income": Object.values(item[11]),
-  //     "Net Income": Object.values(item[12]),
-  //     "Common Net Income": Object.values(item[13]),
-  //     "Basic EPS": Object.values(item[14]),
-  //     "Diluted EPS": Object.values(item[15])
-  //   };
-  // });
-  // res.send(annualIncomeData);
-  res.send(restatedIncome);
+
+  const labeledIS = restatedIS.map((item, index) => {
+    return Object.assign({}, [index], item);
+  });
+  // console.log("labeledIS", labeledIS);
+  res.send(labeledIS);
 };

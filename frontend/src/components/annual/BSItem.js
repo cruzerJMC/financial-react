@@ -1,106 +1,115 @@
 import React, { Component } from "react";
 import { Table, List, Grid, Message, Divider } from "semantic-ui-react";
 
-class CFItem extends Component {
+class BSItem extends Component {
   renderLabels = () => {
     if (this.props[0] === 0) {
-      return "Net Income";
+      return "Cash and cash equivalents";
     }
     if (this.props[0] === 1) {
-      return "Depreciation & amortization";
+      return "Short-term investments";
     }
     if (this.props[0] === 2) {
-      return "Deferred income taxes";
+      return "Total Cash";
     }
     if (this.props[0] === 3) {
-      return "Stock based compensation";
+      return "Receivables";
     }
     if (this.props[0] === 4) {
-      return "Change in working capital";
+      return "Inventories";
     }
     if (this.props[0] === 5) {
-      return "Accounts receivable";
+      return "Deferred income taxes";
     }
     if (this.props[0] === 6) {
-      return "Inventory";
+      return "Other current assets";
     }
     if (this.props[0] === 7) {
-      return "Accounts payable";
+      return "'Total current assets'";
     }
     if (this.props[0] === 8) {
-      return "Other working capital";
+      return "Gross PP&E";
     }
     if (this.props[0] === 9) {
-      return "Other non-cash items";
+      return "Accumulated Depreciation";
     }
     if (this.props[0] === 10) {
-      return "Net Operating Cashflow";
+      return "Net PP&E";
     }
     if (this.props[0] === 11) {
-      return "Investments in property} plant} and equipment";
+      return "Equity and other investments";
     }
     if (this.props[0] === 12) {
-      return "Acquisitions} net";
+      return "Goodwill";
     }
     if (this.props[0] === 13) {
-      return "Purchases of investments";
+      return "Intangible assets";
     }
     if (this.props[0] === 14) {
-      return "Sales/Maturities of investments";
+      return "Other Long Term Assets";
     }
     if (this.props[0] === 15) {
-      return "Purchases of intangibles";
+      return "Total non-current assets";
     }
     if (this.props[0] === 16) {
-      return "Other investing activities";
+      return "Total assets";
     }
     if (this.props[0] === 17) {
-      return "Net Investing Cashflow";
+      return "Short-term debt";
     }
     if (this.props[0] === 18) {
-      return "Debt issued";
+      return "Accounts payable";
     }
     if (this.props[0] === 19) {
-      return "Debt repayment";
+      return "Taxes payable";
     }
     if (this.props[0] === 20) {
-      return "Common stock issued";
+      return "Accrued liabilities";
     }
     if (this.props[0] === 21) {
-      return "Common stock repurchased";
+      return "Deferred revenues";
     }
     if (this.props[0] === 22) {
-      return "Dividend paid";
+      return "Other current liabilities";
     }
     if (this.props[0] === 23) {
-      return "Other financing activities";
+      return "Total current liabilities";
     }
     if (this.props[0] === 24) {
-      return "Net Financing Cashflow";
+      return "Long-term debt";
     }
     if (this.props[0] === 25) {
-      return "Net change in cash";
+      return "Deferred taxes liabilities";
     }
     if (this.props[0] === 26) {
-      return "Cash at beginning of period";
+      return "Other long-term liabilitie";
     }
     if (this.props[0] === 27) {
-      return "Cash at end of period";
+      return "Total non-current liabilities";
     }
     if (this.props[0] === 28) {
-      return "Operating cash flow";
+      return "Total liabilities";
     }
     if (this.props[0] === 29) {
-      return "Capital expenditure";
+      return "Common stock";
     }
     if (this.props[0] === 30) {
-      return "Free cash flow";
+      return "Retained earnings";
+    }
+    if (this.props[0] === 31) {
+      return "Accumulated other comprehensive income";
+    }
+    if (this.props[0] === 32) {
+      return "Total stockholders' equity";
+    }
+    if (this.props[0] === 33) {
+      return "Total liabilities and stockholders' equity";
     } else {
-      return "CF Item";
+      return "BS Item";
     }
   };
   render() {
-    console.log("CFItem", this.props);
+    console.log("BSItem", this.props);
 
     return (
       // <div>Test</div>
@@ -164,4 +173,4 @@ class CFItem extends Component {
   }
 }
 
-export default CFItem;
+export default BSItem;

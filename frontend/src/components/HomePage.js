@@ -437,6 +437,7 @@ class HomePage extends Component {
               balance={this.state.balance}
               annualIS={this.state.annualIS}
               annualCF={this.state.annualCF}
+              annualBS={this.state.annualBS}
             />
           </div>
         )}

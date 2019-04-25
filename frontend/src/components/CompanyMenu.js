@@ -6,6 +6,7 @@ import CashflowList from "./CashflowList";
 import BalanceList from "./BalanceList";
 import ISList from "./annual/ISList";
 import CFList from "./annual/CFList";
+import BSList from "./annual/BSList";
 
 export default class CompanyMenu extends Component {
   state = { activeItem: "" };
@@ -28,6 +29,9 @@ export default class CompanyMenu extends Component {
     if (this.state.activeItem === "cashflowYR") {
       return this.renderAnnualCF();
     }
+    if (this.state.activeItem === "balanceYR") {
+      return this.renderAnnualBS();
+    }
     if (this.state.activeItem === "balance") {
       return this.renderBalance();
     }
@@ -47,6 +51,9 @@ export default class CompanyMenu extends Component {
   };
   renderAnnualCF = () => {
     return <CFList cashflow={this.props.annualCF} />;
+  };
+  renderAnnualBS = () => {
+    return <BSList balance={this.props.annualBS} />;
   };
   renderIncome = () => {
     return (
