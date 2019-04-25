@@ -46,6 +46,7 @@ class HomePage extends Component {
     annualIS: [],
     annualCF: [],
     annualBS: []
+    // articles: []
   };
 
   componentDidMount() {
@@ -58,13 +59,21 @@ class HomePage extends Component {
           tickers: tickers
         });
       });
+    // fetch("http://localhost:5000/api/articles")
+    //   .then(response => {
+    //     return response.json();
+    //   })
+    //   .then(articles => {
+    //     return this.setState({
+    //       articles: articles
+    //     });
+    //   });
 
     // const setArticles = async () => {
     //   let response = fetch("http://localhost:5000/api/notes");
     //   console.log("Response", response);
     // };
 
-    // setArticles();
     fetch("http://localhost:5000/api/notes")
       .then(response => {
         return response.json();

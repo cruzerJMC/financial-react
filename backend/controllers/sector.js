@@ -26,10 +26,10 @@ exports.getSectors = async (req, res) => {
   //   return item;
   // });
 
-  let newArray = await [json];
-  console.log("response", newArray);
-  let data = await newArray[0];
-  res.send(data);
+  // let newArray = await [json];
+  // console.log("response", newArray);
+  // let data = await newArray[0];
+  res.send(json);
 };
 
 // module.exports = {

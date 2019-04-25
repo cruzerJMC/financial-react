@@ -11,8 +11,10 @@
     "react-scripts": "2.1.8",
     "react-smooth-marquee": "^1.0.0",
     "react-ticker": "^1.1.2",
+    "sec-api": "^1.0.7",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.86.0"
+    "semantic-ui-react": "^0.86.0",
+    "socket.io-client": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

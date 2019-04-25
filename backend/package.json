@@ -17,9 +17,11 @@
     "helmet": "^3.16.0",
     "http": "^0.0.0",
     "morgan": "^1.9.1",
+    "newsapi": "^2.4.0",
     "node-fetch": "^2.3.0",
     "pg": "^7.9.0",
     "pg-hstore": "^2.3.2",
+    "sec-api": "^1.0.7",
     "sequelize": "^5.2.12",
     "sequelize-cli": "^5.4.0"
   },
