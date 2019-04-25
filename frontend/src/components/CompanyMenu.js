@@ -59,19 +59,11 @@ export default class CompanyMenu extends Component {
     return (
       <IncomeList
         income={this.props.income.filter((item, index) => {
-          return index > 26;
+          return index > 30;
         })}
         labels={Object.keys(this.props.income[0])}
-        // lablels={this.props.income.map(item => {
-        //   const key = Object.keys(item);
-        //   return key[0];
-        // })}
       />
     );
-    // const incomeArray = this.props.income.reverse();
-    // return incomeArray.map((item, index) => {
-    //   return <IncomeList key={index} {...item} />;
-    // });
   };
   // renderRatio = () => {
   //   return "Ratios";
@@ -80,13 +72,9 @@ export default class CompanyMenu extends Component {
     return (
       <BalanceList
         balance={this.props.balance.filter((item, index) => {
-          return index > 26;
+          return index > 30;
         })}
         labels={Object.keys(this.props.balance[0])}
-        // lablels={this.props.income.map(item => {
-        //   const key = Object.keys(item);
-        //   return key[0];
-        // })}
       />
     );
   };
@@ -94,7 +82,7 @@ export default class CompanyMenu extends Component {
     return (
       <CashflowList
         cashflow={this.props.cashflow.filter((item, index) => {
-          return index > 26;
+          return index > 30;
         })}
         labels={Object.keys(this.props.cashflow[0])}
         // lablels={this.props.income.map(item => {
@@ -115,14 +103,22 @@ export default class CompanyMenu extends Component {
             active={activeItem === "summary"}
             onClick={this.handleItemClick}
           >
-            Summary
+            <strong> Summary</strong>
           </Menu.Item>
           <Menu.Item
             name="incomeYR"
             active={activeItem === "incomeYR"}
             onClick={this.handleItemClick}
           >
-            Income Statement (YR)
+            <strong> Income Statement (Annual)</strong>
+          </Menu.Item>
+
+          <Menu.Item
+            name="balanceYR"
+            active={activeItem === "balanceYR"}
+            onClick={this.handleItemClick}
+          >
+            <strong> Balance Sheet (Annual)</strong>
           </Menu.Item>
           <Menu.Item
             inverted
@@ -130,28 +126,21 @@ export default class CompanyMenu extends Component {
             active={activeItem === "cashflowYR"}
             onClick={this.handleItemClick}
           >
-            Cashflow Statement (YR)
-          </Menu.Item>
-          <Menu.Item
-            name="balanceYR"
-            active={activeItem === "balanceYR"}
-            onClick={this.handleItemClick}
-          >
-            Balance Sheet (YR)
+            <strong> Cashflow Statement (Annual)</strong>
           </Menu.Item>
           <Menu.Item
             name="income"
             active={activeItem === "income"}
             onClick={this.handleItemClick}
           >
-            Income Statement (QTR)
+            <strong>Income Statement (QTR)</strong>
           </Menu.Item>
           <Menu.Item
             name="balance"
             active={activeItem === "balance"}
             onClick={this.handleItemClick}
           >
-            Balance Sheet (QTR)
+            <strong> Balance Sheet (QTR) </strong>
           </Menu.Item>
 
           <Menu.Item
@@ -159,7 +148,7 @@ export default class CompanyMenu extends Component {
             active={activeItem === "cashflow"}
             onClick={this.handleItemClick}
           >
-            Cashflow Statement (QTR)
+            <strong> Cashflow Statement (QTR) </strong>
           </Menu.Item>
           {/* <Menu.Item
             name="ratio"

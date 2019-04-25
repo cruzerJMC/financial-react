@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Header, Button, Segment, Grid, Container } from "semantic-ui-react";
-import HomePage from "./components/HomePage";
+// import HomePage from "./components/HomePage";
 import "./App.css";
 
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 // import Profile from "./components/Profile";
-
+import Main from "./components/Main";
 class App extends Component {
   state = {
     // consider moving this down
@@ -93,7 +93,8 @@ class App extends Component {
           </Header>
         </div>
         {/* <Profile /> */}
-        <HomePage />
+        <Main />
+        {/* <HomePage /> */}
       </div>
       // </Segment>
     );
@@ -150,7 +151,7 @@ class App extends Component {
         </div>
         {/* <Profile /> */}
 
-        <HomePage currentUser={this.state.currentUser} />
+        <Main currentUser={this.state.currentUser} />
       </div>
     ) : (
       logIn

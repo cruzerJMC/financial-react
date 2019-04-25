@@ -84,28 +84,36 @@ class NoteContainer extends Component {
     // console.log("Form", this.props);
     return (
       <div>
-        <form onSubmit={this.addNote}>
+        {/* <form onSubmit={this.addNote}> */}
+        <Form onSubmit={this.addNote}>
           {/* <input
             name="favId"
             value={this.props.clickedFavorite.id}
             ref="favId"
           /> */}
-          <input
-            name="title"
-            placeholder="Enter Title"
-            value={this.state.title}
-            onChange={this.handleInputChange}
-            ref="title"
-          />
-          <textarea
-            name="body"
-            placeholder="Write Note ...."
-            value={this.state.body}
-            onChange={this.handleInputChange}
-            ref="body"
-          />
-          <input type="submit" value="Submit" />
-        </form>
+          <Form.Field>
+            <label>Title</label>
+            <input
+              name="title"
+              placeholder="Enter Title"
+              value={this.state.title}
+              onChange={this.handleInputChange}
+              ref="title"
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Last Name</label>
+            <textarea
+              name="body"
+              placeholder="Write Note ...."
+              value={this.state.body}
+              onChange={this.handleInputChange}
+              ref="body"
+            />
+          </Form.Field>
+          <Button type="submit">Submit</Button>
+          {/* <input type="submit" value="Submit" /> */}
+        </Form>
       </div>
     );
   }

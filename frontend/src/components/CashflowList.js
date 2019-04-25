@@ -45,11 +45,8 @@ class CashflowList extends Component {
     console.log("CF list", this.props);
 
     return (
-      // <Segment>
-      <div>
-        {/* {this.renderTable()} */}
+      <Segment compact>
         <Table striped>
-          {/* <Segment> */}
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell textAlign="center">
@@ -57,16 +54,17 @@ class CashflowList extends Component {
               </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
-          {/* </Segment>
-          <Segment attached="bottom"> */}
+
           <Table.Body>
-            <Message color="violet">
-              <Grid column={2}>
+            <Message>
+              <Grid centered column={2}>
                 <Table.Row>
                   {this.props.labels.map(item => {
                     return (
                       <div>
-                        <Message>{item}</Message>
+                        <Message color="blue" style={{ color: "black" }}>
+                          <strong>{item}</strong>
+                        </Message>
                         <Divider inverted />
                         <br />
                       </div>
@@ -75,15 +73,13 @@ class CashflowList extends Component {
                 </Table.Row>
 
                 {this.props.cashflow.map((item, index) => {
-                  // const value = Object.values(item);
                   return <CfTable key={index} {...item} />;
                 })}
               </Grid>
             </Message>
           </Table.Body>
-          {/* </Segment> */}
         </Table>
-      </div>
+      </Segment>
     );
   }
 }

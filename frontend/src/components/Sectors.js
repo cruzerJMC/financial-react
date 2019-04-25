@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import { Table, Segment, Message } from "semantic-ui-react";
-// import Marquee from "react-smooth-marquee";
-import IndexItem from "./IndexItem";
-class Indexes extends Component {
+// // import Marquee from "react-smooth-marquee";
+import Sector from "./Sector";
+
+class Sectors extends Component {
   state = {
-    indexes: []
+    sectors: []
   };
 
   componentDidMount() {
-    fetch("http://localhost:5000/api/indexes")
+    fetch("http://localhost:5000/api/sectors")
       .then(response => {
         return response.json();
       })
-      .then(indexes => {
+      .then(sectors => {
         return this.setState({
-          indexes: Object.values(indexes)
+          sectors: Object.values(sectors)
         });
       });
   }
@@ -39,17 +40,7 @@ class Indexes extends Component {
             </Table.HeaderCell>
             <Table.HeaderCell>
               <Message color="black" style={{ color: "#7FFF00" }}>
-                Index
-              </Message>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Message color="black" style={{ color: "#7FFF00" }}>
-                Ticker
-              </Message>
-            </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Message color="black" style={{ color: "#7FFF00" }}>
-                Price
+                Sector
               </Message>
             </Table.HeaderCell>
             <Table.HeaderCell>
@@ -57,17 +48,12 @@ class Indexes extends Component {
                 Change
               </Message>
             </Table.HeaderCell>
-            <Table.HeaderCell>
-              <Message color="black" style={{ color: "#7FFF00" }}>
-                Updated
-              </Message>
-            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
         <Table.Body>
-          {this.state.indexes.map((item, index) => {
-            return <IndexItem key={item.ticker} num={index} {...item} />;
+          {this.state.sectors.map((item, index) => {
+            return <Sector key={item.Name} num={index} {...item} />;
           })}
         </Table.Body>
       </Table>
@@ -75,4 +61,4 @@ class Indexes extends Component {
   }
 }
 
-export default Indexes;
+export default Sectors;

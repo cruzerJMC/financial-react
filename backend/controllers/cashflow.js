@@ -28,9 +28,9 @@ exports.getCashflow = async (req, res) => {
     const value = Object.values(item);
     return {
       "Release Date": value[0],
-      // EBITDA: number(value[3]) + number(value[2]) + number(value[1]),
-      "Depreciation & Amortization": value[1],
-      "Stock-based Compensation": value[2],
+      // // EBITDA: number(value[3]) + number(value[2]) + number(value[1]),
+      // "Depreciation & Amortization": value[1],
+      // "Stock-based Compensation": value[2],
       "Operating Cash Flow": value[3],
       "Capital Expenditure": value[4],
       "Acquisitions and Disposals": value[5],

@@ -24,7 +24,7 @@ class BSList extends Component {
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell colSpan="6">
-                Annual Balance Sheet
+                <Message color="violet"> Annual Balance Sheet </Message>
               </Table.HeaderCell>
             </Table.Row>
             <Table.Row>

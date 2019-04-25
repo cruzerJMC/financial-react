@@ -8,6 +8,8 @@ import {
   Message,
   Segment,
   Table,
+  Label,
+  Statistic,
   Container,
   List,
   Tab
@@ -62,28 +64,32 @@ class IncomeList extends Component {
     });
 
     return (
-      <Segment>
-        <Table compact striped>
-          {/* <Table.Header>
+      <Segment compact>
+        <Table striped>
+          <Table.Header>
             <Table.Row>
               <Table.HeaderCell textAlign="center">
                 Quaterly Income Statement
               </Table.HeaderCell>
             </Table.Row>
-          </Table.Header> */}
-
-          {/* <Header as="h2" attached="top">
-              Quaterly Income Statement
-            </Header> */}
-          {/* <Table.Body> */}
-          <Grid columns="equal" centered>
-            <Message color="blue">
-              <Grid.Row>
+          </Table.Header>
+          {/* <Segment tertiary> */}
+          <Table.Body tertiary>
+            <Message>
+              <Grid centered column={2}>
                 <Table.Row>
                   {this.props.labels.map(item => {
                     return (
                       <div>
-                        <Message>{item}</Message>
+                        <Message style={{ color: "navy" }}>
+                          {/* <Message.Header as="a"> */}
+                          <strong>{item}</strong>
+                          {/* </Message.Header> */}
+
+                          {/* <strong>{item}</strong> */}
+                          {/* </Label> */}
+                        </Message>
+
                         <Divider inverted />
                         <br />
                       </div>
@@ -92,13 +98,12 @@ class IncomeList extends Component {
                 </Table.Row>
 
                 {this.props.income.map((item, index) => {
-                  // const value = Object.values(item);
                   return <IsTable key={index} {...item} />;
                 })}
-              </Grid.Row>
+              </Grid>
             </Message>
-          </Grid>
-          {/* </Table.Body> */}
+          </Table.Body>
+          {/* </Segment> */}
         </Table>
       </Segment>
     );

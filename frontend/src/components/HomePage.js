@@ -15,7 +15,7 @@ import {
 } from "semantic-ui-react";
 
 import TickerSideCard from "./TickerSideCard";
-import Indexes from "./Indexes";
+// import Indexes from "./Indexes";
 import TickerList from "./TickerList";
 import Search from "./Search";
 import WatchList from "./WatchList";
@@ -416,7 +416,7 @@ class HomePage extends Component {
                       </Header>
                     </Divider>
 
-                    <Indexes />
+                    {/* <Indexes /> */}
                   </Grid.Column>
                 </Grid.Row>
               </Grid>

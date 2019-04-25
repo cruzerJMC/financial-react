@@ -5,6 +5,7 @@ const financialController = require("../controllers/financial");
 const favoriteController = require("../controllers/favorite");
 const noteController = require("../controllers/note");
 const indexController = require("../controllers/market");
+const sectorController = require("../controllers/sector");
 const incomeController = require("../controllers/income");
 const ratioController = require("../controllers/ratio");
 const cashflowController = require("../controllers/cashflow");
@@ -21,6 +22,7 @@ module.exports = app => {
 
   app.get("/api/tickers", tickerController.getTickers);
   app.use("/api/indexes", indexController.getIndexes);
+  app.use("/api/sectors", sectorController.getSectors);
   app.use("/api/incomestatement", incomeController.getIncome);
   app.use("/api/annual-income", annualIncomeController.getAnnualIncome);
   app.use("/api/annual-cashflow", annualCashflowController.getAnnualCF);

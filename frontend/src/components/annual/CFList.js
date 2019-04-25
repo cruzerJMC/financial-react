@@ -24,7 +24,7 @@ class CFList extends Component {
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell colSpan="6">
-                Annual Cashflow Statement
+                <Message color="violet">Annual Cashflow Statement </Message>
               </Table.HeaderCell>
             </Table.Row>
             <Table.Row>

@@ -11,7 +11,8 @@ import {
   Table,
   Container,
   List,
-  Tab
+  Tab,
+  Label
 } from "semantic-ui-react";
 import BsTable from "./BsTable";
 
@@ -22,8 +23,7 @@ class BalanceList extends Component {
   render() {
     console.log("Balance List", this.props);
     return (
-      <Segment>
-        {/* {this.renderTable()} */}
+      <Segment compact>
         <Table striped>
           <Table.Header>
             <Table.Row>
@@ -34,13 +34,15 @@ class BalanceList extends Component {
           </Table.Header>
 
           <Table.Body>
-            <Message color="blue">
-              <Grid container column={2}>
+            <Message>
+              <Grid centered column={2}>
                 <Table.Row>
                   {this.props.labels.map(item => {
                     return (
                       <div>
-                        <Message>{item}</Message>
+                        <Message color="blue" style={{ color: "grey" }}>
+                          <strong>{item}</strong>
+                        </Message>
                         <Divider inverted />
                         <br />
                       </div>

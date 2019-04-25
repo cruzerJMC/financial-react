@@ -7,23 +7,28 @@ const IsTable = props => {
   return (
     <div>
       <Grid.Column width={1}>
-        <Message>{props["Release Date"]}</Message>
+        <Message color="violet">
+          {" "}
+          <strong>{props["Release Date"]}</strong>
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
 
       <Grid.Column width={1}>
-        <Message>
-          {(props.Revenue / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
+        <Message color="blue" style={{ color: "blue" }}>
+          <strong>
+            {(props.Revenue / decimal).toLocaleString("us-EN", {
+              style: "currency",
+              currency: "USD"
+            })}{" "}
+          </strong>
         </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
+        <Message info style={{ color: "red" }}>
           {(props["Cost of Revenue"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
@@ -33,17 +38,19 @@ const IsTable = props => {
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
-          {(props["Gross Profit"] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
+        <Message info style={{ color: "blue" }}>
+          <strong>
+            {(props["Gross Profit"] / decimal).toLocaleString("us-EN", {
+              style: "currency",
+              currency: "USD"
+            })}{" "}
+          </strong>
         </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
+        <Message info style={{ color: "red" }}>
           {(props["R&D Expenses"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
@@ -53,7 +60,7 @@ const IsTable = props => {
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
+        <Message info style={{ color: "red" }}>
           {(props["SG&A Expense"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
@@ -63,37 +70,43 @@ const IsTable = props => {
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
-          {(props["Operating Expenses"] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
+        <Message color="red" style={{ color: "red" }}>
+          <strong>
+            {(props["Operating Expenses"] / decimal).toLocaleString("us-EN", {
+              style: "currency",
+              currency: "USD"
+            })}
+          </strong>
         </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
-          {(props["Operating Income"] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
+        <Message color="blue" style={{ color: "blue" }}>
+          <strong>
+            {(props["Operating Income"] / decimal).toLocaleString("us-EN", {
+              style: "currency",
+              currency: "USD"
+            })}{" "}
+          </strong>
         </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
-          {(props["EBITDA"] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
+        <Message color="blue" style={{ color: "blue" }}>
+          <strong>
+            {(props["EBITDA"] / decimal).toLocaleString("us-EN", {
+              style: "currency",
+              currency: "USD"
+            })}{" "}
+          </strong>
         </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
+        <Message info style={{ color: "red" }}>
           {(props["Interest Expense"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
@@ -103,7 +116,7 @@ const IsTable = props => {
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
+        <Message info style={{ color: "blue" }}>
           {(props["Pre-tax Income"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
@@ -113,7 +126,7 @@ const IsTable = props => {
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
+        <Message info style={{ color: "red" }}>
           {(props["Income Tax Expense"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
@@ -123,17 +136,19 @@ const IsTable = props => {
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
-          {(props["Net Income"] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
+        <Message info style={{ color: "blue" }}>
+          <strong>
+            {(props["Net Income"] / decimal).toLocaleString("us-EN", {
+              style: "currency",
+              currency: "USD"
+            })}{" "}
+          </strong>
         </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
+        <Message info>
           {(props["Preferred Dividends"] / decimal).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
@@ -143,47 +158,55 @@ const IsTable = props => {
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
-          {(props["Net Income Common"] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
+        <Message color="blue" style={{ color: "blue" }}>
+          <strong>
+            {(props["Net Income Common"] / decimal).toLocaleString("us-EN", {
+              style: "currency",
+              currency: "USD"
+            })}{" "}
+          </strong>
         </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
-          {(props.EPS / 1).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
+        <Message info style={{ color: "blue" }}>
+          <strong>
+            {(props.EPS / 1).toLocaleString("us-EN", {
+              style: "currency",
+              currency: "USD"
+            })}
+          </strong>
         </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
-          {(props["EPS Diluted"] / 1).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
+        <Message info style={{ color: "blue" }}>
+          <strong>
+            {(props["EPS Diluted"] / 1).toLocaleString("us-EN", {
+              style: "currency",
+              currency: "USD"
+            })}
+          </strong>
         </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>{props["Weighted Average Shs Out"] / decimal}</Message>
+        <Message info>{props["Weighted Average Shs Out"] / decimal}</Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>{props["Weighted Average Shs Out (Dil)"] / decimal}</Message>
+        <Message info>
+          {props["Weighted Average Shs Out (Dil)"] / decimal}
+        </Message>
       </Grid.Column>
       <Divider />
       <br />
       <Grid.Column width={1}>
-        <Message>
+        <Message info>
           {(props["Dividend per Share"] / 1).toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
@@ -192,53 +215,37 @@ const IsTable = props => {
       </Grid.Column>
       <Divider />
       <br />
+      <Grid.Column width={1}>
+        <Message positive>
+          {(props["Gross Margin"] * 100).toFixed(2) + "%"}
+        </Message>
+      </Grid.Column>
+      <Divider />
+      <br />
 
-      {/* <Grid.Column width={1}>
-        <Message>
-          {(props["Total Liabilities"] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
+      <Grid.Column width={1}>
+        <Message positive>
+          {(props["EBIT Margin"] * 100).toFixed(2) + "%"}
         </Message>
       </Grid.Column>
       <Divider />
       <br />
-      <Grid.Column>
-        <Message>
-          {(props["Other Comprehensive Income"] / decimal).toLocaleString(
-            "us-EN",
-            {
-              style: "currency",
-              currency: "USD"
-            }
-          )}
+
+      <Grid.Column width={1}>
+        <Message positive>
+          {(props["EBITDA Margin"] * 100).toFixed(2) + "%"}
         </Message>
       </Grid.Column>
       <Divider />
       <br />
-      <Grid.Column>
-        <Message>
-          {(props["Retained Earnings (deficit)"] / decimal).toLocaleString(
-            "us-EN",
-            {
-              style: "currency",
-              currency: "USD"
-            }
-          )}
+
+      <Grid.Column width={1}>
+        <Message positive>
+          {(props["Net Margin"] * 100).toFixed(2) + "%"}
         </Message>
       </Grid.Column>
       <Divider />
       <br />
-      <Grid.Column>
-        <Message>
-          {(props["Shareholders Equity"] / decimal).toLocaleString("us-EN", {
-            style: "currency",
-            currency: "USD"
-          })}
-        </Message>
-      </Grid.Column>
-      <Divider />
-      <br /> */}
     </div>
   );
 };

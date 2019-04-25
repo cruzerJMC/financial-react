@@ -5,6 +5,7 @@ const financials = require("./financial");
 const notes = require("./note");
 const favorites = require("./favorite");
 const markets = require("./market");
+const sectors = require("./sector");
 const incomes = require("./income");
 const ratios = require("./ratio");
 const cashflows = require("./cashflow");
@@ -27,5 +28,6 @@ module.exports = {
   balances,
   annualincomes,
   annualcashflows,
-  annualbalances
+  annualbalances,
+  sectors
 };

@@ -24,9 +24,11 @@ class ISList extends Component {
       <div>
         <Table striped>
         <Table.Header>
+        
         <Table.Row>
-        <Table.HeaderCell colSpan='6'>Annual Income Statement</Table.HeaderCell>
+        <Table.HeaderCell colSpan='6'><Message color="violet">Annual Income Statement </Message></Table.HeaderCell>
       </Table.Row>
+     
           <Table.Row>
             <Table.HeaderCell colSpan='1'>Item</Table.HeaderCell>
             <Table.HeaderCell colSpan='1'>2014</Table.HeaderCell>
