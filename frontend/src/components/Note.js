@@ -13,7 +13,7 @@ import {
 } from "semantic-ui-react";
 
 import "../App.css";
-import { relative } from "path";
+// import { relative } from "path";
 
 class Note extends Component {
   state = { open: false };
@@ -25,78 +25,42 @@ class Note extends Component {
     const { open } = this.state;
     // console.log("Note", this.props);
     return (
-      <div>
-        <Table.Row>
-          <Table.Cell>
-            <Button
-              compact
-              basic
-              circular
-              size="tiny"
-              color="red"
-              icon={<Icon name="delete" />}
-              onClick={() => this.props.removeNote(this.props.id)}
-            />
-          </Table.Cell>
-          <Table.Cell>
-            <h3>{this.props.title} </h3>
-          </Table.Cell>
-          <Table.Cell>
-            <h5>{this.props.createdAt}</h5>
-          </Table.Cell>
+      <Table.Row>
+        <Table.Cell textAlign="center">
+          <Button
+            compact
+            basic
+            circular
+            size="tiny"
+            color="red"
+            icon={<Icon name="delete" />}
+            onClick={() => this.props.removeNote(this.props.id)}
+          />
+        </Table.Cell>
+        <Table.Cell>{this.props.title}</Table.Cell>
+        <Table.Cell textAlign="center">{this.props.createdAt}</Table.Cell>
 
-          {/* <Table.Cell>
-            <Button
-              animated="vertical"
-              content={open ? "Close Portal" : "Open Portal"}
-              negative={open}
-              positive={!open}
-              onClick={this.handleClick}
-            >
-              <Button.Content hidden>View Note</Button.Content>
-              <Button.Content visible>
-                <Icon name="shop" />
-              </Button.Content>
-            </Button>
-          </Table.Cell> */}
-
-          <Table.Cell>
-            <Modal trigger={<Button>View Note</Button>}>
-              <Modal.Header>{this.props.title}</Modal.Header>
-              <Segment>
-                <Container>
-                  <Modal.Content>
-                    <Modal.Description>
-                      <h3>{this.props.content}</h3>
-                    </Modal.Description>
-                  </Modal.Content>
-                </Container>
-                <br />
-                <Modal.Actions>
-                  <Button primary>
-                    Edit <Icon name="right chevron" />
-                  </Button>
-                </Modal.Actions>
-              </Segment>
-            </Modal>
-          </Table.Cell>
-        </Table.Row>
-        {/* <TransitionablePortal onClose={this.handleClose} open={open}>
-          <Segment
-            style={{
-              left: "40%",
-              position: "fixed",
-              top: "50%",
-              zIndex: 1000
-            }}
+        <Table.Cell textAlign="center">
+          <Modal
+            basic
+            trigger={
+              <Button icon>
+                <Icon name="eye" />
+              </Button>
+            }
           >
-            <Header>This is a controlled portal</Header>
-            <Message color="blue">
-              <p>{this.props.content}</p>
-            </Message>
-          </Segment>
-        </TransitionablePortal> */}
-      </div>
+            <Modal.Header textAlign="center">{this.props.title}</Modal.Header>
+            <Modal.Content textAlign="center" scrolling>
+              {this.props.content}
+            </Modal.Content>
+            <Modal.Actions>
+              <Button primary>
+                Edit <Icon name="right chevron" />
+              </Button>
+            </Modal.Actions>
+          </Modal>
+        </Table.Cell>
+      </Table.Row>
     );
   }
 }

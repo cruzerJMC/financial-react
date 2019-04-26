@@ -105,7 +105,8 @@ class TickerDetails extends Component {
             /> */}
 
             {/* <Financials fins={this.props.fins} /> */}
-            <Segment>
+            <Segment inverted>
+              {/* <Message color="violet" /> */}
               <NoteList
                 notes={this.props.notes.filter(note => {
                   return note.favTicker === this.props.clickedTicker.ticker;
