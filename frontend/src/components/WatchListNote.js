@@ -12,6 +12,8 @@ import {
   Table,
   Modal,
   List,
+  Popup,
+  Label,
   Button
 } from "semantic-ui-react";
 import WatchNote from "./WatchNote";
@@ -29,56 +31,66 @@ class WatchListNote extends Component {
     console.log("showing", clickedNote);
     return this.setState({
       clickedNote: clickedNote
+
       // watchNote: !this.state.watchNote
     });
   };
-  // viewTickerNote = () => {
-  //   console.log("NOTING");
-  //   return this.setState({
-  //     watchNote: !this.state.watchNote
-  //   });
-  // };
-  // listTickerNotes = () => {
-  //   if (this.props.notes.length === 0) {
-  //     return "Currently there are no notes for this company";
-  //   } else {
-  //     return this.props.notes.map(note => {
-  //       return (
-  //         <List divided relaxed>
-  //           {/* <List.Item onClick={() => this.renderClickedNote(note.id)}> */}
-  //           <List.Item onClick={() => this.renderClickedNote(note.id)}>
-  //             <List.Icon
-  //               name="crosshairs"
-  //               size="large"
-  //               verticalAlign="middle"
-  //             />
-  //             <List.Content>
-  //               <List.Header as="a">{note.title}</List.Header>
-  //             </List.Content>
-  //           </List.Item>
-  //         </List>
-  //       );
-  //     });
-  //   }
-  // };
+
+  handleModelRender = () => {
+    return this.setState({
+      clickedNote: []
+    });
+  };
+
   listTickerNotes = () => {
     if (this.props.notes.length === 0) {
       return "Currently there are no notes for this company";
     } else {
       return this.props.notes.map(note => {
         return (
-          <List divided relaxed>
-            {/* <List.Item onClick={() => this.renderClickedNote(note.id)}> */}
-            <List.Item onClick={() => this.renderClickedNote(note.id)}>
-              <List.Icon
-                name="crosshairs"
-                size="large"
-                verticalAlign="middle"
-              />
-              <List.Content>
-                <List.Header as="a">{note.title}</List.Header>
-              </List.Content>
-            </List.Item>
+          <List horizontal size="mini" selection divided>
+            <Modal
+              basic
+              size="small"
+              trigger={
+                <Message info>
+                  <List.Item>
+                    <List.Content
+                      onClick={() => this.renderClickedNote(note.id)}
+                    >
+                      <List.Header as="a">{note.title}</List.Header>
+                    </List.Content>
+                  </List.Item>
+                </Message>
+              }
+            >
+              <Modal.Header as="h2">
+                {this.state.clickedNote.title}
+              </Modal.Header>
+              <Modal.Header as="h6">
+                {this.state.clickedNote.createdAt}
+              </Modal.Header>
+              <Modal.Content scrolling>
+                <Modal.Description>
+                  <p>{this.state.clickedNote.content}</p>
+                </Modal.Description>
+              </Modal.Content>
+              {/* <Modal.Actions>
+                <Button
+                  // basic
+                  color="red"
+                  onClick={() =>
+                    this.props.removeNote(this.state.clickedNote.id)
+                  }
+                  inverted
+                >
+                  <Icon name="remove" /> Delete Note
+                </Button>
+                <Button color="blue" inverted>
+                  Next Note <Icon name="arrow alternate circle right" />
+                </Button>
+              </Modal.Actions> */}
+            </Modal>
           </List>
         );
       });
@@ -91,7 +103,7 @@ class WatchListNote extends Component {
   };
 
   render() {
-    console.log("WatchNote", this.props, this.state);
+    console.log("WatchListNote", this.props, this.state);
     return (
       <div>
         {this.listTickerNotes()}

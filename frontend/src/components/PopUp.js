@@ -17,7 +17,7 @@ class PopUp extends Component {
         <div className="popup">
           <div className="popup_inner">
             <div>
-              <Segment>
+              <Segment inverted>
                 <Button onClick={this.props.closePopup}>close me</Button>
                 <br />
                 <br />

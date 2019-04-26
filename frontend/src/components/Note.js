@@ -62,7 +62,7 @@ class Note extends Component {
 
           <Table.Cell>
             <Modal trigger={<Button>View Note</Button>}>
-              <Modal.Header>Profile Picture</Modal.Header>
+              <Modal.Header>{this.props.title}</Modal.Header>
               <Segment>
                 <Container>
                   <Modal.Content>

@@ -419,6 +419,7 @@ class HomePage extends Component {
                       removeFromWatchList={this.removeFromWatchList}
                       notes={this.state.notes}
                       toggleDetails={this.toggleDetails}
+                      removeNote={this.removeNote}
                     />
                     {/* <Divider inverted horizontal>
                       <Header inverted as="h4">

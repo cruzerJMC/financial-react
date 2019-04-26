@@ -92,7 +92,7 @@ class NoteContainer extends Component {
             ref="favId"
           /> */}
           <Form.Field>
-            <label>Title</label>
+            <label style={{ color: "blue" }}>Title</label>
             <input
               name="title"
               placeholder="Enter Title"
@@ -102,7 +102,7 @@ class NoteContainer extends Component {
             />
           </Form.Field>
           <Form.Field>
-            <label>Last Name</label>
+            <label style={{ color: "blue" }}>Content</label>
             <textarea
               name="body"
               placeholder="Write Note ...."

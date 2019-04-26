@@ -21,6 +21,7 @@ class WatchList extends Component {
                   removeFromWatchList={this.props.removeFromWatchList}
                   notes={this.props.notes}
                   toggleDetails={this.props.toggleDetails}
+                  removeNote={this.props.removeNote}
                 />
               );
             })}

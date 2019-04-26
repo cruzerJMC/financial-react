@@ -45,17 +45,20 @@ class WatchListItem extends Component {
     return (
       <div>
         {/* {() => this.renderNotes()} */}
-        <Message color="blue">
-          <Divider inverted horizontal>
-            <Header as="h4">
-              <Icon
-                name="remove"
-                onClick={() => this.props.removeFromWatchList(this.props.id)}
-              />
+        <Segment color="violet" attached="top">
+          <Label as="a" corner="right" color="red">
+            <Icon
+              name="remove"
+              onClick={() => this.props.removeFromWatchList(this.props.id)}
+            />
+          </Label>
+          <Divider style={{ color: "blue" }} inverted horizontal>
+            <Header style={{ color: "blue" }} as="h4">
               {this.props.name}
             </Header>
           </Divider>
-
+        </Segment>
+        <Message attached="bottom" color="blue">
           <List.Item>
             <List.Content>
               {/* <List.Header as="a">{this.props.ticker}</List.Header> */}
@@ -67,13 +70,19 @@ class WatchListItem extends Component {
               New Note
             </Label>
             <Label as="a" onClick={() => this.handleClick()}>
+              <Icon name="tasks" />
               Notes
-              <Icon name="archive" />
+              {/* <Label.Detail color="red" floating>
+                {this.state.currentNotes.length}
+              </Label.Detail> */}
             </Label>
           </List.Item>
           <br />
           {this.state.WatchListNote ? (
-            <WatchListNote notes={this.state.currentNotes} />
+            <WatchListNote
+              removeNote={this.props.removeNote}
+              notes={this.state.currentNotes}
+            />
           ) : null}
         </Message>
         <br />

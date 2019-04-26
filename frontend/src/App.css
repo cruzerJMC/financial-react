@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: blue;
 }
 
 .App-link {
@@ -50,8 +50,17 @@
   top: 25%;
   bottom: 25%;
   margin: auto;
-  background: white;
+  /* background: blue; */
+  background-image: url("https://ak3.picdn.net/shutterstock/videos/17622283/thumb/7.jpg");
 }
 .loginform {
-  background-image: url("http://forex-pros.ru/800/600/http/forex-investor.net/images/open-close_positions.jpg");
+  /* background-image: url("http://forex-pros.ru/800/600/http/forex-investor.net/images/open-close_positions.jpg"); */
+  /* background-image: url("https://paxforex.com/sites/default/files/should_you_trade_forex_without_indicators.jpg"); */
+  background-image: url("https://www.cryptonewsz.com/wp-content/uploads/2019/01/Bitcoin-Ripple-Ethereum-Bitcoin-Cash-EOS-Tether-Stellar-Litecoin-TRON-Bitcoin-SV-Cardano-IOTA-Price-Analysis-Jan.-21.jpg");
+}
+
+.pop {
+  /* background-image: url("http://forex-pros.ru/800/600/http/forex-investor.net/images/open-close_positions.jpg"); */
+  background-image: url("https://paxforex.com/sites/default/files/should_you_trade_forex_without_indicators.jpg");
+  /* background-image: url("https://www.cryptonewsz.com/wp-content/uploads/2019/01/Bitcoin-Ripple-Ethereum-Bitcoin-Cash-EOS-Tether-Stellar-Litecoin-TRON-Bitcoin-SV-Cardano-IOTA-Price-Analysis-Jan.-21.jpg"); */
 }
