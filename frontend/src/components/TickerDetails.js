@@ -17,7 +17,7 @@ import CompanyMenu from "./CompanyMenu";
 import "../App.css";
 
 // import ChartCont from "./ChartCont";
-import Metrics from "./Metrics";
+// import Metrics from "./Metrics";
 // import Financials from "./Financials";
 import Summary from "./Summary";
 import CompanyCard from "./CompanyCard";
@@ -96,11 +96,13 @@ class TickerDetails extends Component {
               annualIS={this.props.annualIS}
               annualCF={this.props.annualCF}
               annualBS={this.props.annualBS}
-            />
-            <Metrics
               metrics={this.props.metrics}
               clickedTicker={this.props.clickedTicker}
             />
+            {/* <Metrics
+              metrics={this.props.metrics}
+              clickedTicker={this.props.clickedTicker}
+            /> */}
 
             {/* <Financials fins={this.props.fins} /> */}
             <Segment>

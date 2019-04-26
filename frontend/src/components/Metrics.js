@@ -40,12 +40,14 @@ const Metrics = props => {
           </Table.Header>
           <Table.Body>
             <Table.Row>
-              <Table.Cell textAlign="center">${props.metrics.ev}</Table.Cell>
-              <Table.Cell textAlign="center">
-                {props.metrics.evebit}x
+              <Table.Cell textAlign="center" style={{ color: "blue" }}>
+                <strong>${props.metrics.ev}</strong>
               </Table.Cell>
-              <Table.Cell textAlign="center">
-                {props.metrics.evebitda}x
+              <Table.Cell textAlign="center" style={{ color: "blue" }}>
+                <strong>{props.metrics.evebit}x </strong>
+              </Table.Cell>
+              <Table.Cell textAlign="center" style={{ color: "blue" }}>
+                <strong>{props.metrics.evebitda}x </strong>
               </Table.Cell>
             </Table.Row>
           </Table.Body>
@@ -62,6 +64,19 @@ const Metrics = props => {
               <Table.HeaderCell textAlign="center">P/S(x)</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell textAlign="center" style={{ color: "#6600E6" }}>
+                <strong>${props.metrics.pe}x</strong>
+              </Table.Cell>
+              <Table.Cell textAlign="center" style={{ color: "#6600E6" }}>
+                <strong>{props.metrics.pb}x</strong>
+              </Table.Cell>
+              <Table.Cell textAlign="center" style={{ color: "#6600E6" }}>
+                <strong>{props.metrics.ps}x</strong>
+              </Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
       </Segment>
     </div>

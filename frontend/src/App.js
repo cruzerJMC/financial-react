@@ -118,19 +118,22 @@ class App extends Component {
           <Grid.Column textAlign="center">
             <Button.Group textAlign="center">
               <Button
+                // color="blue"
                 size="large"
                 id="signupButton"
                 onClick={() => this.switch("signup")}
-                className={this.state.signup ? "yellow" : "blue"}
+                className={this.state.signup ? "violet" : "blue"}
               >
+                {" "}
                 Sign Up
               </Button>
               {/* <Button.Or /> */}
               <Button
+                // color="violet"
                 size="large"
                 id="loginButton"
                 onClick={() => this.switch("login")}
-                className={this.state.login ? "yellow" : "blue"}
+                className={this.state.login ? "violet" : "blue"}
               >
                 Login
               </Button>

@@ -62,34 +62,34 @@ class ISItem extends Component {
 
     return (
       <Table.Row>
-        <Table.Cell>
+        <Table.Cell style={{ color: "blue" }}>
           <strong>{this.renderLabels()}</strong>
         </Table.Cell>
-        <Table.Cell>
+        <Table.Cell style={{ color: "blue" }} textAlign="center">
           {this.props.YrOne.toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
           })}
         </Table.Cell>
-        <Table.Cell>
+        <Table.Cell style={{ color: "blue" }} textAlign="center">
           {this.props.YrTwo.toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
           })}
         </Table.Cell>
-        <Table.Cell>
+        <Table.Cell style={{ color: "blue" }} textAlign="center">
           {this.props.YrThree.toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
           })}
         </Table.Cell>
-        <Table.Cell>
+        <Table.Cell style={{ color: "blue" }} textAlign="center">
           {this.props.YrFour.toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"
           })}
         </Table.Cell>
-        <Table.Cell>
+        <Table.Cell style={{ color: "blue" }} textAlign="center">
           {this.props.YrFive.toLocaleString("us-EN", {
             style: "currency",
             currency: "USD"

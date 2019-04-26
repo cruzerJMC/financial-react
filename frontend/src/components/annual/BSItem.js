@@ -115,58 +115,68 @@ class BSItem extends Component {
       // <div>Test</div>
       <Table.Row>
         {/* {this.renderISLabels()} */}
-        <Table.Cell>
+        <Table.Cell style={{ color: "blue" }}>
           <strong>{this.renderLabels()}</strong>
         </Table.Cell>
         {this.props.YrOne ? (
-          <Table.Cell>
+          <Table.Cell textAlign="center" style={{ color: "blue" }}>
             {this.props.YrOne.toLocaleString("us-EN", {
               style: "currency",
               currency: "USD"
             })}
           </Table.Cell>
         ) : (
-          <Table.Cell>N/A</Table.Cell>
+          <Table.Cell textAlign="center" style={{ color: "black" }}>
+            N/A
+          </Table.Cell>
         )}
         {this.props.YrTwo ? (
-          <Table.Cell>
+          <Table.Cell textAlign="center" style={{ color: "blue" }}>
             {this.props.YrTwo.toLocaleString("us-EN", {
               style: "currency",
               currency: "USD"
             })}
           </Table.Cell>
         ) : (
-          <Table.Cell>N/A</Table.Cell>
+          <Table.Cell textAlign="center" style={{ color: "blue" }}>
+            N/A
+          </Table.Cell>
         )}
         {this.props.YrThree ? (
-          <Table.Cell>
+          <Table.Cell textAlign="center" style={{ color: "blue" }}>
             {this.props.YrThree.toLocaleString("us-EN", {
               style: "currency",
               currency: "USD"
             })}
           </Table.Cell>
         ) : (
-          <Table.Cell>N/A</Table.Cell>
+          <Table.Cell textAlign="center" style={{ color: "blue" }}>
+            N/A
+          </Table.Cell>
         )}
         {this.props.YrFour ? (
-          <Table.Cell>
+          <Table.Cell textAlign="center" style={{ color: "blue" }}>
             {this.props.YrFour.toLocaleString("us-EN", {
               style: "currency",
               currency: "USD"
             })}
           </Table.Cell>
         ) : (
-          <Table.Cell>N/A</Table.Cell>
+          <Table.Cell textAlign="center" style={{ color: "blue" }}>
+            N/A
+          </Table.Cell>
         )}
         {this.props.YrFive ? (
-          <Table.Cell>
+          <Table.Cell textAlign="center" style={{ color: "blue" }}>
             {this.props.YrFive.toLocaleString("us-EN", {
               style: "currency",
               currency: "USD"
             })}
           </Table.Cell>
         ) : (
-          <Table.Cell>N/A</Table.Cell>
+          <Table.Cell textAlign="center" style={{ color: "blue" }}>
+            N/A
+          </Table.Cell>
         )}
       </Table.Row>
     );

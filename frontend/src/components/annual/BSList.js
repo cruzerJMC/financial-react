@@ -23,17 +23,27 @@ class BSList extends Component {
         <Table striped>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell colSpan="6">
+              <Table.HeaderCell textAlign="center" colSpan="6">
                 <Message color="violet"> Annual Balance Sheet </Message>
               </Table.HeaderCell>
             </Table.Row>
             <Table.Row>
               <Table.HeaderCell colSpan="1">Item</Table.HeaderCell>
-              <Table.HeaderCell colSpan="1">2014</Table.HeaderCell>
-              <Table.HeaderCell colSpan="1">2015</Table.HeaderCell>
-              <Table.HeaderCell colSpan="1">2016</Table.HeaderCell>
-              <Table.HeaderCell colSpan="1">2017</Table.HeaderCell>
-              <Table.HeaderCell colSpan="1">2018</Table.HeaderCell>
+              <Table.HeaderCell colSpan="1" textAlign="center">
+                2014
+              </Table.HeaderCell>
+              <Table.HeaderCell colSpan="1" textAlign="center">
+                2015
+              </Table.HeaderCell>
+              <Table.HeaderCell colSpan="1" textAlign="center">
+                2016
+              </Table.HeaderCell>
+              <Table.HeaderCell colSpan="1" textAlign="center">
+                2017
+              </Table.HeaderCell>
+              <Table.HeaderCell colSpan="1" textAlign="center">
+                2018
+              </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 

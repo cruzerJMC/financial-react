@@ -33,32 +33,32 @@ class Indexes extends Component {
         <Table.Header>
           <Table.Row textAlign="center">
             <Table.HeaderCell>
-              <Message color="black" style={{ color: "#7FFF00" }}>
+              <Message color="black" style={{ color: "#8A2BE2" }}>
                 #
               </Message>
             </Table.HeaderCell>
             <Table.HeaderCell>
-              <Message color="black" style={{ color: "#7FFF00" }}>
+              <Message color="black" style={{ color: "#8A2BE2" }}>
                 Index
               </Message>
             </Table.HeaderCell>
             <Table.HeaderCell>
-              <Message color="black" style={{ color: "#7FFF00" }}>
+              <Message color="black" style={{ color: "#8A2BE2" }}>
                 Ticker
               </Message>
             </Table.HeaderCell>
             <Table.HeaderCell>
-              <Message color="black" style={{ color: "#7FFF00" }}>
+              <Message color="black" style={{ color: "#8A2BE2" }}>
                 Price
               </Message>
             </Table.HeaderCell>
             <Table.HeaderCell>
-              <Message color="black" style={{ color: "#7FFF00" }}>
+              <Message color="black" style={{ color: "#8A2BE2" }}>
                 Change
               </Message>
             </Table.HeaderCell>
             <Table.HeaderCell>
-              <Message color="black" style={{ color: "#7FFF00" }}>
+              <Message color="black" style={{ color: "#8A2BE2" }}>
                 Updated
               </Message>
             </Table.HeaderCell>

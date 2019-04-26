@@ -7,6 +7,7 @@ import BalanceList from "./BalanceList";
 import ISList from "./annual/ISList";
 import CFList from "./annual/CFList";
 import BSList from "./annual/BSList";
+import Metrics from "./Metrics";
 
 export default class CompanyMenu extends Component {
   state = { activeItem: "" };
@@ -43,7 +44,12 @@ export default class CompanyMenu extends Component {
   };
 
   renderSummary = () => {
-    return <Financials fins={this.props.fins} />;
+    return (
+      <div>
+        <Financials fins={this.props.fins} />
+        <Metrics metrics={this.props.metrics} />
+      </div>
+    );
   };
 
   renderAnnualIncome = () => {

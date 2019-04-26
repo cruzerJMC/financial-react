@@ -63,7 +63,7 @@ class Ticker extends Component {
         </Table.Cell>
         <Table.Cell onClick={() => this.tickerClickHandler()}>
           <Message color="blue">
-            <h3>{this.props.name}</h3>
+            <h6>{this.props.name}</h6>
           </Message>
         </Table.Cell>
         <Table.Cell

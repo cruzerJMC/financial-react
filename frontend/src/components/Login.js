@@ -32,8 +32,11 @@ export default class Login extends Component {
             verticalAlign="middle"
           >
             <Grid.Column style={{ maxWidth: 450 }}>
-              <Header as="h2" color="teal" textAlign="center">
-                <Message>FINTECH</Message>
+              <Header as="h2" color="violet" textAlign="center">
+                <Message style={{ color: "blue" }}>
+                  {" "}
+                  <strong>FIN-ALYZE</strong>
+                </Message>
                 Log-in to your account
               </Header>
               <Form size="large" onSubmit={this.props.handleSubmit}>
