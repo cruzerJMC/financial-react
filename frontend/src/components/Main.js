@@ -40,7 +40,7 @@ class Main extends Component {
   };
   render() {
     return (
-      <div>
+      <Segment invereted>
         {/* <Header as="h2">Welcome</Header> */}
         <Menu>
           <Menu.Item name="company" onClick={() => this.companyClick()}>
@@ -65,7 +65,7 @@ class Main extends Component {
             <HomePage currentUser={this.props.currentUser} />
           ) : null}
         </Segment>
-      </div>
+      </Segment>
     );
   }
 }

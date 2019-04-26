@@ -417,13 +417,15 @@ class HomePage extends Component {
                       togglePopup={this.togglePopup}
                       watchlist={this.state.watchList}
                       removeFromWatchList={this.removeFromWatchList}
+                      notes={this.state.notes}
+                      toggleDetails={this.toggleDetails}
                     />
-                    <Divider inverted horizontal>
+                    {/* <Divider inverted horizontal>
                       <Header inverted as="h4">
                         <Icon inverted name="tag" />
                         Major Indexes
                       </Header>
-                    </Divider>
+                    </Divider> */}
 
                     {/* <Indexes /> */}
                   </Grid.Column>

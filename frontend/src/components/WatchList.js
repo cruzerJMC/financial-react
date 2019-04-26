@@ -19,6 +19,8 @@ class WatchList extends Component {
                   togglePopup={this.props.togglePopup}
                   metrics={this.props.metrics}
                   removeFromWatchList={this.props.removeFromWatchList}
+                  notes={this.props.notes}
+                  toggleDetails={this.props.toggleDetails}
                 />
               );
             })}

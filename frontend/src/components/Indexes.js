@@ -31,6 +31,14 @@ class Indexes extends Component {
     return (
       <Table striped inverted>
         <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell textAlign="center" inverted colSpan="6">
+              {/* <Message color="violet"> Sector Performance </Message> */}
+              {/* <strong style={{ color: "#F59900" }}>Sector Performance </strong> */}
+              <strong style={{ color: "#D3D3D3" }}>Major Indexes </strong>
+            </Table.HeaderCell>
+          </Table.Row>
+
           <Table.Row textAlign="center">
             <Table.HeaderCell>
               <Message color="black" style={{ color: "#8A2BE2" }}>

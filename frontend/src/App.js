@@ -83,29 +83,32 @@ class App extends Component {
     }
   };
 
-  renderHeader = () => {
-    return (
-      // <Segment inverted>
-      <div className="ui raised segment">
-        <div className="ui segment violet inverted">
-          <Header color={"violet"} inverted as="h1">
-            Fin-Analyze Dashboard
-          </Header>
-        </div>
-        {/* <Profile /> */}
-        <Main />
-        {/* <HomePage /> */}
-      </div>
-      // </Segment>
-    );
-  };
+  // renderHeader = () => {
+  //   return (
+  //     <Segment inverted>
+  //       {/* <div className="ui raised segment inverted"> */}
+  //       <div className="ui segment violet inverted">
+  //         <Header color={"violet"} inverted as="h1">
+  //           Fin-Analyze Dashboard
+  //         </Header>
+  //       </div>
+  //       {/* <Profile /> */}
+  //       <Main />
+  //       {/* <HomePage /> */}
+  //       {/* </div> */}
+  //     </Segment>
+  //   );
+  // };
 
   render() {
     // console.log("UserContainer", this.state);
+
     const logIn = (
-      <div>
+      <div className="loginform">
         {/* emailInput={this.state.emailInput}  passwordInput={this.state.passwordInput} confirmInput={this.state.confirmInput} firstInput={this.state.firstInput} lastInput={this.state.lastInput}/> : null} */}
+        {/* {this.state.signup ? <Signup /> : null} */}
         {this.state.signup ? <Signup /> : null}
+
         {this.state.login ? (
           <Login
             handleSubmit={this.handleLogIn}
@@ -141,38 +144,24 @@ class App extends Component {
           </Grid.Column>
         </Grid>
       </div>
+      // {/* </div> */}
     );
-
     return this.state.loggedIn ? (
-      <div>
-        <div className="ui raised segment">
-          <div className="ui segment violet inverted">
-            <Header color={"violet"} inverted as="h1">
-              Fin-Analyze Dashboard
-            </Header>
-          </div>
+      <Segment inverted>
+        {/* <div className="ui raised segment"> */}
+        <div className="ui segment violet inverted">
+          <Header color={"violet"} inverted as="h1">
+            Fin-Analyze Dashboard
+          </Header>
         </div>
-        {/* <Profile /> */}
+        {/* </div> */}
 
         <Main currentUser={this.state.currentUser} />
-      </div>
+      </Segment>
     ) : (
       logIn
     );
   }
-
-  // render() {
-  //   return (
-  //     <div className="ui raised segment">
-  //       <div className="ui segment violet inverted">
-  //         <Header color={"violet"} inverted as="h1">
-  //           Fin-Analyze Dashboard
-  //         </Header>
-  //         <HomePage />
-  //       </div>
-  //     </div>
-  //   );
-  // }
 }
 
 export default App;

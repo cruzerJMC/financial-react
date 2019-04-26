@@ -1,5 +1,15 @@
 import React, { Component } from "react";
-import { Menu, Header, Container, Segment } from "semantic-ui-react";
+import {
+  Menu,
+  Header,
+  Container,
+  Segment,
+  Icon,
+  Grid,
+  Divider,
+  Image,
+  Message
+} from "semantic-ui-react";
 
 import Indexes from "./Indexes";
 import Sectors from "./Sectors";
@@ -29,8 +39,23 @@ export default class MarketPage extends Component {
 }
 `}
         </style>
-        <Indexes />
-        <Sectors />
+        <Segment inverted attached="top">
+          <Message color="blue" />
+        </Segment>
+
+        <Segment attached="bottom" inverted>
+          <Grid columns={2} textAlign="center">
+            {/* <Divider vertical>Or</Divider> */}
+            <Grid.Row>
+              <Grid.Column color="black">
+                <Indexes />
+              </Grid.Column>
+              <Grid.Column color="black">
+                <Sectors />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Segment>
       </Segment>
     );
   }
