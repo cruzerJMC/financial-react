@@ -103,7 +103,7 @@ class WatchListNote extends Component {
   };
 
   render() {
-    console.log("WatchListNote", this.props, this.state);
+    // console.log("WatchListNote", this.props, this.state);
     return (
       <div>
         {this.listTickerNotes()}

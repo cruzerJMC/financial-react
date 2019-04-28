@@ -41,7 +41,7 @@ class WatchListItem extends Component {
     this.renderNotes();
   };
   render() {
-    console.log("watchitem", this.props, this.state);
+    // console.log("watchitem", this.props, this.state);
     return (
       <div>
         {/* {() => this.renderNotes()} */}

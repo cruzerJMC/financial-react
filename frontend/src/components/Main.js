@@ -4,11 +4,13 @@ import { Menu, Header, Container, Segment, Message } from "semantic-ui-react";
 import HomePage from "./HomePage";
 import MarketPage from "./MarketPage";
 import NewsList from "./NewsList";
+import ModelPage from "./model/ModelPage";
 class Main extends Component {
   state = {
     company: true,
     industry: false,
-    news: false
+    news: false,
+    model: false
   };
   buttonToggle = word => {
     // console.log("switching", word, this.state.company, this.state.industry)
@@ -16,20 +18,31 @@ class Main extends Component {
       return this.setState({
         company: false,
         industry: true,
-        news: false
+        news: false,
+        model: false
       });
     }
     if (word === "news") {
       return this.setState({
         company: false,
         industry: false,
-        news: true
+        news: true,
+        model: false
+      });
+    }
+    if (word === "model") {
+      return this.setState({
+        company: false,
+        industry: false,
+        news: false,
+        model: true
       });
     } else {
       return this.setState({
         company: true,
         industry: false,
-        news: false
+        news: false,
+        model: false
       });
     }
   };
@@ -57,6 +70,13 @@ class Main extends Component {
           >
             <strong> Company Analysis </strong>
           </Menu.Item>
+          <Menu.Item
+            style={{ color: "blue" }}
+            name="news"
+            onClick={() => this.buttonToggle("model")}
+          >
+            <strong> Financial Model </strong>
+          </Menu.Item>
 
           <Menu.Item
             style={{ color: "blue" }}
@@ -75,8 +95,10 @@ class Main extends Component {
         </Menu>
 
         <Segment inverted>
+          {this.state.model ? <ModelPage /> : null}
           {this.state.industry ? <MarketPage /> : null}
           {this.state.news ? <NewsList /> : null}
+
           {this.state.company ? (
             <HomePage currentUser={this.props.currentUser} />
           ) : null}

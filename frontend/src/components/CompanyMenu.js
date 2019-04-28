@@ -8,15 +8,35 @@ import ISList from "./annual/ISList";
 import CFList from "./annual/CFList";
 import BSList from "./annual/BSList";
 import Metrics from "./Metrics";
+import ModelPage from "./model/ModelPage";
 
 export default class CompanyMenu extends Component {
-  state = { activeItem: "" };
+  state = {
+    activeItem: ""
+    // historicals: []
+  };
 
   handleItemClick = (e, { name }) => {
     console.log("tabling", name);
     this.setState({ activeItem: name });
     // this.switchFunc(name);
   };
+
+  // handleForcastFetch = async () => {
+  //   // e.preventDefault();
+  //   const response = await fetch("http://localhost:5000/api/historicals", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({ post: this.props.clickedTicker.ticker })
+  //   });
+  //   const body = await response.json();
+  //   // console.log(body);
+  //   this.setState({
+  //     historicals: body
+  //   });
+  // };
   renderToggle = () => {
     // if (this.state.activeItem === "ratio") {
     //   return this.renderRatio();
@@ -38,6 +58,9 @@ export default class CompanyMenu extends Component {
     }
     if (this.state.activeItem === "cashflow") {
       return this.renderCashflow();
+    }
+    if (this.state.activeItem === "model") {
+      return this.renderModelPage();
     } else {
       return this.renderSummary();
     }
@@ -61,19 +84,16 @@ export default class CompanyMenu extends Component {
   renderAnnualBS = () => {
     return <BSList balance={this.props.annualBS} />;
   };
-  renderIncome = () => {
-    return (
-      <IncomeList
-        income={this.props.income.filter((item, index) => {
-          return index > 30;
-        })}
-        labels={Object.keys(this.props.income[0])}
-      />
-    );
-  };
-  // renderRatio = () => {
-  //   return "Ratios";
+
+  // renderModel = async () => {
+  //   await this.handleForcastFetch();
+  //   await this.renderModelPage();
   // };
+
+  renderModelPage = () => {
+    return <ModelPage historicals={[this.props.historicals]} />;
+  };
+
   renderBalance = () => {
     return (
       <BalanceList
@@ -100,6 +120,8 @@ export default class CompanyMenu extends Component {
   };
   render() {
     const { activeItem } = this.state;
+
+    // console.log("CompanyMenu", this.props);
 
     return (
       <div>
@@ -156,13 +178,13 @@ export default class CompanyMenu extends Component {
           >
             <strong> Cashflow Statement (QTR) </strong>
           </Menu.Item>
-          {/* <Menu.Item
-            name="ratio"
-            active={activeItem === "ratio"}
+          <Menu.Item
+            name="model"
+            active={activeItem === "model"}
             onClick={this.handleItemClick}
           >
-            Ratios
-          </Menu.Item> */}
+            <strong> Financial Models </strong>
+          </Menu.Item>
         </Menu>
 
         <Segment>{this.renderToggle()}</Segment>

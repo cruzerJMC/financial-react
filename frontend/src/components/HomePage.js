@@ -45,7 +45,9 @@ class HomePage extends Component {
     balance: [],
     annualIS: [],
     annualCF: [],
-    annualBS: []
+    annualBS: [],
+    historicals: []
+
     // articles: []
   };
 
@@ -59,21 +61,6 @@ class HomePage extends Component {
           tickers: tickers
         });
       });
-    // fetch("http://localhost:5000/api/articles")
-    //   .then(response => {
-    //     return response.json();
-    //   })
-    //   .then(articles => {
-    //     return this.setState({
-    //       articles: articles
-    //     });
-    //   });
-
-    // const setArticles = async () => {
-    //   let response = fetch("http://localhost:5000/api/notes");
-    //   console.log("Response", response);
-    // };
-
     fetch("http://localhost:5000/api/notes")
       .then(response => {
         return response.json();
@@ -151,6 +138,21 @@ class HomePage extends Component {
     });
   };
 
+  handleHistoricals = async () => {
+    // e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/historicals", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ post: this.state.clickedTicker.ticker })
+    });
+    const body = await response.json();
+    // console.log(body);
+    this.setState({
+      historicals: body
+    });
+  };
   handleAnnualIncome = async () => {
     // e.preventDefault();
     const response = await fetch("http://localhost:5000/api/annual-income", {
@@ -393,6 +395,7 @@ class HomePage extends Component {
                       handleAnnualIncome={this.handleAnnualIncome}
                       handleAnnualCF={this.handleAnnualCF}
                       handleAnnualBS={this.handleAnnualBS}
+                      handleHistoricals={this.handleHistoricals}
                       // filterFavorites={this.filterFavorites()}
                     />
                   </Grid.Column>
@@ -450,6 +453,7 @@ class HomePage extends Component {
               annualIS={this.state.annualIS}
               annualCF={this.state.annualCF}
               annualBS={this.state.annualBS}
+              historicals={this.state.historicals}
             />
           </div>
         )}

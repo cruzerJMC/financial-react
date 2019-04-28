@@ -79,7 +79,7 @@ class TickerSideCard extends Component {
 
   render() {
     // const { activeItem } = this.state;
-    console.log("details", this.props);
+    // console.log("details", this.props);
 
     return (
       <div>

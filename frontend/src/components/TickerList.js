@@ -40,6 +40,7 @@ class TickerList extends Component {
                   handleAnnualIncome={this.props.handleAnnualIncome}
                   handleAnnualCF={this.props.handleAnnualCF}
                   handleAnnualBS={this.props.handleAnnualBS}
+                  handleHistoricals={this.props.handleHistoricals}
                 />
               );
             })}

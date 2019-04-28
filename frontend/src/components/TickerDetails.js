@@ -68,7 +68,7 @@ class TickerDetails extends Component {
   };
   render() {
     const company = this.state.profile[0];
-    console.log("tickerDetails", this.state, company);
+    // console.log("tickerDetails", this.state, company);
 
     return (
       <div>
@@ -98,6 +98,7 @@ class TickerDetails extends Component {
               annualBS={this.props.annualBS}
               metrics={this.props.metrics}
               clickedTicker={this.props.clickedTicker}
+              historicals={this.props.historicals}
             />
             {/* <Metrics
               metrics={this.props.metrics}

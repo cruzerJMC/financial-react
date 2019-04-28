@@ -32,7 +32,7 @@ class WatchList extends Component {
   };
 
   render() {
-    console.log("WATCH", this.props);
+    // console.log("WATCH", this.props);
     return <div>{this.renderWatchList()}</div>;
   }
 }

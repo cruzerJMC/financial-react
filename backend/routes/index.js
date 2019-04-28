@@ -14,6 +14,8 @@ const balanceController = require("../controllers/balance");
 const annualIncomeController = require("../controllers/annual/income");
 const annualCashflowController = require("../controllers/annual/cashflow");
 const annualBalanceController = require("../controllers/annual/balance");
+const revenueController = require("../controllers/projections/revenue");
+
 module.exports = app => {
   app.get("/api", (req, res) =>
     res.status(200).send({
@@ -51,4 +53,6 @@ module.exports = app => {
   app.get("/api/notes", noteController.listNotes);
   app.post("/api/user_note", noteController.addNote);
   app.delete("/api/delete_note/:id", noteController.deleteNote);
+
+  app.use("/api/historicals", revenueController.getRevenue);
 };
