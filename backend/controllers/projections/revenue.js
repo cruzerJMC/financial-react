@@ -28,7 +28,7 @@ exports.getRevenue = async (req, res) => {
   // console.log("json", json);
   // // // // only proceed once promise is resolved
   let datatable = await json.datatable.data;
-  console.log("datatable", datatable);
+  // console.log("datatable", datatable);
 
   // let historicals = await Object.assign(
   //   {},
@@ -85,7 +85,7 @@ exports.getRevenue = async (req, res) => {
     //   { [index]: item[6] }
     // );
   });
-  console.log("reorganizedData", reorganizedData);
+  // console.log("reorganizedData", reorganizedData);
 
   // let reorganizedData = await historicals.map(item => {
   //   return item;

@@ -17,7 +17,7 @@ class TickerList extends Component {
 
     return (
       <div>
-        <Table striped color={"violet"} inverted>
+        <Table striped inverted>
           <Table.Header>
             <TickersHeader />
           </Table.Header>

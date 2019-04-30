@@ -24,7 +24,7 @@ exports.getAnnualIncome = async (req, res) => {
   let originalISObj = await data.map(item => {
     const values = Object.values(item);
     const labels = Object.keys(item);
-    console.log("Labels", labels);
+    // console.log("Labels", labels);
     return { label: labels, value: values };
   });
   // console.log("originalISObj", originalISObj);

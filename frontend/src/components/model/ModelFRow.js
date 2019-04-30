@@ -27,6 +27,7 @@ class ModelFRow extends Component {
         <Table.Row textAlign="center">{props.OCF}</Table.Row>
         <Table.Row textAlign="center">{props.Conversion}</Table.Row>
         <Table.Row textAlign="center">{props.FCF}</Table.Row> */}
+
         <Message color="black" textAlign="center">
           <Table.Row style={{ color: "#6666ff" }}>
             <strong>

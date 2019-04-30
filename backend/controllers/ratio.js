@@ -18,18 +18,31 @@ exports.getRatio = async (req, res) => {
   // // // only proceed once promise is resolved
   let json = await response.json();
   // console.log("json", json);
-
+  let ticker = await json.symbol;
+  // console.log("ticker", ticker);
+  let data = await [json.financialRatios];
+  // console.log("data", typeof data, data);
   // // const labels = await json.datatable.columns.map(item => {
   // //   return item.name;
   // // });
+  let ratioData = await data.map(ratio => {
+    return Object.values(ratio);
+  });
+  // console.log("ratioData", ratioData);
 
-  // // const dataRes = await new Array(json).map((item, index) => {
-  // //   console.log("idex", item);
-  // //   return item;
-  // // });
+  let reformatedData = await ratioData.map(item => {
+    // console.log(item);
+    return {
+      ticker: ticker,
+      one: Object.values(item[0]),
+      two: Object.values(item[1]),
+      three: Object.values(item[2]),
+      four: Object.values(item[3]),
+      five: Object.values(item[4])
+    };
+  });
 
-  // let newArray = await [json];
-  // // console.log("response", newArray);
-  // let data = await newArray[0];
-  res.send(json);
+  // console.log("refromated", reformatedData);
+
+  res.send(reformatedData);
 };

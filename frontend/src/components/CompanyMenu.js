@@ -124,7 +124,8 @@ export default class CompanyMenu extends Component {
     // console.log("CompanyMenu", this.props);
 
     return (
-      <div>
+      // <div>
+      <Segment inverted>
         <Menu>
           <Menu.Item
             name="summary"
@@ -188,7 +189,8 @@ export default class CompanyMenu extends Component {
         </Menu>
 
         <Segment>{this.renderToggle()}</Segment>
-      </div>
+      </Segment>
+      // </div>
     );
   }
 }

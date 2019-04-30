@@ -26,7 +26,7 @@ class HomePage extends Component {
   state = {
     inputValue: "",
     showPopup: false,
-    tickers: [],
+    // tickers: [],
     clickedTicker: null,
     response: "",
     post: "",
@@ -40,7 +40,7 @@ class HomePage extends Component {
     notes: [],
     profiles: [],
     income: [],
-    ratio: [],
+    // ratio: [],
     cashflow: [],
     balance: [],
     annualIS: [],
@@ -52,15 +52,15 @@ class HomePage extends Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:5000/api/tickers")
-      .then(response => {
-        return response.json();
-      })
-      .then(tickers => {
-        return this.setState({
-          tickers: tickers
-        });
-      });
+    // fetch("http://localhost:5000/api/tickers")
+    //   .then(response => {
+    //     return response.json();
+    //   })
+    //   .then(tickers => {
+    //     return this.setState({
+    //       tickers: tickers
+    //     });
+    //   });
     fetch("http://localhost:5000/api/notes")
       .then(response => {
         return response.json();
@@ -88,7 +88,7 @@ class HomePage extends Component {
   };
 
   filterTickers = () =>
-    this.state.tickers.filter(item => {
+    this.props.tickers.filter(item => {
       return (
         item.name.toLowerCase().includes(this.state.inputValue.toLowerCase()) ||
         item.ticker
@@ -114,7 +114,7 @@ class HomePage extends Component {
   };
 
   showDetails = itemId => {
-    const clickedTicker = this.state.tickers.find(item => item.id === itemId);
+    const clickedTicker = this.props.tickers.find(item => item.id === itemId);
     // console.log("showing", clickedTicker);
     this.setState({
       clickedTicker: clickedTicker
@@ -278,25 +278,25 @@ class HomePage extends Component {
       balance: body
     });
   };
-  handleRatioPost = async () => {
-    // e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/ratios", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ post: this.state.clickedTicker.ticker })
-    });
-    const body = await response.json();
-    // console.log(body);
-    this.setState({
-      ratio: body.financialRatios
-    });
-  };
+  // handleRatioPost = async () => {
+  //   // e.preventDefault();
+  //   const response = await fetch("http://localhost:5000/api/ratios", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({ post: this.state.clickedTicker.ticker })
+  //   });
+  //   const body = await response.json();
+  //   // console.log(body);
+  //   this.setState({
+  //     ratio: body
+  //   });
+  // };
 
   addToWatchList = itemId => {
     const userId = this.props.currentUser.id;
-    const foundTicker = this.state.tickers.find(item => item.id === itemId);
+    const foundTicker = this.props.tickers.find(item => item.id === itemId);
 
     // console.log("firing Wishlist", foundTicker);
     const preventDoubles = this.state.watchList.find(
@@ -364,7 +364,8 @@ class HomePage extends Component {
     }
   };
   render() {
-    console.log("HomePage", this.state);
+    console.log("HomePage State", this.state);
+    console.log("HomePage Props", this.props);
 
     return (
       <div>
@@ -389,7 +390,7 @@ class HomePage extends Component {
                       addToWatchList={this.addToWatchList}
                       handleFinPost={this.handleFinPost}
                       handleIncomePost={this.handleIncomePost}
-                      handleRatioPost={this.handleRatioPost}
+                      // handleRatioPost={this.handleRatioPost}
                       handleBalancePost={this.handleBalancePost}
                       handleCashflowPost={this.handleCashflowPost}
                       handleAnnualIncome={this.handleAnnualIncome}
@@ -439,22 +440,26 @@ class HomePage extends Component {
           </div>
         ) : (
           <div>
-            <TickerDetails
-              text="Close Me"
-              notes={this.state.notes}
-              closeDetails={this.toggleDetails}
-              clickedTicker={this.state.clickedTicker}
-              fins={this.state.fins}
-              metrics={this.state.metrics}
-              removeNote={this.removeNote}
-              income={this.state.income}
-              cashflow={this.state.cashflow}
-              balance={this.state.balance}
-              annualIS={this.state.annualIS}
-              annualCF={this.state.annualCF}
-              annualBS={this.state.annualBS}
-              historicals={this.state.historicals}
-            />
+            {this.state == null ? (
+              <div>LOADING...</div>
+            ) : (
+              <TickerDetails
+                text="Close Me"
+                notes={this.state.notes}
+                closeDetails={this.toggleDetails}
+                clickedTicker={this.state.clickedTicker}
+                fins={this.state.fins}
+                metrics={this.state.metrics}
+                removeNote={this.removeNote}
+                income={this.state.income}
+                cashflow={this.state.cashflow}
+                balance={this.state.balance}
+                annualIS={this.state.annualIS}
+                annualCF={this.state.annualCF}
+                annualBS={this.state.annualBS}
+                historicals={this.state.historicals}
+              />
+            )}
           </div>
         )}
         {this.state.showPopup ? (

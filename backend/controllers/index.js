@@ -10,6 +10,7 @@ const incomes = require("./income");
 const ratios = require("./ratio");
 const cashflows = require("./cashflow");
 const balances = require("./balance");
+const compares = require("./compare");
 const annualincomes = require("./annual/income");
 const annualcashflows = require("./annual/cashflow");
 const annualbalances = require("./annual/balance");
@@ -33,5 +34,6 @@ module.exports = {
   annualbalances,
   sectors,
   articles,
-  revenues
+  revenues,
+  compares
 };

@@ -5,13 +5,29 @@ import HomePage from "./HomePage";
 import MarketPage from "./MarketPage";
 import NewsList from "./NewsList";
 import ModelPage from "./model/ModelPage";
+import CompareHome from "./compare/HomePage";
 class Main extends Component {
   state = {
     company: true,
     industry: false,
     news: false,
-    model: false
+    model: false,
+    compare: false,
+    tickers: []
   };
+
+  componentDidMount() {
+    fetch("http://localhost:5000/api/tickers")
+      .then(response => {
+        return response.json();
+      })
+      .then(tickers => {
+        return this.setState({
+          tickers: tickers
+        });
+      });
+  }
+
   buttonToggle = word => {
     // console.log("switching", word, this.state.company, this.state.industry)
     if (word === "industry") {
@@ -19,7 +35,8 @@ class Main extends Component {
         company: false,
         industry: true,
         news: false,
-        model: false
+        model: false,
+        compare: false
       });
     }
     if (word === "news") {
@@ -27,22 +44,34 @@ class Main extends Component {
         company: false,
         industry: false,
         news: true,
-        model: false
+        model: false,
+        compare: false
       });
     }
-    if (word === "model") {
+    if (word === "compare") {
       return this.setState({
         company: false,
         industry: false,
         news: false,
-        model: true
+        model: false,
+        compare: true
       });
+      // }
+      // if (word === "model") {
+      //   return this.setState({
+      //     company: false,
+      //     industry: false,
+      //     news: false,
+      //     model: true,
+      //     compare: false
+      //   });
     } else {
       return this.setState({
         company: true,
         industry: false,
         news: false,
-        model: false
+        model: false,
+        compare: false
       });
     }
   };
@@ -70,13 +99,13 @@ class Main extends Component {
           >
             <strong> Company Analysis </strong>
           </Menu.Item>
-          <Menu.Item
+          {/* <Menu.Item
             style={{ color: "blue" }}
             name="news"
             onClick={() => this.buttonToggle("model")}
           >
             <strong> Financial Model </strong>
-          </Menu.Item>
+          </Menu.Item> */}
 
           <Menu.Item
             style={{ color: "blue" }}
@@ -92,15 +121,28 @@ class Main extends Component {
           >
             <strong> News Feed </strong>
           </Menu.Item>
+          <Menu.Item
+            style={{ color: "blue" }}
+            name="compare"
+            onClick={() => this.buttonToggle("compare")}
+          >
+            <strong> Compare </strong>
+          </Menu.Item>
         </Menu>
 
         <Segment inverted>
-          {this.state.model ? <ModelPage /> : null}
+          {/* {this.state.model ? <ModelPage /> : null} */}
           {this.state.industry ? <MarketPage /> : null}
           {this.state.news ? <NewsList /> : null}
+          {this.state.compare ? (
+            <CompareHome tickers={this.state.tickers} />
+          ) : null}
 
           {this.state.company ? (
-            <HomePage currentUser={this.props.currentUser} />
+            <HomePage
+              currentUser={this.props.currentUser}
+              tickers={this.state.tickers}
+            />
           ) : null}
         </Segment>
       </Segment>
