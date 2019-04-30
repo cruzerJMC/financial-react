@@ -1,20 +1,4 @@
 const fetch = require("node-fetch");
-// exports.getRevenue = async (req, res) => {
-//   const url = `https://api.finbox.io/beta/data/${
-//     req.body.post
-//   }/total_revenue?period=FY2010:FY2018`;
-
-//   let response = await fetch(url);
-//   console.log("response", response);
-
-//   let json = await response.json();
-//   console.log("json", json);
-//   // // // // only proceed once promise is resolved
-
-//   let revenue = await json.data.map(item ={return Object.assign({}, {revenue:item})})
-
-//   res.send(json);
-// };
 
 exports.getRevenue = async (req, res) => {
   const url = `https://www.quandl.com/api/v3/datatables/SHARADAR/SF1.json?ticker=${

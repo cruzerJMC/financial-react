@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table } from "semantic-ui-react";
+import { Table, Button, Icon } from "semantic-ui-react";
 
 export default class CompareRow extends Component {
   compareClickHandler = async () => {
@@ -7,6 +7,11 @@ export default class CompareRow extends Component {
     await this.props.handleRatioPost();
     await this.props.handleCompsPost();
     // await this.props.addItemToCompare(this.props.);
+  };
+
+  buttonHandler = async () => {
+    await this.props.renderCompareCont();
+    await this.props.addItemToCompare(this.props.ticker);
   };
 
   render() {
@@ -33,6 +38,14 @@ export default class CompareRow extends Component {
           style={{ color: "#7FFF00" }}
         >
           {this.props.ticker}
+        </Table.Cell>
+        <Table.Cell>
+          <Button animated="vertical" onClick={() => this.buttonHandler()}>
+            <Button.Content hidden>Compare</Button.Content>
+            <Button.Content visible>
+              <Icon name="shop" />
+            </Button.Content>
+          </Button>
         </Table.Cell>
       </Table.Row>
     );

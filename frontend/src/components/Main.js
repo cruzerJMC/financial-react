@@ -4,8 +4,8 @@ import { Menu, Header, Container, Segment, Message } from "semantic-ui-react";
 import HomePage from "./HomePage";
 import MarketPage from "./MarketPage";
 import NewsList from "./NewsList";
-import ModelPage from "./model/ModelPage";
-import CompareHome from "./compare/HomePage";
+// import ModelPage from "./model/ModelPage";
+import CompareHome from "./company/DetailsPage";
 class Main extends Component {
   state = {
     company: true,
@@ -13,7 +13,8 @@ class Main extends Component {
     news: false,
     model: false,
     compare: false,
-    tickers: []
+    tickers: [],
+    favList: []
   };
 
   componentDidMount() {
@@ -101,7 +102,7 @@ class Main extends Component {
           </Menu.Item>
           {/* <Menu.Item
             style={{ color: "blue" }}
-            name="news"
+            name="model"
             onClick={() => this.buttonToggle("model")}
           >
             <strong> Financial Model </strong>

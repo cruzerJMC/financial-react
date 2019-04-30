@@ -13,42 +13,12 @@ import {
   Table
 } from "semantic-ui-react";
 
-class Ticker extends Component {
-  // state = {
-  //   response: "",
-  //   post: "",
-  //   responseToPost: "",
-  //   metrics: []
-  // };
-
-  // handleMetricPost = async () => {
-  //   // e.preventDefault();
-  //   const response = await fetch("http://localhost:5000/api/metrics", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({ post: this.props.clickedTicker.ticker })
-  //   });
-  //   const body = await response.json();
-  //   console.log(body);
-  //   this.setState({
-  //     metrics: body
-  //   });
-  // };
-
+class Company extends Component {
   tickerClickHandler = async () => {
-    await this.props.showDetails(this.props.id);
-    await this.props.handleMetricPost();
-    await this.props.handleFinPost();
-    await this.props.handleIncomePost();
-    // await this.props.handleRatioPost();
-    await this.props.handleCashflowPost();
-    await this.props.handleBalancePost();
-    await this.props.handleAnnualIncome();
-    await this.props.handleAnnualCF();
-    await this.props.handleAnnualBS();
-    await this.props.handleHistoricals();
+    await this.props.compareDetails(this.props.id);
+    await this.props.handleRatioPost();
+    await this.props.handleCompsPost();
+    await this.props.viewCompanySummary();
   };
 
   render() {
@@ -79,7 +49,7 @@ class Ticker extends Component {
         >
           {this.props.exchange}
         </Table.Cell>
-        {/* <Table.Cell
+        <Table.Cell
           textAlign="center"
           onClick={() => this.tickerClickHandler()}
         >
@@ -113,11 +83,6 @@ class Ticker extends Component {
           onClick={() => this.tickerClickHandler()}
         >
           {this.props.location}
-        </Table.Cell> */}
-        <Table.Cell>
-          <Button onClick={() => this.props.addToWatchList(this.props.id)}>
-            WatchList
-          </Button>
         </Table.Cell>
       </Table.Row>
       // </Segment>
@@ -125,4 +90,4 @@ class Ticker extends Component {
   }
 }
 
-export default Ticker;
+export default Company;

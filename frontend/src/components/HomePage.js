@@ -96,13 +96,14 @@ class HomePage extends Component {
           .includes(this.state.inputValue.toLowerCase()) ||
         item.exchange
           .toLowerCase()
-          .includes(this.state.inputValue.toLowerCase()) ||
-        item.sector
-          .toLowerCase()
-          .includes(this.state.inputValue.toLowerCase()) ||
-        item.industry
-          .toLowerCase()
           .includes(this.state.inputValue.toLowerCase())
+        //   ||
+        // item.sector
+        //   .toLowerCase()
+        //   .includes(this.state.inputValue.toLowerCase()) ||
+        // item.industry
+        //   .toLowerCase()
+        //   .includes(this.state.inputValue.toLowerCase())
       );
     });
 
@@ -379,10 +380,10 @@ class HomePage extends Component {
             </Segment>
             {/* <Segment responsive raised> */}
             <Segment attached="bottom" inverted>
-              <Grid color="black" columns={2} textAlign="center">
+              <Grid color="black" columns="equal" textAlign="center">
                 <Grid.Row color="black">
                   {/* <Container> */}
-                  <Grid.Column width={6} color="black" floated="left">
+                  <Grid.Column color="black" floated="left">
                     <TickerList
                       tickers={this.filterTickers()}
                       showDetails={this.showDetails}
@@ -401,7 +402,7 @@ class HomePage extends Component {
                     />
                   </Grid.Column>
 
-                  <Grid.Column width={5} color="black">
+                  <Grid.Column color="black">
                     <div>
                       <TickerSideCard
                         toggleDetails={this.toggleDetails}

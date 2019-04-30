@@ -12,7 +12,7 @@ export default class CompareList extends Component {
             <Table.HeaderCell textAlign="center" inverted colSpan="6">
               {/* <Message color="violet"> Sector Performance </Message> */}
               {/* <strong style={{ color: "#F59900" }}>Sector Performance </strong> */}
-              <strong style={{ color: "#D3D3D3" }}>Major Indexes </strong>
+              <strong style={{ color: "#D3D3D3" }}>Companies </strong>
             </Table.HeaderCell>
           </Table.Row>
 
@@ -32,6 +32,11 @@ export default class CompareList extends Component {
                 Ticker
               </Message>
             </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Message color="black" style={{ color: "#8A2BE2" }}>
+                Comp Analysis
+              </Message>
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -45,6 +50,9 @@ export default class CompareList extends Component {
                 compareDetails={this.props.compareDetails}
                 addItemToCompare={this.props.addItemToCompare}
                 handleCompsPost={this.props.handleCompsPost}
+                addItemToCompare={this.props.addItemToCompare}
+                clickedCompare={this.props.clickedCompare}
+                renderCompareCont={this.props.renderCompareCont}
               />
             );
           })}
