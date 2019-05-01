@@ -147,17 +147,26 @@ class App extends Component {
       // {/* </div> */}
     );
     return this.state.loggedIn ? (
-      <Segment inverted>
-        {/* <div className="ui raised segment"> */}
-        <div className="ui segment violet inverted">
-          <Header color={"violet"} inverted as="h1">
-            Fin-Analyze Dashboard
-          </Header>
-        </div>
-        {/* </div> */}
+      <div>
+        <style>
+          {`
+      html, body {
+        background-color: #252839 !important;
+      }
+      `}
+        </style>
+        <Segment inverted>
+          {/* <div className="ui raised segment"> */}
+          <div className="ui segment violet inverted">
+            <Header color={"violet"} inverted as="h1">
+              Fin-Analyze Dashboard
+            </Header>
+          </div>
+          {/* </div> */}
 
-        <Main currentUser={this.state.currentUser} />
-      </Segment>
+          <Main currentUser={this.state.currentUser} />
+        </Segment>
+      </div>
     ) : (
       logIn
     );

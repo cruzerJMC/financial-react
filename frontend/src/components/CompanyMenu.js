@@ -85,11 +85,16 @@ export default class CompanyMenu extends Component {
     return <BSList balance={this.props.annualBS} />;
   };
 
-  // renderModel = async () => {
-  //   await this.handleForcastFetch();
-  //   await this.renderModelPage();
-  // };
-
+  renderIncome = () => {
+    return (
+      <IncomeList
+        income={this.props.income.filter((item, index) => {
+          return index > 30;
+        })}
+        labels={Object.keys(this.props.income[0])}
+      />
+    );
+  };
   renderModelPage = () => {
     return <ModelPage historicals={[this.props.historicals]} />;
   };

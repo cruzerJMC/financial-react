@@ -13,7 +13,7 @@ import {
 
 import Indexes from "./Indexes";
 import Sectors from "./Sectors";
-
+import PriceCont from "./stock/PriceCont";
 export default class MarketPage extends Component {
   render() {
     return (
@@ -40,7 +40,7 @@ export default class MarketPage extends Component {
 `}
         </style>
         <Segment inverted attached="top">
-          <Message color="blue" />
+          <PriceCont />
         </Segment>
 
         <Segment attached="bottom" inverted>
