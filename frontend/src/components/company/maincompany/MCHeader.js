@@ -13,28 +13,6 @@ import {
 } from "semantic-ui-react";
 
 class MCHeader extends Component {
-  // handleRender = () => {
-  //   if (!this.props === undefined) {
-  //     return <Message color="blue">No Company Selected</Message>;
-  //   } else {
-  //     return (
-  //       <Segment attached="top">
-  //         <Grid columns="2" divided>
-  //           <Grid.Row>
-  //             <Grid.Column width={4}>
-  //               <Image src={this.props.image} />
-  //             </Grid.Column>
-  //             <Grid.Column width={6}>
-  //               <Message color="blue">
-  //                 <Header as="a">{this.props.companyName}</Header>
-  //               </Message>
-  //             </Grid.Column>
-  //           </Grid.Row>
-  //         </Grid>
-  //       </Segment>
-  //     );
-  //   }
-  // };
   render() {
     console.log("MCHeader", this.props, typeof this.props);
     return (
@@ -94,7 +72,6 @@ class MCHeader extends Component {
               </List>
             </Grid.Column>
           </Grid.Row>
-          {/* </Message> */}
         </Grid>
       </Message>
     );

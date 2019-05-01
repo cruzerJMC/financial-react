@@ -12,7 +12,7 @@ import {
 } from "semantic-ui-react";
 
 const Sector = props => {
-  console.log("Sector", props);
+  // console.log("Sector", props);
   return (
     <Table.Row>
       <Table.Cell textAlign="center" style={{ color: "#7FFF00" }}>

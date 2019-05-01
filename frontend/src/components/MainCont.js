@@ -6,7 +6,8 @@ import MarketPage from "./MarketPage";
 import NewsList from "./NewsList";
 // import PriceCont from "./stock/PriceCont";
 import CompareHome from "./company/DetailsPage";
-class Main extends Component {
+
+class MainCont extends Component {
   state = {
     company: false,
     industry: false,
@@ -16,28 +17,12 @@ class Main extends Component {
     compare: true,
     tickers: [],
     favList: []
+
     // currentPrices: [],
     // pastPrices: []
   };
 
   componentDidMount() {
-    // try {
-    //   setInterval(async () => {
-    //     const res = await fetch("http://localhost:5000/api/prices");
-    //     const prices = await res.json();
-
-    //     console.log("prices", prices);
-    //     // const dataPanelone = blocks.panelone;
-    //     // const dataPaneltwo = blocks.paneltwo;
-
-    //     this.setState({
-    //       currentPrices: prices,
-    //       pastPrices: this.state.currentPrices
-    //     });
-    //   }, 30000);
-    // } catch (e) {
-    //   console.log(e);
-
     fetch("http://localhost:5000/api/tickers")
       .then(response => {
         return response.json();
@@ -121,18 +106,19 @@ class Main extends Component {
         <Menu>
           <Menu.Item
             style={{ color: "blue" }}
-            name="company"
-            onClick={() => this.companyClick()}
-          >
-            <strong> Company Analysis </strong>
-          </Menu.Item>
-          <Menu.Item
-            style={{ color: "blue" }}
             name="compare"
             onClick={() => this.buttonToggle("compare")}
           >
             <strong> Comp Analysis </strong>
           </Menu.Item>
+          <Menu.Item
+            style={{ color: "blue" }}
+            name="company"
+            onClick={() => this.companyClick()}
+          >
+            <strong> Company Analysis </strong>
+          </Menu.Item>
+
           {/* <Menu.Item
             style={{ color: "blue" }}
             name="model"
@@ -184,4 +170,21 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default MainCont;
+
+// try {
+//   setInterval(async () => {
+//     const res = await fetch("http://localhost:5000/api/prices");
+//     const prices = await res.json();
+
+//     console.log("prices", prices);
+//     // const dataPanelone = blocks.panelone;
+//     // const dataPaneltwo = blocks.paneltwo;
+
+//     this.setState({
+//       currentPrices: prices,
+//       pastPrices: this.state.currentPrices
+//     });
+//   }, 30000);
+// } catch (e) {
+//   console.log(e);

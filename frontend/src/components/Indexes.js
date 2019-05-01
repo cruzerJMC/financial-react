@@ -41,7 +41,7 @@ class Indexes extends Component {
 
           <Table.Row textAlign="center">
             <Table.HeaderCell>
-              <Message color="black" style={{ color: "#8A2BE2" }}>
+              <Message color="black" style={{ color: "#8A2BE2 " }}>
                 #
               </Message>
             </Table.HeaderCell>

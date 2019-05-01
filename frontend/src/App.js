@@ -6,7 +6,7 @@ import "./App.css";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 // import Profile from "./components/Profile";
-import Main from "./components/Main";
+import MainCont from "./components/MainCont";
 class App extends Component {
   state = {
     // consider moving this down
@@ -164,7 +164,7 @@ class App extends Component {
           </div>
           {/* </div> */}
 
-          <Main currentUser={this.state.currentUser} />
+          <MainCont currentUser={this.state.currentUser} />
         </Segment>
       </div>
     ) : (

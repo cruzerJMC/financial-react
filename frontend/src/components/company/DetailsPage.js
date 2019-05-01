@@ -45,6 +45,16 @@ export default class DetailsPage extends Component {
           .includes(this.state.detailsSearch.toLowerCase())
       );
     });
+
+  filterComps = () =>
+    this.props.tickers.filter(item => {
+      return (
+        item.name
+          .toLowerCase()
+          .includes(this.state.compsSearch.toLowerCase()) ||
+        item.ticker.toLowerCase().includes(this.state.compsSearch.toLowerCase())
+      );
+    });
   renderCompareCont = () => {
     if (this.state.compareItems.length === 1) {
       return this.setState({
@@ -206,14 +216,13 @@ export default class DetailsPage extends Component {
                     />
                   </Label>
                   <Input fluid focus>
-                    {/* <input
+                    <input
                       onChange={this.handleChange}
                       type="text"
                       placeholder={"Search ...."}
                       value={this.state.compsSearch}
-                    /> */}
+                    />
                   </Input>
-                  <Button type="submit">Search</Button>
                 </Segment>
                 <Segment attached="bottom" inverted>
                   <Grid columns={2} textAlign="center">
@@ -221,7 +230,7 @@ export default class DetailsPage extends Component {
                     <Grid.Row>
                       <Grid.Column width={6} color="black">
                         <CompareList
-                          tickers={this.props.tickers}
+                          tickers={this.filterComps()}
                           handleRatioPost={this.handleRatioPost}
                           compareDetails={this.compareDetails}
                           addItemToCompare={this.addItemToCompare}

@@ -67,7 +67,7 @@ class TickerDetails extends Component {
     }
   };
   render() {
-    const company = this.state.profile[0];
+    // const company = this.state.profile[0];
     // console.log("tickerDetails", this.state, company);
 
     return (

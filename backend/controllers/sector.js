@@ -11,11 +11,11 @@ exports.getSectors = async (req, res) => {
   const url = `https://financialmodelingprep.com/api/sectors-performance?datatype=json`;
 
   let response = await fetch(url);
-  console.log("response", response);
+  // console.log("response", response);
 
   // // only proceed once promise is resolved
   let json = await response.json();
-  console.log("json", json);
+  // console.log("json", json);
 
   // const labels = await json.datatable.columns.map(item => {
   //   return item.name;
