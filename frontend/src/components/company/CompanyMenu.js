@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { Menu, Table, Segment } from "semantic-ui-react";
 import Financials from "./Financials";
-import IncomeList from "./IncomeList";
-import CashflowList from "./CashflowList";
-import BalanceList from "./BalanceList";
-import ISList from "./annual/ISList";
-import CFList from "./annual/CFList";
-import BSList from "./annual/BSList";
+import IncomeList from "../quarter/IncomeList";
+import CashflowList from "../quarter/CashflowList";
+import BalanceList from "../quarter/BalanceList";
+import ISList from "../annual/ISList";
+import CFList from "../annual/CFList";
+import BSList from "../annual/BSList";
 import Metrics from "./Metrics";
-import ModelPage from "./model/ModelPage";
+import ModelPage from "../model/ModelPage";
 
 export default class CompanyMenu extends Component {
   state = {
@@ -114,7 +114,7 @@ export default class CompanyMenu extends Component {
 
     return (
       <div>
-        {this.props === null ? (
+        {this.props === undefined ? (
           <Segment loading />
         ) : (
           <Segment inverted>

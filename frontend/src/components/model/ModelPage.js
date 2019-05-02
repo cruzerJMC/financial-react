@@ -26,7 +26,10 @@ class ModelPage extends Component {
     yr3Margin: "",
     yr1Cash: "",
     yr2Cash: "",
-    yr3Cash: ""
+    yr3Cash: "",
+    yr1CapEx: "",
+    yr2CapEx: "",
+    yr3CapEx: ""
   };
 
   handleChange = event => {
@@ -63,6 +66,9 @@ class ModelPage extends Component {
                 yr1Cash={this.state.yr1Cash}
                 yr2Cash={this.state.yr2Cash}
                 yr3Cash={this.state.yr3Cash}
+                yr1CapEx={this.state.yr1CapEx}
+                yr2CapEx={this.state.yr2CapEx}
+                yr3CapEx={this.state.yr3CapEx}
               />
             );
           })}
@@ -77,6 +83,9 @@ class ModelPage extends Component {
             yr1Cash={this.state.yr1Cash}
             yr2Cash={this.state.yr2Cash}
             yr3Cash={this.state.yr3Cash}
+            yr1CapEx={this.state.yr1CapEx}
+            yr2CapEx={this.state.yr2CapEx}
+            yr3CapEx={this.state.yr3CapEx}
           />
         </Segment>
       </div>

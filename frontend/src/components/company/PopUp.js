@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Segment, Button } from "semantic-ui-react";
 
-import "../App.css";
+import "../../App.css";
 
 import NoteContainer from "./NoteContainer";
 // import Metrics from "./Metrics";

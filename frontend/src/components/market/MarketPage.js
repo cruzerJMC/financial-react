@@ -14,7 +14,7 @@ import io from "socket.io-client";
 
 import Indexes from "./Indexes";
 import Sectors from "./Sectors";
-import PriceCont from "./stock/PriceCont";
+import PriceCont from "../stock/PriceCont";
 export default class MarketPage extends Component {
   state = {
     currentStocks: [],

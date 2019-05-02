@@ -14,7 +14,7 @@ export default class MCEbitda extends Component {
   render() {
     console.log("Rev", this.props);
     const data = [
-      ["Element", "Ebitda", { role: "style" }],
+      ["Element", "EBITDA", { role: "style" }],
       ["2014", this.props.ebitda.YrOne, "blue"], // RGB value
       ["2015", this.props.ebitda.YrTwo, "silver"], // English color name
       ["2016", this.props.ebitda.YrThree, "gold"],

@@ -4,8 +4,8 @@ import { Segment, Grid } from "semantic-ui-react";
 // import StockList from "./StockList";
 import ListOne from "./ListOne";
 import ListTwo from "./ListTwo";
-import Indexes from "../Indexes";
-import Sectors from "../Sectors";
+import Indexes from "../market/Indexes";
+import Sectors from "../market/Sectors";
 
 export default class PriceCont extends Component {
   render() {

@@ -38,7 +38,7 @@ class ModelItem extends Component {
       "Operating Cashflow",
       "Cash Conversion Ratio",
       "Free Cashflow",
-      "Capex % OCF"
+      "Capex % Rev"
     ];
     return (
       // <div>

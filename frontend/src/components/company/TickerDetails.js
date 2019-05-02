@@ -14,12 +14,8 @@ import {
   Button
 } from "semantic-ui-react";
 import CompanyMenu from "./CompanyMenu";
-import "../App.css";
-
-// import ChartCont from "./ChartCont";
-// import Metrics from "./Metrics";
-// import Financials from "./Financials";
-import Summary from "./Summary";
+import "../../App.css";
+import Summary from "../Summary";
 import CompanyCard from "./CompanyCard";
 
 import NoteList from "./NoteList";

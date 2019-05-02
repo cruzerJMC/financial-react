@@ -48,6 +48,11 @@ const ModelRow = props => {
           <strong>{props.FCF}</strong>
         </Table.Row>
       </Message>
+      <Message color="black" textAlign="center">
+        <Table.Row style={{ color: "#6666ff" }}>
+          <strong>{props.capex}</strong>
+        </Table.Row>
+      </Message>
     </div>
   );
 };

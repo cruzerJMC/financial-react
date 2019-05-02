@@ -90,19 +90,19 @@ class ModelCont extends Component {
        
        <Table.Cell>
         {this.props.five.map((item, index) => {
-        return <ModelFRow key={index} {...item} getRevFY1={this.props.getRevFY1}  ocfConv={parseFloat(this.props.yr1Cash)}  EMargin={parseInt(this.props.yr1Margin)} EGrowth={parseInt(this.props.yr1Growth)/100}
+        return <ModelFRow key={index} {...item} getRevFY1={this.props.getRevFY1}  ocfConv={parseFloat(this.props.yr1Cash)}  EMargin={parseInt(this.props.yr1Margin)} EGrowth={parseInt(this.props.yr1Growth)/100} ECapex ={parseFloat(this.props.yr1CapEx)/100}
         />;
         })}
        </Table.Cell>
        <Table.Cell>
         {this.props.five.map((item, index) => {
-        return <ModelFRow key={index} {...item}  ocfConv={parseFloat(this.props.yr2Cash)} numRev={item.numRev *(1+(parseInt(this.props.yr1Growth)/100))} EMargin={parseInt(this.props.yr2Margin)} EGrowth={parseInt(this.props.yr2Growth)/100}
+        return <ModelFRow key={index} {...item}  ocfConv={parseFloat(this.props.yr2Cash)} numRev={item.numRev *(1+(parseInt(this.props.yr1Growth)/100))} EMargin={parseInt(this.props.yr2Margin)} EGrowth={parseInt(this.props.yr2Growth)/100} ECapex ={parseFloat(this.props.yr2CapEx)/100}
         />;
         })}
        </Table.Cell>
        <Table.Cell>
         {this.props.five.map((item, index) => {
-        return <ModelFRow key={index} {...item}  ocfConv={parseFloat(this.props.yr3Cash)} numRev={((item.numRev *(1+(parseInt(this.props.yr1Growth)/100)))* (1+(parseInt(this.props.yr2Growth)/100)))} EMargin={parseInt(this.props.yr3Margin)} EGrowth={parseInt(this.props.yr3Growth)/100}
+        return <ModelFRow key={index} {...item}  ocfConv={parseFloat(this.props.yr3Cash)} numRev={((item.numRev *(1+(parseInt(this.props.yr1Growth)/100)))* (1+(parseInt(this.props.yr2Growth)/100)))} EMargin={parseInt(this.props.yr3Margin)} EGrowth={parseInt(this.props.yr3Growth)/100} ECapex ={parseFloat(this.props.yr3CapEx)/100}
         />;
         })}
        </Table.Cell>

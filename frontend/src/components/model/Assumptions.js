@@ -152,6 +152,49 @@ class Assumptions extends Component {
               />
             </Form.Field>
           </Form.Group>
+          <Form.Group inline>
+            <label>CapEx % Rev</label>
+            <Form.Field>
+              <input
+                type="text"
+                min="1"
+                max="100"
+                ref="yr1CapEx"
+                name="yr1CapEx"
+                placeholder="FY1 E CapEx"
+                value={this.props.yr1CapEx}
+                onChange={this.props.handleChange}
+                width={2}
+              />
+            </Form.Field>
+            <Form.Field>
+              <input
+                type="text"
+                min="1"
+                max="100"
+                ref="yr2CapEx"
+                name="yr2CapEx"
+                placeholder="FY2 E CapEx"
+                value={this.props.yr2CapEx}
+                onChange={this.props.handleChange}
+                width={2}
+              />
+            </Form.Field>
+
+            <Form.Field>
+              <input
+                type="text"
+                min="1"
+                max="100"
+                ref="yr3CapEx"
+                name="yr3CapEx"
+                placeholder="FY3 E CapEx"
+                value={this.props.yr3CapEx}
+                onChange={this.props.handleChange}
+                width={2}
+              />
+            </Form.Field>
+          </Form.Group>
         </Form>
       </div>
     );

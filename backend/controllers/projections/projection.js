@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-exports.getRevenue = async (req, res) => {
+exports.getProjections = async (req, res) => {
   const url = `https://www.quandl.com/api/v3/datatables/SHARADAR/SF1.json?ticker=${
     req.body.post
   }&dimension=MRY&calendardate.gte=2013-12-31&qopts.columns=datekey,revenue,ebitda,ebitdamargin,ncfo,capex,fcf,netinc&api_key=YvjxT6NSByrGzvHcVJyS`;
@@ -49,11 +49,11 @@ exports.getRevenue = async (req, res) => {
         style: "currency",
         currency: "USD"
       }),
-      capex: ((capex / item[4]) * 100).toFixed(2) + "%",
+      capex: ((capex / item[1]) * 100).toFixed(2) + "%",
       numRev: item[1] / divisor,
-      numEBITDA: item[1] / divisor,
-      numOCF: item[1] / divisor,
-      numFCF: item[1] / divisor
+      numEBITDA: item[2] / divisor,
+      numOCF: item[4] / divisor,
+      numFCF: item[6] / divisor
     };
     // const fullDate = item[1];
     // const date = fullDate.slice(0, 4);
@@ -69,7 +69,7 @@ exports.getRevenue = async (req, res) => {
     //   { [index]: item[6] }
     // );
   });
-  // console.log("reorganizedData", reorganizedData);
+  console.log("reorganizedData", reorganizedData);
 
   // let reorganizedData = await historicals.map(item => {
   //   return item;

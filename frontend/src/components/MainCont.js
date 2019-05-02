@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
 import { Menu, Header, Container, Segment, Message } from "semantic-ui-react";
-import HomePage from "./HomePage";
-import MarketPage from "./MarketPage";
-import NewsList from "./NewsList";
+import HomePage from "./company/HomePage";
+import MarketPage from "./market/MarketPage";
+import NewsList from "./news/NewsList";
 // import PriceCont from "./stock/PriceCont";
-import CompareHome from "./company/DetailsPage";
+import CompareHome from "./comp/DetailsPage";
 
 class MainCont extends Component {
   state = {

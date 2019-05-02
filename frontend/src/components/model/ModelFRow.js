@@ -10,6 +10,7 @@ import {
 
 class ModelFRow extends Component {
   render() {
+    // prettier-ignore
     console.log("Model Row", this.props);
 
     const pastRevenue = this.props.numRev;
@@ -18,6 +19,8 @@ class ModelFRow extends Component {
     const revenue = pastRevenue * (1 + this.props.EGrowth);
     const ebitda = revenue * (this.props.EMargin / 100);
     const ocf = ebitda * this.props.ocfConv;
+    const capex = revenue * this.props.ECapex;
+    const fcf = ocf - capex;
 
     return (
       <div>
@@ -70,7 +73,17 @@ class ModelFRow extends Component {
         </Message>
         <Message color="black" textAlign="center">
           <Table.Row style={{ color: "#6666ff" }}>
-            <strong>{this.props.FCF}</strong>
+            <strong>
+              {fcf.toLocaleString("us-EN", {
+                style: "currency",
+                currency: "USD"
+              })}
+            </strong>
+          </Table.Row>
+        </Message>
+        <Message color="black" textAlign="center">
+          <Table.Row style={{ color: "#6666ff" }}>
+            <strong>{this.props.ECapex.toFixed(2) + "%"}</strong>
           </Table.Row>
         </Message>
       </div>

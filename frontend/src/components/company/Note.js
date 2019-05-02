@@ -12,7 +12,7 @@ import {
   Container
 } from "semantic-ui-react";
 
-import "../App.css";
+import "../../App.css";
 // import { relative } from "path";
 
 class Note extends Component {
