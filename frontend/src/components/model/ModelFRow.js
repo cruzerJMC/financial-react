@@ -19,7 +19,7 @@ class ModelFRow extends Component {
     const revenue = pastRevenue * (1 + this.props.EGrowth);
     const ebitda = revenue * (this.props.EMargin / 100);
     const ocf = ebitda * this.props.ocfConv;
-    const capex = revenue * this.props.ECapex;
+    const capex = revenue * (this.props.ECapex / 100);
     const fcf = ocf - capex;
 
     return (
