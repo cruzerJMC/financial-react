@@ -14,7 +14,7 @@ import {
 
 class MCHeader extends Component {
   render() {
-    console.log("MCHeader", this.props, typeof this.props);
+    // console.log("MCHeader", this.props, typeof this.props);
     return (
       <Message color="blue" size="tiny">
         <Grid columns={2} textAlign="center">

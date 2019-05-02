@@ -17,7 +17,7 @@ import MCRow from "./MCRow";
 
 class MCTable extends Component {
   render() {
-    console.log("MCTable", this.props);
+    // console.log("MCTable", this.props);
     const divisor = 1000;
     return (
       // prettier-ignore

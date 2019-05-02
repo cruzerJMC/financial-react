@@ -9,7 +9,7 @@ import {
 } from "semantic-ui-react";
 
 const MCRow = props => {
-  console.log("MCRow", props);
+  // console.log("MCRow", props);
   return (
     <div>
       {/* <Table.Row> */}

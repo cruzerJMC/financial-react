@@ -13,7 +13,6 @@ import ModelPage from "./model/ModelPage";
 export default class CompanyMenu extends Component {
   state = {
     activeItem: ""
-    // historicals: []
   };
 
   handleItemClick = (e, { name }) => {
@@ -22,21 +21,6 @@ export default class CompanyMenu extends Component {
     // this.switchFunc(name);
   };
 
-  // handleForcastFetch = async () => {
-  //   // e.preventDefault();
-  //   const response = await fetch("http://localhost:5000/api/historicals", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({ post: this.props.clickedTicker.ticker })
-  //   });
-  //   const body = await response.json();
-  //   // console.log(body);
-  //   this.setState({
-  //     historicals: body
-  //   });
-  // };
   renderToggle = () => {
     // if (this.state.activeItem === "ratio") {
     //   return this.renderRatio();
@@ -129,73 +113,77 @@ export default class CompanyMenu extends Component {
     // console.log("CompanyMenu", this.props);
 
     return (
-      // <div>
-      <Segment inverted>
-        <Menu>
-          <Menu.Item
-            name="summary"
-            active={activeItem === "summary"}
-            onClick={this.handleItemClick}
-          >
-            <strong> Summary</strong>
-          </Menu.Item>
-          <Menu.Item
-            name="incomeYR"
-            active={activeItem === "incomeYR"}
-            onClick={this.handleItemClick}
-          >
-            <strong> Income Statement (Annual)</strong>
-          </Menu.Item>
+      <div>
+        {this.props === null ? (
+          <Segment loading />
+        ) : (
+          <Segment inverted>
+            <Menu>
+              <Menu.Item
+                name="summary"
+                active={activeItem === "summary"}
+                onClick={this.handleItemClick}
+              >
+                <strong> Summary</strong>
+              </Menu.Item>
+              <Menu.Item
+                name="incomeYR"
+                active={activeItem === "incomeYR"}
+                onClick={this.handleItemClick}
+              >
+                <strong> Income Statement (Annual)</strong>
+              </Menu.Item>
 
-          <Menu.Item
-            name="balanceYR"
-            active={activeItem === "balanceYR"}
-            onClick={this.handleItemClick}
-          >
-            <strong> Balance Sheet (Annual)</strong>
-          </Menu.Item>
-          <Menu.Item
-            inverted
-            name="cashflowYR"
-            active={activeItem === "cashflowYR"}
-            onClick={this.handleItemClick}
-          >
-            <strong> Cashflow Statement (Annual)</strong>
-          </Menu.Item>
-          <Menu.Item
-            name="income"
-            active={activeItem === "income"}
-            onClick={this.handleItemClick}
-          >
-            <strong>Income Statement (QTR)</strong>
-          </Menu.Item>
-          <Menu.Item
-            name="balance"
-            active={activeItem === "balance"}
-            onClick={this.handleItemClick}
-          >
-            <strong> Balance Sheet (QTR) </strong>
-          </Menu.Item>
+              <Menu.Item
+                name="balanceYR"
+                active={activeItem === "balanceYR"}
+                onClick={this.handleItemClick}
+              >
+                <strong> Balance Sheet (Annual)</strong>
+              </Menu.Item>
+              <Menu.Item
+                inverted
+                name="cashflowYR"
+                active={activeItem === "cashflowYR"}
+                onClick={this.handleItemClick}
+              >
+                <strong> Cashflow Statement (Annual)</strong>
+              </Menu.Item>
+              <Menu.Item
+                name="income"
+                active={activeItem === "income"}
+                onClick={this.handleItemClick}
+              >
+                <strong>Income Statement (QTR)</strong>
+              </Menu.Item>
+              <Menu.Item
+                name="balance"
+                active={activeItem === "balance"}
+                onClick={this.handleItemClick}
+              >
+                <strong> Balance Sheet (QTR) </strong>
+              </Menu.Item>
 
-          <Menu.Item
-            name="cashflow"
-            active={activeItem === "cashflow"}
-            onClick={this.handleItemClick}
-          >
-            <strong> Cashflow Statement (QTR) </strong>
-          </Menu.Item>
-          <Menu.Item
-            name="model"
-            active={activeItem === "model"}
-            onClick={this.handleItemClick}
-          >
-            <strong> Financial Models </strong>
-          </Menu.Item>
-        </Menu>
+              <Menu.Item
+                name="cashflow"
+                active={activeItem === "cashflow"}
+                onClick={this.handleItemClick}
+              >
+                <strong> Cashflow Statement (QTR) </strong>
+              </Menu.Item>
+              <Menu.Item
+                name="model"
+                active={activeItem === "model"}
+                onClick={this.handleItemClick}
+              >
+                <strong> Financial Models </strong>
+              </Menu.Item>
+            </Menu>
 
-        <Segment>{this.renderToggle()}</Segment>
-      </Segment>
-      // </div>
+            <Segment>{this.renderToggle()}</Segment>
+          </Segment>
+        )}
+      </div>
     );
   }
 }
