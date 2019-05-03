@@ -15,22 +15,39 @@ import {
 import MCHeader from "./maincompany/MCHeader";
 import MCTable from "./maincompany/MCTable";
 import ChartCont from "./maincompany/ChartCont";
-import CompanyRatio from "./CompanyRatio";
+import CompanyRatio from "./maincompany/CompanyRatio";
 
 class MainCompany extends Component {
+  state = {
+    chartToggle: true
+  };
+
+  handleChartToggle = () => {
+    this.setState({
+      chartToggle: !this.state.chartToggle
+    });
+  };
   render() {
     console.log("MainCompany", this.props, typeof this.props);
     return (
       <div>
         <Segment attached="top" inverted>
           {this.props.comps.map((item, index) => {
-            return <MCHeader key={index} {...item.profile} />;
+            return (
+              <MCHeader
+                key={index}
+                {...item.profile}
+                handleChartToggle={this.handleChartToggle}
+              />
+            );
           })}
         </Segment>
         <Segment attached="middle" inverted>
-          <Segment inverted>
-            <ChartCont comps={this.props.comps} />
-          </Segment>
+          {this.state.chartToggle ? (
+            <Segment inverted>
+              <ChartCont comps={this.props.comps} />
+            </Segment>
+          ) : null}
           <Segment inverted>
             {this.props.comps.map((item, index) => {
               return <MCTable key={index} {...item} />;

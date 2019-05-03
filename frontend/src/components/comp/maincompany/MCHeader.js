@@ -69,6 +69,12 @@ class MCHeader extends Component {
                     </List.Header>
                   </List.Content>
                 </List.Item>
+                <Button
+                  size="tiny"
+                  onClick={() => this.props.handleChartToggle()}
+                >
+                  Charts
+                </Button>
               </List>
             </Grid.Column>
           </Grid.Row>
