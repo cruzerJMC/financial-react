@@ -97,12 +97,7 @@ class TickerDetails extends Component {
               clickedTicker={this.props.clickedTicker}
               historicals={this.props.historicals}
             />
-            {/* <Metrics
-              metrics={this.props.metrics}
-              clickedTicker={this.props.clickedTicker}
-            /> */}
 
-            {/* <Financials fins={this.props.fins} /> */}
             <Segment inverted>
               {/* <Message color="violet" /> */}
               <NoteList

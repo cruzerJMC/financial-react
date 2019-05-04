@@ -26,13 +26,27 @@ class CompsCont extends Component {
           comps={this.props.comps.map(obj => {
             return {
               profile: obj[0],
-              revenue: obj[1],
-              ebit: obj[7],
-              ebitda: obj[17],
-              ni: obj[12],
-              ocf: obj[46],
-              capex: obj[47],
-              fcf: obj[48]
+              revenue: obj[1].filter(item => {
+                return item.label === "Revenue";
+              }),
+              ebit: obj[1].filter(item => {
+                return item.label === "Operating income";
+              }),
+              ebitda: obj[1].filter(item => {
+                return item.label === "EBITDA";
+              }),
+              ni: obj[1].filter(item => {
+                return item.label === "Net income";
+              }),
+              ocf: obj[2].filter(item => {
+                return item.label === "Operating cash flow";
+              }),
+              capex: obj[2].filter(item => {
+                return item.label === "Capital expenditure";
+              }),
+              fcf: obj[2].filter(item => {
+                return item.label === "Free cash flow";
+              })
             };
           })}
           ratios={this.props.ratios}
@@ -46,6 +60,35 @@ class CompsCont extends Component {
       this.props
       // Object.values(this.props.ratios[0])
     );
+
+    // const object = this.props.comps.map(obj => {
+    //   return {
+    //     profile: obj[0],
+    //     revenue: obj[1].filter(item => {
+    //       return item.label === "Revenue";
+    //     }),
+    //     ebit: obj[1].filter(item => {
+    //       return item.label === "Operating income";
+    //     }),
+    //     ebitda: obj[1].filter(item => {
+    //       return item.label === "EBITDA";
+    //     }),
+    //     ni: obj[1].filter(item => {
+    //       return item.label === "Net income";
+    //     }),
+    //     ocf: obj[2].filter(item => {
+    //       return item.label === "Operating cash flow";
+    //     }),
+    //     capex: obj[2].filter(item => {
+    //       return item.label === "Capital expenditure";
+    //     }),
+    //     fcf: obj[2].filter(item => {
+    //       return item.label === "Free cash flow";
+    //     })
+    //   };
+    // });
+
+    // console.log("COmps", object);
     return (
       <div>
         {/* {this.props.mainCompany.map(item => {

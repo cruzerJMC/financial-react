@@ -114,7 +114,7 @@ export default class CompanyMenu extends Component {
 
     return (
       <div>
-        {this.props === undefined ? (
+        {this.props === null ? (
           <Segment loading />
         ) : (
           <Segment inverted>

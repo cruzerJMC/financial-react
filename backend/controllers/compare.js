@@ -22,24 +22,6 @@ exports.getComps = async (req, res) => {
 
   const profileData = await Object.values(data[0]);
 
-  //METHOD I
-  const isData = await Object.values(data[1]).map(item => {
-    return Object.values(item);
-    // const is = Object.values(item);
-
-    // return {
-    //   YrOne: parseInt(is[0]),
-    //   YrTwo: parseInt(is[1]),
-    //   YrThree: parseInt(is[2]),
-    //   YrFour: parseInt(is[3]),
-    //   YrFive: parseInt(is[4]),
-    //   TTM: parseInt(is[5])
-    // };
-  });
-  // console.log("isData", isData);
-  const combinedData = await profileData.concat(isData);
-  // console.log("combinedData", typeof combinedData, combinedData);
-
   //METHOD II
   const annualDataIS = await Object.values(data[1]);
   // console.log("annualDataIS", annualDataIS);
@@ -51,27 +33,50 @@ exports.getComps = async (req, res) => {
     return { label: labels, value: values };
   });
   // console.log("originalISObj", originalISObj);
-
-  let restatedDataIS = await originalISObj.map(item => {
+  let newISData = await originalISObj.map(item => {
+    const labels = Object.values(item.label);
+    // console.log("new obj", newObj);
     const newValues = Object.values(item.value);
-    return newValues;
+    // console.log("new values", newValues);
+
+    const isItems = newValues.map((item, index) => {
+      const is = Object.values(item);
+      //   // // const cfl = Object.values(item);
+      //   // return item;
+      return {
+        label: labels[index],
+        YrOne: parseInt(is[0]),
+        YrTwo: parseInt(is[1]),
+        YrThree: parseInt(is[2]),
+        YrFour: parseInt(is[3]),
+        YrFive: parseInt(is[4]),
+        TTM: parseInt(is[5])
+      };
+    });
+    // console.log("Bs items", bsItems);
+    return isItems;
   });
+  // console.log("New Data", newISData);
+  // let restatedDataIS = await originalISObj.map(item => {
+  //   const newValues = Object.values(item.value);
+  //   return newValues;
+  // });
   // console.log("restatedDataIS", restatedDataIS);
 
-  const annualISValues = await restatedDataIS[0];
-  // console.log("Annual", annualISValues);
-  const restatedIS = await annualISValues.map(item => {
-    const is = Object.values(item);
+  // const annualISValues = await restatedDataIS[0];
+  // // console.log("Annual", annualISValues);
+  // const restatedIS = await annualISValues.map(item => {
+  //   const is = Object.values(item);
 
-    return {
-      YrOne: parseInt(is[0]),
-      YrTwo: parseInt(is[1]),
-      YrThree: parseInt(is[2]),
-      YrFour: parseInt(is[3]),
-      YrFive: parseInt(is[4]),
-      TTM: parseInt(is[5])
-    };
-  });
+  //   return {
+  //     YrOne: parseInt(is[0]),
+  //     YrTwo: parseInt(is[1]),
+  //     YrThree: parseInt(is[2]),
+  //     YrFour: parseInt(is[3]),
+  //     YrFive: parseInt(is[4]),
+  //     TTM: parseInt(is[5])
+  //   };
+  // });
   // console.log("restated", restatedIS);
   const annualDataCF = await Object.values(data[2]);
   // console.log("annualData", annualData);
@@ -84,31 +89,56 @@ exports.getComps = async (req, res) => {
   });
   // console.log("originalISObj", originalISObj);
 
-  let restatedDataCF = await originalCFObj.map(item => {
+  let newCFData = await originalCFObj.map(item => {
+    const labels = Object.values(item.label);
+    // console.log("new obj", newObj);
     const newValues = Object.values(item.value);
-    return newValues;
+    // console.log("new values", newValues);
+
+    const isItems = newValues.map((item, index) => {
+      const is = Object.values(item);
+      //   // // const cfl = Object.values(item);
+      //   // return item;
+      return {
+        label: labels[index],
+        YrOne: parseInt(is[0]),
+        YrTwo: parseInt(is[1]),
+        YrThree: parseInt(is[2]),
+        YrFour: parseInt(is[3]),
+        YrFive: parseInt(is[4]),
+        TTM: parseInt(is[5])
+      };
+    });
+    // console.log("Bs items", bsItems);
+    return isItems;
   });
-  // console.log("restatedData", restatedData);
+  // console.log("New Data", newISData);
 
-  const annualCFValues = await restatedDataCF[0];
-  // console.log("Annual", annualISValues);
-  const restatedCF = await annualCFValues.map(item => {
-    const is = Object.values(item);
+  // let restatedDataCF = await originalCFObj.map(item => {
+  //   const newValues = Object.values(item.value);
+  //   return newValues;
+  // });
+  // // console.log("restatedData", restatedData);
 
-    return {
-      YrOne: parseInt(is[0]),
-      YrTwo: parseInt(is[1]),
-      YrThree: parseInt(is[2]),
-      YrFour: parseInt(is[3]),
-      YrFive: parseInt(is[4]),
-      TTM: parseInt(is[5])
-    };
-  });
+  // const annualCFValues = await restatedDataCF[0];
+  // // console.log("Annual", annualISValues);
+  // const restatedCF = await annualCFValues.map(item => {
+  //   const is = Object.values(item);
 
-  const combinedIS = await await profileData.concat(restatedIS);
-  const combinedCF = await await combinedIS.concat(restatedCF);
+  //   return {
+  //     YrOne: parseInt(is[0]),
+  //     YrTwo: parseInt(is[1]),
+  //     YrThree: parseInt(is[2]),
+  //     YrFour: parseInt(is[3]),
+  //     YrFive: parseInt(is[4]),
+  //     TTM: parseInt(is[5])
+  //   };
+  // });
 
-  // console.log("combinedCF", combinedCF);
+  const combinedIS = await await profileData.concat(newISData);
+  const combinedData = await await combinedIS.concat(newCFData);
 
-  res.send(combinedCF);
+  console.log("combinedData", combinedData);
+
+  res.send(combinedData);
 };

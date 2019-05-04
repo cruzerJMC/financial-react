@@ -42,7 +42,7 @@ class MCTable extends Component {
 
         <Table.Body> 
      
-        {[this.props.revenue].map((item, index)=>{
+        {this.props.revenue.map((item, index)=>{
           //  console.log("Rev Item", item)
           return( <Table.Row> 
          
@@ -86,7 +86,7 @@ class MCTable extends Component {
           })}
         </Table.Cell>
         </Table.Row> )})}
-        {[this.props.ebitda].map((item, index)=>{
+        {this.props.ebitda.map((item, index)=>{
           //  console.log("Rev Item", item)
           return( <Table.Row> 
          
@@ -130,7 +130,7 @@ class MCTable extends Component {
           })}
         </Table.Cell>
         </Table.Row> )})}
-        {[this.props.ebit].map((item, index)=>{
+        {this.props.ebit.map((item, index)=>{
           //  console.log("Rev Item", item)
           return( <Table.Row> 
          
@@ -174,7 +174,7 @@ class MCTable extends Component {
           })}
         </Table.Cell>
         </Table.Row> )})}
-        {[this.props.ni].map((item, index)=>{
+        {this.props.ni.map((item, index)=>{
           //  console.log("Rev Item", item)
           return( <Table.Row> 
          
@@ -218,7 +218,7 @@ class MCTable extends Component {
           })}
         </Table.Cell>
         </Table.Row> )})}
-        {[this.props.ocf].map((item, index)=>{
+        {this.props.ocf.map((item, index)=>{
           //  console.log("Rev Item", item)
           return( <Table.Row> 
          
@@ -262,7 +262,7 @@ class MCTable extends Component {
           })}
         </Table.Cell>
         </Table.Row> )})}
-        {[this.props.capex].map((item, index)=>{
+        {this.props.capex.map((item, index)=>{
           //  console.log("Rev Item", item)
           return( <Table.Row> 
          
@@ -306,7 +306,7 @@ class MCTable extends Component {
           })}
         </Table.Cell>
         </Table.Row> )})}
-        {[this.props.fcf].map((item, index)=>{
+        {this.props.fcf.map((item, index)=>{
           //  console.log("Rev Item", item)
           return( <Table.Row> 
          

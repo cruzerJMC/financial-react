@@ -443,27 +443,23 @@ class HomePage extends Component {
           </div>
         ) : (
           <div>
-            {this.state == null ? (
-              <div>LOADING...</div>
-            ) : (
-              <TickerDetails
-                text="Close Me"
-                notes={this.state.notes}
-                closeDetails={this.toggleDetails}
-                clickedTicker={this.state.clickedTicker}
-                fins={this.state.fins}
-                metrics={this.state.metrics}
-                removeNote={this.removeNote}
-                income={this.state.income}
-                cashflow={this.state.cashflow}
-                balance={this.state.balance}
-                annualIS={this.state.annualIS}
-                annualCF={this.state.annualCF}
-                // bsLabels={this.state.annualBS.labels}
-                annualBS={this.state.annualBS}
-                historicals={this.state.historicals}
-              />
-            )}
+            <TickerDetails
+              text="Close Me"
+              notes={this.state.notes}
+              closeDetails={this.toggleDetails}
+              clickedTicker={this.state.clickedTicker}
+              fins={this.state.fins}
+              metrics={this.state.metrics}
+              removeNote={this.removeNote}
+              income={this.state.income}
+              cashflow={this.state.cashflow}
+              balance={this.state.balance}
+              annualIS={this.state.annualIS}
+              annualCF={this.state.annualCF}
+              // bsLabels={this.state.annualBS.labels}
+              annualBS={this.state.annualBS}
+              historicals={this.state.historicals}
+            />
           </div>
         )}
         {this.state.showPopup ? (

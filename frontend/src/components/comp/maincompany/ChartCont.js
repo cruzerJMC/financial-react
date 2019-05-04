@@ -16,32 +16,35 @@ import MCEbitda from "./MCEbitda";
 
 class ChartCont extends Component {
   render() {
-    // console.log("CC Cont", this.props, typeof this.props);
+    console.log("CC Cont", Object.values(this.props.comps[0]));
+    const arrayCheck = Object.values(this.props.comps[0]);
     return (
-      // <Segment inverted>
-      //   <Message color="black" size="tiny">
-      <Grid columns="equal" textAlign="center">
-        {/* <Message color="blue"> */}
-        <Grid.Row>
-          <Grid.Column>
-            {this.props.comps.map((item, index) => {
-              // console.log("Ratios", item);
-              // console.log("ITEM", item[1]);
-              return <MCRev key={index} {...item} />;
-            })}
-          </Grid.Column>
-          <Grid.Column>
-            {this.props.comps.map((item, index) => {
-              // console.log("Ratios", item);
-              // console.log("ITEM", item[1]);
-              return <MCEbitda key={index} {...item} />;
-            })}
-          </Grid.Column>
-        </Grid.Row>
-        {/* </Message> */}
-      </Grid>
-      //   </Message>
-      // </Segment>
+      <div>
+        {arrayCheck[1].length === 0 ? (
+          <Message> No Charts </Message>
+        ) : (
+          <Grid columns="equal" textAlign="center">
+            {/* <Message color="blue"> */}
+            <Grid.Row>
+              <Grid.Column>
+                {this.props.comps.map((item, index) => {
+                  // console.log("Ratios", item);
+                  // console.log("ITEM", item[1]);
+                  return <MCRev key={index} {...item} />;
+                })}
+              </Grid.Column>
+              <Grid.Column>
+                {this.props.comps.map((item, index) => {
+                  // console.log("Ratios", item);
+                  // console.log("ITEM", item[1]);
+                  return <MCEbitda key={index} {...item} />;
+                })}
+              </Grid.Column>
+            </Grid.Row>
+            {/* </Message> */}
+          </Grid>
+        )}
+      </div>
     );
   }
 }
