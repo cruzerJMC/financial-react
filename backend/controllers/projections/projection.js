@@ -69,7 +69,7 @@ exports.getProjections = async (req, res) => {
     //   { [index]: item[6] }
     // );
   });
-  console.log("reorganizedData", reorganizedData);
+  // console.log("reorganizedData", reorganizedData);
 
   // let reorganizedData = await historicals.map(item => {
   //   return item;

@@ -25,6 +25,7 @@ exports.getBalance = async (req, res) => {
   let orderedData = await data.reverse();
 
   let balance = await orderedData.map((item, index) => {
+    // console.log("BS Item", item);
     const value = Object.values(item);
     return {
       "Release Date": value[0],

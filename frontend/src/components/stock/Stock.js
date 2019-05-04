@@ -37,7 +37,7 @@ export default class Stock extends Component {
     } else if (this.state.currentPrice < this.state.pastPrice) {
       return "#FF4500";
     } else {
-      return "#FF8C00";
+      return "grey";
     }
   };
 

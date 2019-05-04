@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Message } from "semantic-ui-react";
 import Chart from "react-google-charts";
 
 // const data = [
@@ -23,6 +23,9 @@ export default class MCRev extends Component {
     ];
     return (
       <div>
+        <Message attached="top" color="violet">
+          <strong>REVENUE</strong>
+        </Message>
         <Chart
           chartType="ColumnChart"
           width="100%"

@@ -31,37 +31,74 @@ exports.getAnnualBS = async (req, res) => {
   });
   // console.log("originalBSObj", originalBSObj);
 
-  let restatedData = await originalBSObj.map(item => {
-    // const newValues = {
-    //   [Object.values(item.label)]: Object.values(item.value)
-    // };
+  // let restatedData = await originalBSObj.map(item => {
+  //   const labels = Object.values(item.label);
+  //   // console.log("new obj", newObj);
+  //   const newValues = Object.values(item.value);
+  //   // console.log("new values", newValues);
+
+  //   const bsItems = newValues.map(item => {
+  //     const bs = Object.values(item);
+  //     //   // // const cfl = Object.values(item);
+  //     //   // return item;
+  //     return {
+  //       YrOne: parseInt(bs[0]),
+  //       YrTwo: parseInt(bs[1]),
+  //       YrThree: parseInt(bs[2]),
+  //       YrFour: parseInt(bs[3]),
+  //       YrFive: parseInt(bs[4])
+  //     };
+  //   });
+  //   // console.log("Bs items", bsItems);
+  //   return { labels: labels, values: bsItems };
+  // });
+
+  let newData = await originalBSObj.map(item => {
+    const labels = Object.values(item.label);
+    // console.log("new obj", newObj);
     const newValues = Object.values(item.value);
-    return newValues;
+    // console.log("new values", newValues);
+
+    const bsItems = newValues.map((item, index) => {
+      const bs = Object.values(item);
+      //   // // const cfl = Object.values(item);
+      //   // return item;
+      return {
+        label: labels[index],
+        YrOne: parseInt(bs[0]),
+        YrTwo: parseInt(bs[1]),
+        YrThree: parseInt(bs[2]),
+        YrFour: parseInt(bs[3]),
+        YrFive: parseInt(bs[4])
+      };
+    });
+    // console.log("Bs items", bsItems);
+    return bsItems;
   });
-  // console.log("restatedData", restatedData);
-  const annualBSData = await restatedData[0];
+  // console.log("New Data", newData);
+  // const annualBSData = await restatedData[0];
   // console.log("Annual", annualBSData);
   // // res.send(annualIncomeData);
 
-  const restatedBS = annualBSData.map(item => {
-    // const valueArray = item[0];
-    const bs = Object.values(item);
-    // // const cfl = Object.values(item);
-    // return item;
-    return {
-      YrOne: parseInt(bs[0]),
-      YrTwo: parseInt(bs[1]),
-      YrThree: parseInt(bs[2]),
-      YrFour: parseInt(bs[3]),
-      YrFive: parseInt(bs[4])
-    };
-  });
+  // const restatedBS = annualBSData.map(item => {
+  //   // const valueArray = item[0];
+  //   const bs = Object.values(item);
+  //   // // const cfl = Object.values(item);
+  //   // return item;
+  //   return {
+  //     YrOne: parseInt(bs[0]),
+  //     YrTwo: parseInt(bs[1]),
+  //     YrThree: parseInt(bs[2]),
+  //     YrFour: parseInt(bs[3]),
+  //     YrFive: parseInt(bs[4])
+  //   };
+  // });
 
-  const labeledBS = restatedBS.map((item, index) => {
-    // const valueArray = item[0];
-    return Object.assign({}, [index], item);
-    // return { [index]:item };
-  });
+  // const labeledBS = restatedBS.map((item, index) => {
+  //   // const valueArray = item[0];
+  //   return Object.assign({}, [index], item);
+  //   // return { [index]:item };
+  // });
   // console.log("labeledBS", labeledBS);
-  res.send(labeledBS);
+  res.send(newData);
 };

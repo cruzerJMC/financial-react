@@ -40,11 +40,11 @@ class Indexes extends Component {
           </Table.Row>
 
           <Table.Row textAlign="center">
-            <Table.HeaderCell>
+            {/* <Table.HeaderCell>
               <Message color="black" style={{ color: "#8A2BE2 " }}>
                 #
               </Message>
-            </Table.HeaderCell>
+            </Table.HeaderCell> */}
             <Table.HeaderCell>
               <Message color="black" style={{ color: "#8A2BE2" }}>
                 Index
@@ -65,11 +65,11 @@ class Indexes extends Component {
                 Change
               </Message>
             </Table.HeaderCell>
-            <Table.HeaderCell>
+            {/* <Table.HeaderCell>
               <Message color="black" style={{ color: "#8A2BE2" }}>
                 Updated
               </Message>
-            </Table.HeaderCell>
+            </Table.HeaderCell> */}
           </Table.Row>
         </Table.Header>
 

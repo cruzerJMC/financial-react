@@ -167,7 +167,7 @@ class HomePage extends Component {
     const body = await response.json();
     // console.log(body);
     this.setState({
-      annualIS: body
+      annualIS: body[0]
     });
   };
   handleAnnualCF = async () => {
@@ -182,7 +182,7 @@ class HomePage extends Component {
     const body = await response.json();
     // console.log(body);
     this.setState({
-      annualCF: body
+      annualCF: body[0]
     });
   };
 
@@ -198,7 +198,7 @@ class HomePage extends Component {
     const body = await response.json();
     // console.log(body);
     this.setState({
-      annualBS: body
+      annualBS: body[0]
     });
   };
   handleMetricPost = async () => {
@@ -367,7 +367,8 @@ class HomePage extends Component {
   };
   render() {
     console.log("HomePage State", this.state);
-    console.log("HomePage Props", this.props);
+    // console.log("Annual Bs labels", this.state.annualBS.labels);
+    // console.log("HomePage Props", this.props);
 
     return (
       <div>
@@ -458,6 +459,7 @@ class HomePage extends Component {
                 balance={this.state.balance}
                 annualIS={this.state.annualIS}
                 annualCF={this.state.annualCF}
+                // bsLabels={this.state.annualBS.labels}
                 annualBS={this.state.annualBS}
                 historicals={this.state.historicals}
               />

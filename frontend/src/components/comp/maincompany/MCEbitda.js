@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Message } from "semantic-ui-react";
 import Chart from "react-google-charts";
 
 export default class MCEbitda extends Component {
@@ -15,6 +15,9 @@ export default class MCEbitda extends Component {
     ];
     return (
       <div>
+        <Message attached="top" color="blue">
+          <strong>EBITDA</strong>
+        </Message>
         <Chart
           chartType="ColumnChart"
           width="100%"

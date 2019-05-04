@@ -15,9 +15,9 @@ const IndexItem = props => {
   // console.log("indexItem", props);
   return (
     <Table.Row>
-      <Table.Cell textAlign="center" style={{ color: "#7FFF00" }}>
+      {/* <Table.Cell textAlign="center" style={{ color: "#7FFF00" }}>
         {props.num + 1}
-      </Table.Cell>
+      </Table.Cell> */}
       <Table.Cell textAlign="center" style={{ color: "#7FFF00" }}>
         {props.Name}
       </Table.Cell>
@@ -30,9 +30,9 @@ const IndexItem = props => {
       <Table.Cell textAlign="center" style={{ color: "#7FFF00" }}>
         {props.Changes}
       </Table.Cell>
-      <Table.Cell textAlign="center" style={{ color: "#7FFF00" }}>
+      {/* <Table.Cell textAlign="center" style={{ color: "#7FFF00" }}>
         {props.updated_at}
-      </Table.Cell>
+      </Table.Cell> */}
     </Table.Row>
     //   // </Segment>
     //   {/* <Marquee>
