@@ -16,7 +16,7 @@ import MCEbitda from "./MCEbitda";
 
 class ChartCont extends Component {
   render() {
-    console.log("CC Cont", Object.values(this.props.comps[0]));
+    // console.log("CC Cont", Object.values(this.props.comps[0]));
     const arrayCheck = Object.values(this.props.comps[0]);
     return (
       <div>

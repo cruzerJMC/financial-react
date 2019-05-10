@@ -1,13 +1,6 @@
 const fetch = require("node-fetch");
 
 exports.getArticles = async (req, res) => {
-  // const getData = async () => {
-  // console.log("BODY", req.body.post);
-  // console.log("params", req.params);
-
-  // const ticker = await req.body;
-  // console.log("ticker", ticker);
-
   const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=ff12d6130a334ddeaaa6e036dd47762e`;
 
   let response = await fetch(url);
@@ -31,7 +24,3 @@ exports.getArticles = async (req, res) => {
   // let data = await newArray[0];
   res.send(articles);
 };
-
-// module.exports = {
-//   getMetrics
-// };ray

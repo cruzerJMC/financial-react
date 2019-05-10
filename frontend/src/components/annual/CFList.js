@@ -1,17 +1,6 @@
 import React, { Component } from "react";
 
-import {
-  Divider,
-  Grid,
-  Header,
-  Image,
-  Message,
-  Segment,
-  Responsive,
-  Table,
-  Container,
-  List
-} from "semantic-ui-react";
+import { Message, Table } from "semantic-ui-react";
 import CFItem from "./CFItem";
 
 class CFList extends Component {

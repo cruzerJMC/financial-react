@@ -1,17 +1,6 @@
 import React, { Component } from "react";
 
-import {
-  Divider,
-  Grid,
-  Header,
-  Image,
-  Message,
-  Segment,
-  Responsive,
-  Table,
-  Container,
-  List
-} from "semantic-ui-react";
+import { Message, Table } from "semantic-ui-react";
 import BSItem from "./BSItem";
 
 class BSList extends Component {

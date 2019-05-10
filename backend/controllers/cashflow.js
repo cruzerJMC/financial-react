@@ -1,13 +1,6 @@
 const fetch = require("node-fetch");
 
 exports.getCashflow = async (req, res) => {
-  // const getData = async () => {
-  // console.log("BODY", req.body.post);
-  // console.log("params", req.params);
-
-  // const ticker = await req.body;
-  // console.log("ticker", ticker);
-
   const url = `https://financialmodelingprep.com/api/financials/cash-flow-statement/${
     req.body.post
   }?period=quarter&datatype=json`;
@@ -15,7 +8,6 @@ exports.getCashflow = async (req, res) => {
   let response = await fetch(url);
   // console.log("response", response);
 
-  // // // only proceed once promise is resolved
   let json = await response.json();
   // console.log("json", json);
 

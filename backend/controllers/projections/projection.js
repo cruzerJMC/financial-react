@@ -10,7 +10,7 @@ exports.getProjections = async (req, res) => {
 
   let json = await response.json();
   // console.log("json", json);
-  // // // // only proceed once promise is resolved
+
   let datatable = await json.datatable.data;
   // console.log("datatable", datatable);
 
